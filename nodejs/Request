@@ -1,0 +1,57 @@
+# Requeset Object (요청 객체)
+
+
+req.params 
+// URL 파라미터로 받은 인자 값을 담는다.
+app.get('/:idx', (req, res) => {
+  res.send(req.params.idx); 
+});
+
+
+req.query 
+// GET 방식으로 넘어오는 query string 파라미터를 담는다.
+curl -XGET http://localhost:8080/?idx=123
+app.get('/', (req, res) => {
+  res.send(req.query.idx);
+}
+
+
+req.body
+// POST 방식으로 넘어오는 파라미터를 담는다. 
+// HTTP 의 Body 에 담겨오는데 이 부분을 파싱하기 위해 body-parser 가 필요하다.
+// 21년 이후 프로젝트는 body-parser 라이브러리가 express 포함되어 설치하지 않아도 된다.
+app.use(express.urlencoded({extended: true})); // body-parser 미들웨어 설정
+app.post("/example/:idx", (req, res) => {
+  const data = {
+    body: req.body.idx,
+  };
+  res.send(data);
+});
+
+
+req.route
+// 현재 route에 관한 정보를 담는다.
+app.get("/route", (req, res) => {
+  const data = {
+    route: req.route,
+  };
+  res.send(data);
+});
+// req.route 에 대한 정보
+Route {
+  path: '/route',
+  stack: [
+    Layer {
+      handle: [Function (anonymous)],
+      name: '<anonymous>',
+      params: undefined,
+      path: undefined,
+      keys: [],
+      regexp: /^\/?$/i,
+      method: 'get'
+    }
+  ],
+  methods: { get: true }
+}
+
+
