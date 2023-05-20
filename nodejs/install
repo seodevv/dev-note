@@ -18,6 +18,9 @@ npm install passport passport-local passport-kakao express-session
 // image file upload
 npm install multer
 
+// cookie
+npm install cookie-parser
+
 // optional
 npm install ejs
 npm install typescript ts-node @types/node @types/express
