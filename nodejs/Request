@@ -137,3 +137,23 @@ app.get('/secure', (req, res) => {
   if(req.secure) res.json({message: 'secure is SSL7'});
   else res.json({message: 'secure isn not SSL7'});
 });
+
+
+req.url or req.originalUrl
+// 클라이언트가 요청한 오리지널 경로 정보가 담긴다.
+app.get('/originalUrl', (req, res) => {
+  res.json(req.originalUrl);
+});
+http://localhost:8080/originalUrl?value1=123&value2=321 >> "/originalUrl?value1=123&value2=321"
+
+app.get('/url', (req, res) => {
+  res.json(req.url);
+});
+http://localhost:8080/url?value1=123&value2=321 >> "/url?value1=123&value2=321"
+
+
+req.acceptedLanguages
+// 클라이언트가 선호하는 자연어 목록을 반환한다. // 다국어를 지원하는 어플리케이션이라면 초기 언어 선택에 도움을 줄 수 있다.
+app.get('/acceptedLanguages', (req, res) => {
+  res.json(req.acceptedLanguages);
+});
