@@ -1,0 +1,35 @@
+# install
+npm install cookie-parser
+
+# declare
+// cookie-parser 라이브러리 import
+const cookieParser = require('cookie-parser'); 
+
+// 미들웨어 설정
+app.use(cookieParser());
+
+// Set cookie
+app.post('/cookie/set/:key', (req, res) => {
+  var key = req.params.key; // URL 파라미터로 세팅할 cookie 의 key 값을 받는다.
+  var data = req.body; // body 파라미터로 세팅할 cookie 의 data 값을 받는다.
+  var option = { // Cookie 의 옵션을 설정
+    maxAge: 1000 * 60 * 60, // 단위는 ms 로 쿠키의 최대 수명을 담는다.
+  }
+  res.cookie(key, data, option); // response 객체에 생성한 쿠키를 담는다.
+  res.json({ message: `<${key}> set cookie` });
+});
+
+// Get cookie
+app.get("/cookie/get/:key", (req, res) => {
+  var key = req.params.key;
+  var cookies = req.cookies;
+  if (!cookies) {
+    res.json({ message: "Not exist cookie" });
+    return;
+  }
+  if (key) {
+    res.json({ cookie: req.cookies[key] });
+  } else {
+    res.json({ cookie: req.cookies });
+  }
+});
