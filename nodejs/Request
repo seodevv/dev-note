@@ -1,6 +1,3 @@
-# Requeset Object (요청 객체)
-
-
 req.params 
 // URL 파라미터로 받은 인자 값을 담는다.
 app.get('/:idx', (req, res) => {
