@@ -5,15 +5,61 @@ import path from "path";
 
 # Usage
 # path.join(directory, file)
+// 여러 개의 문자열을 통해 경로를 반환해준다.
 app.get("/path", (req, res) => {
   var dir = "data";
   var file = "data.json";
   var filePath = path.join(__dirname, dir, file);
-  res.send(filePath); // C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
+  res.send(filePath); 
 });
+// C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
+
 
 # path.resolve(path, relative path, file)
+// 상대 경로를 사용할 경우 정리한 경로를 반환해준다.
 app.get("/resolve", (req, res) => {
   var filePath = path.resolive(__dirname, "../mysql/data", "data.json");
-  res.send(filePath); // C:\Users\black\Documents\Seodev\develope\nodejs\mysql\data\data.json
+  res.send(filePath); 
 });
+// C:\Users\black\Documents\Seodev\develope\nodejs\mysql\data\data.json
+
+
+# path.dirname(file)
+// 디렉토리 이름을 반환해준다.
+app.get("/dirname", (req, res) => {
+  var dir = path.dirname(__dirname + '/data/data.json');
+  res.send(dir); 
+});
+// C:\Users\black\Documents\Seodev\develope\nodejs\mysql2/data
+
+
+# path.basename(file)
+// 파일 이름을 반환해준다.
+// 2번째 인자로 "." 을 포함한 확장자를 넘기면 순수 파일 이름만 반환한다.
+app.get('/basename', (req, res) => {
+  var base1 = path.basename(__dirname + 'data/data.json');
+  var base2 = path.basename(__dirname + 'data/data.json', '.json');
+  res.send([base1, base2]);
+});
+// ["data.json","data"]
+
+
+# path.extname(file)
+// 파일 확장자명을 반환해준다. 
+// "." 을 포함한 확장자 명을 반환해준다.
+app.get('/extname', (req, res) => {
+  var ext = path.extname(__dirname + '/data/data.json');
+  res.send(ext);
+});
+// .json
+
+
+# path.isAbsolute(file)
+// 경로가 절대 경로인지 체크해준다.
+// 절대 경로일 경우 반환 값은 true
+app.get("/isAbsolute", (req, res) => {
+  var isAbsolute1 = path.isAbsolute(__dirname + "/data/data.json");
+  var isAbsolute2 = path.isAbsolute("./data/data.json");
+  res.send([isAbsolute1, isAbsolute2]);
+});
+[true,false]
