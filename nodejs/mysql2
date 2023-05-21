@@ -28,6 +28,7 @@ const selectExample = async () => {
   try {
     let connection = await db();
     let [rows] = await connection.query("SELECT * FROM example");
+    connection.end(); // SQL 질의 후에 커넥션을 항상 끊어주는 습관을 갖는다.
     return rows;
   } catch (error) {
     return new Error(error);
