@@ -136,13 +136,16 @@ app.get('/secure', (req, res) => {
 });
 
 
-req.url or req.originalUrl
+req.originalUrl
 // 클라이언트가 요청한 오리지널 경로 정보가 담긴다.
 app.get('/originalUrl', (req, res) => {
   res.json(req.originalUrl);
 });
 http://localhost:8080/originalUrl?value1=123&value2=321 >> "/originalUrl?value1=123&value2=321"
 
+
+req.url
+// 클라이언트가 요청한 경로 정보가 담긴다.
 app.get('/url', (req, res) => {
   res.json(req.url);
 });
