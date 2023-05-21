@@ -1,0 +1,19 @@
+# import
+const path = require('path');
+import path from "path";
+
+
+# Usage
+# path.join(directory, file)
+app.get("/path", (req, res) => {
+  var dir = "data";
+  var file = "data.json";
+  var filePath = path.join(__dirname, dir, file);
+  res.send(filePath); // C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
+});
+
+# path.resolve(path, relative path, file)
+app.get("/resolve", (req, res) => {
+  var filePath = path.resolive(__dirname, "../mysql/data", "data.json");
+  res.send(filePath); // C:\Users\black\Documents\Seodev\develope\nodejs\mysql\data\data.json
+});
