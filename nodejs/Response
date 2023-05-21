@@ -106,10 +106,8 @@ app.get('/links', (req, res) => {
 // header.Link = </>; rel="0", <e>; rel="1", <x>; rel="2", <a>; rel="3", <m>; rel="4", <p>; rel="5", <l>; rel="6", <e>; rel="7"
 
 
-res.locals 
-// 뷰를 렌더링하는 기본 콘텍스트를 포함하는 객체이다.
 res.render
 // ejs 와 같은 템플릿 엔진을 사용하여 뷰를 렌더링한다.
-app.get('/locals', (req, res) => {
-  res.locals('index.ejs');
+app.get('/render', (req, res) => {
+  res.render('index.ejs');
 });
