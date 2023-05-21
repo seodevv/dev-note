@@ -1,0 +1,12 @@
+# import
+const fs = require('fs');
+
+# Usage
+# readFileSync( path, [option : BufferEncoding] )
+# type BufferEncoding = | 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex';
+app.get("/readFileSync", (req, res) => {
+  var file = fs.readFileSync(__dirname + "/data/data.json", "utf-8");
+  res.setHeader("Content-Length", file.length);
+  res.write(file, (error) => { console.log(error); });
+  res.end();
+});
