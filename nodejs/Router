@@ -12,5 +12,5 @@ module.exports = router;
 
 
 # server.js
-app.use('/board', require('./routes/board/board.js'); 
+app.use('/board', require('./routes/board/board'); 
 // /board 이하로 받는 모든 요청은 해당 라우터에서 처리된다.
