@@ -26,8 +26,24 @@ app.get('/cookie', (req, res) => {
 });
 
 
-res.redirect(code, url)
+res.redirect([code], url)
 // 해당 url 로 code 값과 함께 redirect 한다. // code 미 지정시 기본 값은 302 이다.
 app.get('/redirect', (req, res) => {
   res.redirect(200, '/');
+});
+
+
+res.send([code], body)
+// 클라이언트에 응답을 보낸다. 상태 코드는 옵션이다. 
+// 기본 콘텐츠 타입은 text/html 이므로 text/plain 으로 보내려면 res.set('Content-Type', 'text/plain') 을 먼저 호출해야 한다.
+// JSON 을 보낼 거면 res.json 을 사용하는게 효율적이다. (함수 호출이 res.send 보다 적음)
+app.get('/send', (req, res) => {
+  res.send(200, 'send data');
+});
+
+
+res.json([code], json)
+// 클라이언트에 JSON 값을 보낸다.
+app.get('/json', (req, res) => {
+  res.json(200, { data: 'json data' });
 });
