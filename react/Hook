@@ -57,6 +57,15 @@ useCallback<type>(callback, [dependency])
 // 의존성 배열에 적힌 값이 없을 경우, 컴포넌트가 재랜더링될 때 함수가 다시 정의된다.
 // useMemo 와의 차이점은 useCallback 은 함수를 반환한다.
 ----------------------------------   [ code ]   -------------------------------------
+import { useCallback } from 'react';
+
+const [data, setData] = useState<string>('string');
+const callback = useCallback( () => {
+  alert(data + ' value');
+ }, [data]);
+
+// data state 가 변경될 때만 alert 함수가 재정의된다.
+// alert 는 useCallback 을 사용했기 때문에 callback 변수는 함수를 가진다.
 
 
 
@@ -74,7 +83,7 @@ const memo = useMemo( () => {
 }, [data]);
 
 // data state 가 변경될 때만 memo 함수가 재정의된다.
-// memo 는 useMemo 를 사용했기 때문에 return 값인 string 값을 가진다.
+// memo 는 useMemo 를 사용했기 때문에 memo 변수는 string 값을 가진다.
 
 
 
