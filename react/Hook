@@ -90,14 +90,92 @@ const memo = useMemo( () => {
 -------------------------------------------------------------------------------------
 useRef<type>
 // 컴포넌트나 HTML 요소를 래퍼런스로 관리할 수 있다.
+// useState 와 다르게 값이 변해도 재랜더링이 되지 않는다.
+// 변수와 다르게 재랜더링 시에도 값을 잃지 않는다.
 ----------------------------------   [ code ]   -------------------------------------
+import { useRef } from 'react';
+
+function App() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  // Element 혹은 컴포넌트에 사용할 useRef 를 초기화
+  // 제네릭에 Ref 의 Element 타입을 지정해주어야 Element 요소를 사용할 수 있다.
+  function printInput() {
+    if(inputRef !== null) console.log(inputRef.current.value);
+  };
+  // 
+  
+  const countRef = useRef<number>(0);
+  // 변수로 사용할 useRef 를 초기화
+  // 제네릭을 통해 변수 타입을 지정해준다.
+  function increaseCount(){
+    console.log(++countRef.current);
+  }
+  
+  return (
+    <>
+      <input ref={inputRef} onChange={printInput}/>
+      // input 값이 변할 때마다 printInput 함수를 실행
+      <button onClick={increaseCount}>{countRef.current}</button>
+      // button 을 클릭할 때마다 increaseCount 함수를 실행
+      // 클릭할 때마다 countRef.current 값이 변하나 재 랜더링이 되지 않는다.
+    </>
+  )
+}
 
 
 
 -------------------------------------------------------------------------------------
 forwardRef
 // useRef 로 만든 래퍼런스를 상위 컴포넌트로 전달할 수 있다.
-----------------------------------   [ code ]   -------------------------------------
+// 부모 컴포넌트에 useRef 를 만들고, 자식 컴포넌트에 ref 형태로 넘긴다.
+---------------------------------   [ code 1 ]   ------------------------------------
+# 1. (./src/App.tsx) // useRef 을 선언하고 이를 컨트롤하는 함수를 선언
+import { useRef } from 'react';
+import { Child } from './components/Child';
+
+function App(){
+  const inputRef = useRef<HTMLInputElement>(null);
+  // useRef 를 통해 ref 를 선언한다. ref 선언 시 Element 타입을 제네릭이 넣어주어야 한다.
+  
+  function focusInput(){
+    if(inputRef.current !== null){
+      inputRef.current.focus();
+    }
+  }
+  // inputRef 요소에 focus 하는 함수
+  
+  return (
+    <>
+      <button onClick={focusInput}>Focus</button>
+      <Child ref={inputRef} />
+      // 자식 컴포넌트에 ref 를 넘긴다.
+    </>
+  );
+}
+export default App;
+
+---------------------------------   [ code 2 ]   ------------------------------------
+# 2. (./src/components/Child.tsx)
+import { ForwardedRef, forwardRef } from 'react';
+
+interface Props {
+  children?: string
+}
+// Props 에 대한 타입을 선언
+
+type Ref = ForwardedRef<HTMLInputElement>;
+// Ref 에 대한 타입을 선언한다. ForwardedRef 에 Element 타입을 제네릭에 넣는다.
+// * 이 부분이 중요하다.
+
+function _Child(props:Props, ref:Ref){
+  return <input ref={ref} />;
+}
+// props, ref 타입을 지정해준 함수 컴포넌트를 생성한다.
+
+export const Child = forwardRef<HTMLInputElement, Props>(_Child);
+// forwardRef 함수에 컴포넌트를 인자로 담아 export 한다.
+// 제네릭에는 ref를 사용한 Element 타입, Props 타입을 담는다.
+// * 이 부분이 중요하다.
 
 
 
