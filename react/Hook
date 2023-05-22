@@ -190,11 +190,18 @@ useReducer
 # 1. (./src/components/Counter.tsx) // useReducer 를 사용하는 컴포넌트
 import { useReducer } from 'react';
 
+// state 및 action 에 관련된 타입을 정의한다.
 type state = number;
 type action = {
   type: 'INCREASE' | 'DECREASE';
 }
+// type 에 따라 payload 가 다를 경우 아래와 같이 정의하는게 편하다.
+type action = 
+ | { type: 'INCREASE' }
+ | { type: 'DECREASE', payload: number }
 
+// state 를 변경할 함수를 정의한다.
+// action.type 에 따라 다르게 state 를 변경한다.
 function reducer(state, action){
   switch(action.type){
     case 'INCREASE':
@@ -206,15 +213,17 @@ function reducer(state, action){
   }
 }
 
+// Reducer 의 초기값으로 사용할 변수를 선언한다.
 const initialState = 0;
 
 function Counter(){
+  // useReducer 를 사용하여 reducer 를 선언 및 초기화한다.
   const [state, dispatch] = useReducer(reducer, initialState);
   
+  // action.type 에 따라 다르게 사용할 dispatch 를 사용할 함수를 만든다.
   function onIncrease(){
     dispatch({type: 'INCREASE'});
   }
-  
   function onDecrease(){
     dispatch({type: 'DECREASE'});
   }
@@ -223,8 +232,8 @@ function Counter(){
     <>
       <div className="container">
         <h1>{state}</h4>
-        <button>+1</button>
-        <button>-1</button>
+        <button onClick={onIncrease}>+1</button>
+        <button onClick={onDecrease}>-1</button>
       </div>
     </>
   )
