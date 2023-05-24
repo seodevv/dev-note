@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   name: "WordrRlay-setting",
@@ -23,16 +24,20 @@ module.exports = {
               "@babel/preset-env",
               {
                 targets: {
-                  browsers: ["> 5% in KR", "last 2 chrome versions"],
+                  browsers: ["> 1% in KR"], // browserslist 참고 !
                 },
+                debug: true,
               },
             ],
             "@babel/preset-react",
           ],
+          // Plugins: [],
         },
       },
     ],
   },
+
+  // Plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
 
   output: {
     path: path.join(__dirname, "dist"),
