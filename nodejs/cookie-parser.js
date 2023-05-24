@@ -22,13 +22,15 @@ app.post('/cookie/set/:key', (req, res) => {
   res.json({ message: `<${key}> set cookie` });
 });
 // option
-maxAge : 현재 시간으로부터 만료 시간을 ms 단위로 설정한다.
-expires : 만료 날짜를 GMT 시간으로 설정한다. 지정되어 있지 않거나 0 으로 지정 시 session cookie 로 생성한다.
-path : cookie의 경로를 설정한다. 기본 경로는 "/"
-domain : cookie 의 domain name. 기본 domain name 은 loaded 이다.
-secure : HTTPS 에서만 cookie 를 사용할 수 있도록 한다.
-httpOnly : 웹 서버를 통해서만 cookie 에 접근할 수 있도록 한다.
-signed : cookie 가 서명되어야 할 지를 결정한다.
+{
+  maxAge : 현재 시간으로부터 만료 시간을 ms 단위로 설정한다.
+  expires : 만료 날짜를 GMT 시간으로 설정한다. 지정되어 있지 않거나 0 으로 지정 시 session cookie 로 생성한다.
+  path : cookie의 경로를 설정한다. 기본 경로는 "/"
+  domain : cookie 의 domain name. 기본 domain name 은 loaded 이다.
+  secure : HTTPS 에서만 cookie 를 사용할 수 있도록 한다.
+  httpOnly : 웹 서버를 통해서만 cookie 에 접근할 수 있도록 한다.
+  signed : cookie 가 서명되어야 할 지를 결정한다.
+}
 
 
 // Get cookie
