@@ -48,5 +48,5 @@ module.exports = {
 
   devServer: {
     hot: true,
-  },
+  }, // 소스 코드에 변경점을 생기면 저장한 결과물을 변경해줌
 };
