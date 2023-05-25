@@ -17,3 +17,4 @@ npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader
 // react-refresh 는 webpack 핫리로딩 해주는 패키지이다.
 npm i -D webpack webpack-cli
 npm i -D react-refresh @pmmmwh/react-refresh-webpack-plugin  
+npm i -D webpack-dev-server
