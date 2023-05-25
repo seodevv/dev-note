@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const RefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
-  name: "WordrRlay-setting",
+  name: "NumberBaseball-setting",
   mode: "development", // 실서비스: production
   devtool: "eval", // hidden-source-map
   resolve: {
@@ -32,21 +32,24 @@ module.exports = {
             ],
             "@babel/preset-react",
           ],
-          plugins: ["react-refresh/babel"], // babel 작업할 때 hot 리로딩 기능(react-refresh)까지 추가해줌
+          plugins: ["react-refresh/babel"], // 바벨이 동작할 때 hot 리로딩 기능(react-refresh)을 추가해줌
         },
       },
     ],
   },
 
-  // Plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
-  plugins: [new RefreshWebpackPlugin()], // 빌드할때마다 플러그인이 작동됨
+  // plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+  plugins: [new RefreshWebpackPlugin()],
 
   output: {
     path: path.join(__dirname, "dist"),
     filename: "app.js",
-  }, // 출력
+    publicPath: "/dist",
+  }, // 출력 경로을 지정
 
   devServer: {
-    hot: true,
-  }, // 소스 코드에 변경점을 생기면 저장한 결과물을 변경해줌
+    devMiddleware: { publicPath: "/dist" }, // 감시 파일이 변경될 경우 결과물을 저장할 경로
+    static: { directory: path.resolve(__dirname) }, // 감시 파일의 경로
+    hot: true, // hot 리로딩 on/off
+  },
 };
