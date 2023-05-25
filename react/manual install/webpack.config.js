@@ -36,7 +36,7 @@ module.exports = {
         },
       },
     ],
-  },
+  }, // 입력과 출력 사이의 실행할 모듈을 설정(babel-loader)
 
   // plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
   plugins: [new RefreshWebpackPlugin()],
