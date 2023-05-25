@@ -1,12 +1,12 @@
 {
-  "name": "2.wordrelay",
+  "name": "numberbaseball",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack serve --env development"
   },
-  "author": "seodevv",
+  "author": "seodev",
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0",
@@ -16,8 +16,11 @@
     "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "babel-loader": "^9.1.2",
+    "react-refresh": "^0.14.0",
     "webpack": "^5.83.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
   }
 }
