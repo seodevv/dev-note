@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const RefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 module.exports = {
   name: "WordrRlay-setting",
@@ -24,23 +25,28 @@ module.exports = {
               "@babel/preset-env",
               {
                 targets: {
-                  browsers: ["> 1% in KR"], // browserslist 참고 !
+                  browsers: ["> 1% in KR"],
                 },
                 debug: true,
               },
             ],
             "@babel/preset-react",
           ],
-          // Plugins: [],
+          plugins: ["react-refresh/babel"], // babel 작업할 때 hot 리로딩 기능(react-refresh)까지 추가해줌
         },
       },
     ],
   },
 
   // Plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+  plugins: [new RefreshWebpackPlugin()], // 빌드할때마다 플러그인이 작동됨
 
   output: {
     path: path.join(__dirname, "dist"),
     filename: "app.js",
   }, // 출력
+
+  devServer: {
+    hot: true,
+  },
 };
