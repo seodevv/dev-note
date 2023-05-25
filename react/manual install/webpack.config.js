@@ -25,7 +25,7 @@ module.exports = {
               "@babel/preset-env",
               {
                 targets: {
-                  browsers: ["> 1% in KR"],
+                  browsers: ["> 1% in KR"], // babel browserslist 참고
                 },
                 debug: true,
               },
