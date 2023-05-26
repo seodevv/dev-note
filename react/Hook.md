@@ -1,8 +1,7 @@
 -------------------------------------------------------------------------------------
-+ useState
+### useState
   + 컴포넌트의 state(상태)를 관리 할 수 있다.
   + state 변경될 경우 해당 state 를 사용하는 컴포넌트가 자동으로 재랜더링된다.
-----------------------------------   [ code ]   -------------------------------------
 ``` javascript
 import { useState } from 'react';
 const [state, setState] = useState<type>(initialValue);
