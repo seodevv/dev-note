@@ -16,7 +16,7 @@ const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   + 어떤 변수가 변경될 때마다(의존성) 특정 기능이 동작하도록 할 수 있다.
   + return 안의 코드가 먼저 실행되고 콜백 함수 안의 내용이 다음으로 실행된다.
   + useLayoutEffect 와의 차이점은 useEffect 는 비동기 방식으로 처리된다.
-```
+``` javascript
 import { useEffect } from 'react';
 const [data, setData] = useState<boolean>(false);
 
@@ -32,11 +32,11 @@ useEffect( () => {
 
 
 
--------------------------------------------------------------------------------------
-useLayoutEffect
-// 모든 DOM 변경 후 브라우저가 화면을 그리기(render) 전에 실행되는 기능을 정할 수 있다.
-// useEffect 와의 차이점은 useLayoutEffect 는 동기 방식으로 처리된다.
-----------------------------------   [ code ]   -------------------------------------
+---
+### useLayoutEffect
+  + 모든 DOM 변경 후 브라우저가 화면을 그리기(render) 전에 실행되는 기능을 정할 수 있다.
+  + useEffect 와의 차이점은 useLayoutEffect 는 동기 방식으로 처리된다.
+``` javascript
 import { useLayoutEffect } from 'react';
 const [data, setData] = useState<boolean>(false);
 
@@ -46,54 +46,54 @@ useLayoutEffect( () => {
     console.log("useLayoutEffect(return): Run first");
   }
 }, [data]);
+```
+  + 최초 랜더링될 땐 return 안의 코드는 생략된다.
+  + 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
 
-// 최초 랜더링될 땐 return 안의 코드는 생략된다.
-// 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
 
 
-
--------------------------------------------------------------------------------------
-useCallback<type>(callback, [dependency])
-// 의존성 배열에 적힌 값이 변할 때만, 함수를 다시 정의할 수 있다.
-// 의존성 배열에 적힌 값이 없을 경우, 컴포넌트가 재랜더링될 때 함수가 다시 정의된다.
-// useMemo 와의 차이점은 useCallback 은 함수를 반환한다.
-----------------------------------   [ code ]   -------------------------------------
+---
+### useCallback<type>(callback, [dependency])
+  + 의존성 배열에 적힌 값이 변할 때만, 함수를 다시 정의할 수 있다.
+  + 의존성 배열에 적힌 값이 없을 경우, 컴포넌트가 재랜더링될 때 함수가 다시 정의된다.
+  + useMemo 와의 차이점은 useCallback 은 함수를 반환한다.
+``` javascript
 import { useCallback } from 'react';
 
 const [data, setData] = useState<string>('string');
 const callback = useCallback( () => {
   alert(data + ' value');
  }, [data]);
+```
+  + data state 가 변경될 때만 alert 함수가 재정의된다.
+  + alert 는 useCallback 을 사용했기 때문에 callback 변수는 함수를 가진다.
 
-// data state 가 변경될 때만 alert 함수가 재정의된다.
-// alert 는 useCallback 을 사용했기 때문에 callback 변수는 함수를 가진다.
 
 
-
--------------------------------------------------------------------------------------
-useMemo<type>(callback, [dependency])
-// 의존성 배열에 적힌 값이 변할 때만, 함수를 다시 정의할 수 있다.
-// 의존성 배열에 적힌 값이 없을 경우, 컴포넌트가 재랜더링될 때 함수가 다시 정의된다.
-// useCallback 과의 차이점은 useMemo 는 return 값을 반환한다.
-----------------------------------   [ code ]   -------------------------------------
+---
+### useMemo<type>(callback, [dependency])
+  + 의존성 배열에 적힌 값이 변할 때만, 함수를 다시 정의할 수 있다.
+  + 의존성 배열에 적힌 값이 없을 경우, 컴포넌트가 재랜더링될 때 함수가 다시 정의된다.
+  + useCallback 과의 차이점은 useMemo 는 return 값을 반환한다.
+``` javascript
 import { useMemo } from 'react';
 
 const [data, setData] = useState<string>('string');
 const memo = useMemo( () => {
   return data + ' value';
 }, [data]);
+```
+  + data state 가 변경될 때만 memo 함수가 재정의된다.
+  + memo 는 useMemo 를 사용했기 때문에 memo 변수는 string 값을 가진다.
 
-// data state 가 변경될 때만 memo 함수가 재정의된다.
-// memo 는 useMemo 를 사용했기 때문에 memo 변수는 string 값을 가진다.
 
 
-
--------------------------------------------------------------------------------------
-useRef<type>
-// 컴포넌트나 HTML 요소를 래퍼런스로 관리할 수 있다.
-// useState 와 다르게 값이 변해도 재랜더링이 되지 않는다.
-// 변수와 다르게 재랜더링 시에도 값을 잃지 않는다.
-----------------------------------   [ code ]   -------------------------------------
+---
+### useRef<type>
+  + 컴포넌트나 HTML 요소를 래퍼런스로 관리할 수 있다.
+  + useState 와 다르게 값이 변해도 재랜더링이 되지 않는다.
+  + 변수와 다르게 재랜더링 시에도 값을 잃지 않는다.
+``` javascript
 import { useRef } from 'react';
 
 function App() {
@@ -122,15 +122,17 @@ function App() {
     </>
   )
 }
+```
 
 
 
--------------------------------------------------------------------------------------
-forwardRef
-// useRef 로 만든 래퍼런스를 상위 컴포넌트로 전달할 수 있다.
-// 부모 컴포넌트에 useRef 를 만들고, 자식 컴포넌트에 ref 형태로 넘긴다.
----------------------------------   [ code 1 ]   ------------------------------------
-# 1. (./src/App.tsx) // useRef 을 선언하고 이를 컨트롤하는 함수를 선언
+---
+### forwardRef
+  + useRef 로 만든 래퍼런스를 상위 컴포넌트로 전달할 수 있다.
+  + 부모 컴포넌트에 useRef 를 만들고, 자식 컴포넌트에 ref 형태로 넘긴다.
+
+##### 1. (./src/App.tsx) // useRef 을 선언하고 이를 컨트롤하는 함수를 선언
+``` javascript
 import { useRef } from 'react';
 import { Child } from './components/Child';
 
@@ -154,9 +156,9 @@ function App(){
   );
 }
 export default App;
+```
 
----------------------------------   [ code 2 ]   ------------------------------------
-# 2. (./src/components/Child.tsx)
+##### 2. (./src/components/Child.tsx)
 import { ForwardedRef, forwardRef } from 'react';
 
 interface Props {
