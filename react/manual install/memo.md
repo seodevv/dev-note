@@ -39,3 +39,24 @@ export const MemoizedMovie = React.memo(Movie);
   releaseDate="December 15, 1995"
 />
 ```
+    * 메모이징한 결과를 재사용 함으로써,
+    * React에서 리렌더링할 때 가상 DOM에서 달라진 부분을 확인하지 않아 성능 상의 이점을 누릴 수 있다.
+    * 클래스 컴포넌트 또한 PureComponent 로 동일한 내용이 구현되어 있다.
+    
+    
+### Syntax
+  + React.memo() 는 props 혹은 props 의 객체를 비교할 때 얕은(shallow) 비교를 한다.
+  + 비교 방식을 수정하고 싶다면 React.memo() 두 번째 인자로 비교 함수를 만들어 넘겨주면 된다.
+``` javascript
+React.memo(Component [, areEqual(prevProps, nextProps)]);
+```
+    * areEqual(prevProps, nextProps) 함수는 prevProps 와 nextProps 가 같다면 true 를 반환할 것이다.
+``` javascript
+function moviePropsAreEqual(prevMovie, nextMovie){
+  return (
+    prevMovie.title === nextMovie.title &&
+    prevMovie.releaseDate === nextMovie.releaseDate
+  )
+}
+const MemoizedMovie2 = React.memo(Movie, moviePropsAreEqual);
+```
