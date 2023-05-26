@@ -191,7 +191,7 @@ export const Child = forwardRef<HTMLInputElement, Props>(_Child);
   + action : 변화내용 객체
   + reducer : state 와 action 을 인자로 받아 다음 상태를 변환하는 함수
   + dispatch : action 을 반환하는 함수
-##### 1. ./src/components/Counter.tsx
+##### ./src/components/Counter.tsx
 ###### useReducer 를 사용하는 컴포넌트
 ``` javascript
 import { useReducer } from 'react';
@@ -305,7 +305,7 @@ export default App;
 ```
 
 ---
-##### ./src/components/Home.tsx
+##### 3. ./src/components/Home.tsx
 ###### 컨텍스트로 받은 변수를 사용한다.
 ``` javascript
 import { useContext } from 'react';
