@@ -25,9 +25,8 @@
 
 
 ###### (Windows) permission deny
-
 ```
-###### running Powershell
+>>> running Powershell
 >>> Set-ExecutionPolicy Unrestricted
 >>> y
 ```
