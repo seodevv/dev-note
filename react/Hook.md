@@ -27,8 +27,8 @@ useEffect( () => {
   }
 }, [data] );
 ```
-    + 최초 랜더링될 땐 return 안의 코드는 생략된다.
-    + 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
+    * 최초 랜더링될 땐 return 안의 코드는 생략된다.
+    * 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
 
 
 
@@ -47,8 +47,8 @@ useLayoutEffect( () => {
   }
 }, [data]);
 ```
-  + 최초 랜더링될 땐 return 안의 코드는 생략된다.
-  + 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
+    * 최초 랜더링될 땐 return 안의 코드는 생략된다.
+    * 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
 
 
 
@@ -65,8 +65,8 @@ const callback = useCallback( () => {
   alert(data + ' value');
  }, [data]);
 ```
-  + data state 가 변경될 때만 alert 함수가 재정의된다.
-  + alert 는 useCallback 을 사용했기 때문에 callback 변수는 함수를 가진다.
+    * data state 가 변경될 때만 alert 함수가 재정의된다.
+    * alert 는 useCallback 을 사용했기 때문에 callback 변수는 함수를 가진다.
 
 
 
@@ -83,8 +83,8 @@ const memo = useMemo( () => {
   return data + ' value';
 }, [data]);
 ```
-  + data state 가 변경될 때만 memo 함수가 재정의된다.
-  + memo 는 useMemo 를 사용했기 때문에 memo 변수는 string 값을 가진다.
+    * data state 가 변경될 때만 memo 함수가 재정의된다.
+    * memo 는 useMemo 를 사용했기 때문에 memo 변수는 string 값을 가진다.
 
 
 
