@@ -3,12 +3,12 @@
 >>> npx create-react-app board
 ```
 
-##### if with typescript
+###### if with typescript
 ```
 >>> npx create-react-app board --template typescript
 ```
 
-### if with pwa & typescript
+###### if with pwa & typescript
 ```
 >>> npx create-react-app board --template pwa-typescript
 ```
@@ -25,7 +25,7 @@
 
 
 ### (Windows) permission deny
-##### running Powershell
+###### running Powershell
 ```
 >>> Set-ExecutionPolicy Unrestricted
 >>> y
