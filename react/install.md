@@ -1,7 +1,9 @@
 # create react application
-npx create-react-app board
+```
+>>> npx create-react-app board
+```
 
-### if with typescript
+##### if with typescript
 ```
 >>> npx create-react-app board --template typescript
 ```
