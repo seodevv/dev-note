@@ -2,7 +2,7 @@
 ```
 >>> npx create-react-app board
 ```
-
+----------------
 ###### if with typescript
 ```
 >>> npx create-react-app board --template typescript
