@@ -18,6 +18,23 @@ console.log(str[5]); // undefined
 
 
 /* ------------------------------------------------------------------------------------------ */
+String.toString() : string
+// String 인스턴스의 값을 문자열로 반환한다.
+const str = 'Hello World';
+
+const toString = str.toString();
+console.log(toString); // Hello World
+
+
+String.valueOf() : string
+// String 인스턴스의 값을 문자열로 반환한다.
+const str = 'Hello World';
+
+const valueOf = str.valueOf();
+console.log(valueOf); // Hello World
+
+
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.indexOf(searchstring [,fromIndex]) : number
 // 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 처음 발견된 index 값을 반환한다.
 // 2번째 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 검색한다.
@@ -231,3 +248,14 @@ console.log(endsWith2); // false
 console.log(endsWith3); // true
 
 
+/* ------------------------------------------------------------------------------------------ */
+String.localeCompare(that) : number
+// 인수로 전달받은 문자열과 정렬 순서를 비교하여 그 결과를 정수 값으로 반환한다.
+const str = 'Hello World B';
+
+const localeCompare1 = str.localeCompare('Hello World A');
+const localeCompare2 = str.localeCompare('Hello World B');
+const localeCompare3 = str.localeCompare('Hello World C');
+console.log(localeCompare1); // 1
+console.log(localeCompare2); // 0
+console.log(localeCompare3); // -1
