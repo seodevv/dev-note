@@ -15,7 +15,7 @@ console.log(str[0]); // H
 console.log(str[5]); // undefined
 
 
-String.prototype.indexOf(searchstring, [fromIndex]) : number
+String.prototype.indexOf(searchstring [,fromIndex]) : number
 // 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 처음 발견된 index 값을 반환한다.
 // 2번째 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 검색한다.
 // 문자가 없을 경우 -1 값을 반환한다.
@@ -25,7 +25,7 @@ console.log(str.indexOf('l',5)); // 9
 console.log(str.indexOf('a')); // -1
 
 
-String.prototype.lastIndexOf(searchString, [fromIndex]) : number
+String.prototype.lastIndexOf(searchString [, fromIndex]) : number
 // 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 마지막으로 발견된 index 값을 반환한다.
 // 2번쨰 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 역방으로 검색한다.
 // 문자가 없을 경우 -1 값을 반환한다.
@@ -51,7 +51,7 @@ console.log(expression); // He--o Wor-d
 console.log(callback); // HeLlo React
 
 
-String.prototype.split(separator, [limit]) : string[]
+String.prototype.split(separator [, limit]) : string[]
 // 첫번쨰 인수로 전달한 문자열 또는 정규표현식을 대상 문자열에서 검색하여 문자열을 구분한 후
 // 분리된 문자열로 이루어진 배열을 반환한다.
 // 두번째 인수가 전달되면 해당하는 인수만큼 배열 길이를 반환한다.
@@ -132,7 +132,7 @@ console.log(repeat3); // 'Hello WorldHello World'
 // console.log(repeat4);
 
 
-String.prototype.includes(searchString, [position]) : boolean
+String.prototype.includes(searchString [, position]) : boolean
 // 인수로 전달한 문자열이 포함되어 있는지를 검사하고 결과를 boolean 값으로 반환한다.
 // 두번째 인수는 옵션으로 검색할 위치를 나타낸다.
 const str = 'Hello World';
@@ -143,3 +143,31 @@ const includes3 = str.includes('Hello', 2);
 console.log(includes1); // true
 console.log(includes2); // true
 console.log(includes3); // false
+
+
+String.prototype.padStart(targetLength [, padString])
+// 첫번째 인수로 전체 스트링 길이를 지정하고, 
+// 만일 현재 문자열의 길이가 인수보다 짧다면, 빈 나머지를 두번째 인수 값으로 채운다.
+// padStart : 좌측부터 채워 넣기
+// padEnd : 우측부터 채워 넣기
+const str = 'Hello World';
+const length = str.length;
+
+const padStart1 = str.padStart(length);
+const padStart2 = str.padStart(length + 3);
+const padStart3 = str.padStart(length + 3, '-');
+const padStart4 = str.padStart(length - 3);
+console.log(padStart1); // 'Hello World'
+console.log(padStart2); // '   Hello World'
+console.log(padStart3); // '---Hello World'
+console.log(padStart4); // 'Hello World'
+
+const padEnd1 = str.padEnd(length);
+const padEnd2 = str.padEnd(length + 3);
+const padEnd3 = str.padEnd(length + 3, '-');
+const padEnd4 = str.padEnd(length - 3);
+console.log(padEnd1); // 'Hello World'
+console.log(padEnd2); // 'Hello World   '
+console.log(padEnd3); // 'Hello World---'
+console.log(padEnd4); // 'Hello World'
+
