@@ -1,9 +1,11 @@
 // String Property
+/* ------------------------------------------------------------------------------------------ */
 const str = 'Hello';
 console.log(str.length); // 5
 
 
 // String Method
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.charAt(number) : string
 // 인자로 전달한 index 를 사용하여 index 에 해당하는 문자를 반환한다.
 // 인자가 문자열의 길이를 벗어난 경우 빈 문자열을 반환한다.
@@ -15,6 +17,7 @@ console.log(str[0]); // H
 console.log(str[5]); // undefined
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.indexOf(searchstring [,fromIndex]) : number
 // 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 처음 발견된 index 값을 반환한다.
 // 2번째 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 검색한다.
@@ -25,6 +28,7 @@ console.log(str.indexOf('l',5)); // 9
 console.log(str.indexOf('a')); // -1
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.lastIndexOf(searchString [, fromIndex]) : number
 // 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 마지막으로 발견된 index 값을 반환한다.
 // 2번쨰 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 역방으로 검색한다.
@@ -35,6 +39,18 @@ console.log(str.lastIndexOf('l',5)); // 3
 console.log(str.lastIndexOf('a')); // -1
 
 
+/* ------------------------------------------------------------------------------------------ */
+String.prototype.search(searchString) : number
+// 문자 혹은 정규표현식에 부합하는 맨 처음 index 값을 반환한다.
+const str = 'Hello World';
+
+const search1 = str.search(/\s/);
+const search2 = str.search(' ');
+console.log(search1); // 5
+console.log(search2); // 5
+
+
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.replace(searchValue, replaceValue) : string
 // 첫번째 인수로 전달한 문자열 또는 정규표현식을 대상 문자열에서 검색하여 두번째 인수로 전달한 문자열로 대체한다.
 // 원본 문자열은 변경되지 않고, 결과가 반영된 새로운 문자열을 반환한다.
@@ -51,6 +67,7 @@ console.log(expression); // He--o Wor-d
 console.log(callback); // HeLlo React
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.split(separator [, limit]) : string[]
 // 첫번쨰 인수로 전달한 문자열 또는 정규표현식을 대상 문자열에서 검색하여 문자열을 구분한 후
 // 분리된 문자열로 이루어진 배열을 반환한다.
@@ -69,6 +86,7 @@ console.log(split3); // ['He', '', 'o Wor', 'd']
 console.log(split4); // ['Hello World']
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.substring(start, end) : string
 // 첫번째 인수로 전달한 start 인덱스에 해당하는 문자부터 
 // 두번째 인수에 전달된 end 인덱스 - 1 에 해당하는 문자까지 모두 반환한다.
@@ -79,6 +97,7 @@ const subString = str.substring(0, 4);
 console.log(subString); // Hell
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.slice(start, end) : string
 // String.prototype.substring 과 동일하다.
 // slice 는 단 음수의 인수를 전달할 수 있다.
@@ -90,6 +109,7 @@ console.log(slice1); // Hell
 console.log(slice2); // Hello Worl
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.toLowerCase() : string
 // 대상 문자열의 모든 문자를 소문자로 치환한다.
 const str = 'HELLO WORLD';
@@ -98,6 +118,7 @@ const toLowerCase = str.toLowerCase();
 console.log(toLowerCase); // hello world
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.toUpperCase() : string
 // 대상 문자열의 모든 문자를 대문자로 치환한다.
 const str = 'hello world';
@@ -106,6 +127,7 @@ const toUpperCase = str.toUppderCase();
 console.log(toUpperCase) // HELLO WORLD
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.trim() : string
 // 대상 문자열 양 끝의 공백 문자를 제거한 문자를 반환한다.
 const str = '        hello world     ';
@@ -118,7 +140,8 @@ console.log(trimStart); // 'hello world
 console.log(trimEnd); // '        hello world'
 
 
-String.prototype.repet(count) : string
+/* ------------------------------------------------------------------------------------------ */
+String.prototype.repeat(count) : string
 // 인수로 전달한 숫자만큼 문자열을 반복하여 새로운 문자열을 반환한다.
 const str = 'Hello World';
 
@@ -132,6 +155,7 @@ console.log(repeat3); // 'Hello WorldHello World'
 // console.log(repeat4);
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.includes(searchString [, position]) : boolean
 // 인수로 전달한 문자열이 포함되어 있는지를 검사하고 결과를 boolean 값으로 반환한다.
 // 두번째 인수는 옵션으로 검색할 위치를 나타낸다.
@@ -145,6 +169,7 @@ console.log(includes2); // true
 console.log(includes3); // false
 
 
+/* ------------------------------------------------------------------------------------------ */
 String.prototype.padStart(targetLength [, padString])
 // 첫번째 인수로 전체 스트링 길이를 지정하고, 
 // 만일 현재 문자열의 길이가 인수보다 짧다면, 빈 나머지를 두번째 인수 값으로 채운다.
@@ -161,7 +186,6 @@ console.log(padStart1); // 'Hello World'
 console.log(padStart2); // '   Hello World'
 console.log(padStart3); // '---Hello World'
 console.log(padStart4); // 'Hello World'
-
 const padEnd1 = str.padEnd(length);
 const padEnd2 = str.padEnd(length + 3);
 const padEnd3 = str.padEnd(length + 3, '-');
@@ -170,4 +194,40 @@ console.log(padEnd1); // 'Hello World'
 console.log(padEnd2); // 'Hello World   '
 console.log(padEnd3); // 'Hello World---'
 console.log(padEnd4); // 'Hello World'
+
+
+/* ------------------------------------------------------------------------------------------ */
+String.prototype.concat(...string) : string
+// 인수로 전달 된 문자열이 뒤에 합쳐진 값을 반환한다.
+// 인수는 여러개가 될 수 있다.
+const start = 'Hello';
+const trim = ' ';
+const end = 'World';
+
+const concat = start.concat(trim, end);
+console.log(concat); // Hello World
+
+
+/* ------------------------------------------------------------------------------------------ */
+String.prototype.startsWith(searchString, [, position]) : boolean
+String.prototype.endsWith(searchString, [, endPosition]) : boolean
+// startsWith : 인수로 전달 받은 문자나 문자열로 시작하는 지를 검사하고 결과를 boolean 값으로 반환한다.
+// endsWith : 인수로 전달 받은 문자나 문자열로 끝나는 지를 검사하고 결과를 boolean 값으로 반환한다.
+// position : 두번째 인자가 전달되면 탐색 시작 위치를 지정할 수 있다.
+// endPosition : 해당 인수만큼의 문자열 길이에서 검사한다.
+const str = 'Hello World';
+
+const startsWith1 = str.startsWith('Hello');
+const startsWith2 = str.startsWith('Hello' , 1);
+const startsWith3 = str.startsWith('World' , 6);
+console.log(startsWith1); // true
+console.log(startsWith2); // false
+console.log(startsWith3); // true
+const endsWith1 = str.endsWith('World');
+const endsWith2 = str.endsWith('World', 1);
+const endsWith3 = str.endsWith('Hello', 5);
+console.log(endsWith1); // true
+console.log(endsWith2); // false
+console.log(endsWith3); // true
+
 
