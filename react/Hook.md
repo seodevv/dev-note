@@ -10,13 +10,13 @@ const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
 
 
---------------
+---
 ### useEffect
-// 랜더링 이후에 실행할 코드를 만들 수 있다.
-// 어떤 변수가 변경될 때마다(의존성) 특정 기능이 동작하도록 할 수 있다.
-// return 안의 코드가 먼저 실행되고 콜백 함수 안의 내용이 다음으로 실행된다.
-// useLayoutEffect 와의 차이점은 useEffect 는 비동기 방식으로 처리된다.
-----------------------------------   [ code ]   -------------------------------------
+  + 랜더링 이후에 실행할 코드를 만들 수 있다.
+  + 어떤 변수가 변경될 때마다(의존성) 특정 기능이 동작하도록 할 수 있다.
+  + return 안의 코드가 먼저 실행되고 콜백 함수 안의 내용이 다음으로 실행된다.
+  + useLayoutEffect 와의 차이점은 useEffect 는 비동기 방식으로 처리된다.
+```
 import { useEffect } from 'react';
 const [data, setData] = useState<boolean>(false);
 
@@ -26,9 +26,9 @@ useEffect( () => {
     console.log("useEffect(return): Run first");
   }
 }, [data] );
-
-// 최초 랜더링될 땐 return 안의 코드는 생략된다.
-// 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
+```
+  + 최초 랜더링될 땐 return 안의 코드는 생략된다.
+  + 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
 
 
 
