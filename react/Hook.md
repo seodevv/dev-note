@@ -131,7 +131,8 @@ function App() {
   + useRef 로 만든 래퍼런스를 상위 컴포넌트로 전달할 수 있다.
   + 부모 컴포넌트에 useRef 를 만들고, 자식 컴포넌트에 ref 형태로 넘긴다.
 
-##### 1. (./src/App.tsx) // useRef 을 선언하고 이를 컨트롤하는 함수를 선언
+##### 1. ./src/App.tsx
+###### useRef 을 선언하고 이를 컨트롤하는 함수를 선언
 ``` javascript
 import { useRef } from 'react';
 import { Child } from './components/Child';
@@ -158,7 +159,7 @@ function App(){
 export default App;
 ```
 
-##### 2. (./src/components/Child.tsx)
+##### 2. ./src/components/Child.tsx
 ``` javascript
 import { ForwardedRef, forwardRef } from 'react';
 
@@ -190,7 +191,8 @@ export const Child = forwardRef<HTMLInputElement, Props>(_Child);
   + action : 변화내용 객체
   + reducer : state 와 action 을 인자로 받아 다음 상태를 변환하는 함수
   + dispatch : action 을 반환하는 함수
-##### 1. (./src/components/Counter.tsx) // useReducer 를 사용하는 컴포넌트
+##### 1. ./src/components/Counter.tsx
+###### useReducer 를 사용하는 컴포넌트
 ``` javascript
 import { useReducer } from 'react';
 
@@ -253,7 +255,8 @@ export default Counter;
   + 컴포넌트가 많아질 경우 props 를 다단계로 거쳐야하는 코드를 줄일 수 있다.
   + 컨텍스트를 불러올 때 불필요한 호출이 발생한다.
 
-##### 1 (./src/context/newContext.ts) // 컨텍스트 생성 및 변수를 생성하는 곳
+##### 1 ./src/context/newContext.ts
+###### 컨텍스트 생성 및 변수를 생성하는 곳
 ``` javascript
 import { createContext } from 'react';
 
@@ -277,7 +280,8 @@ export type { Products };
 ```
 
   
-##### 2 (./src/App.tsx) // 자식 컴포넌트들에게 컨텍스트를 제공해준다.
+##### 2 ./src/App.tsx
+###### 자식 컴포넌트들에게 컨텍스트를 제공해준다.
 ``` javascript
 import { Routes, Route } from 'react-router-dom';
 import { newContext, products } from './context/newContext';
@@ -301,7 +305,8 @@ export default App;
 ```
 
 ---
-##### 3 (./src/components/Home.tsx) // 컨텍스트로 받은 변수를 사용한다.
+##### ./src/components/Home.tsx
+###### 컨텍스트로 받은 변수를 사용한다.
 ``` javascript
 import { useContext } from 'react';
 import { newContext } from '../Context/newContext';
