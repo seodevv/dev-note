@@ -46,7 +46,6 @@ const str = 'HeLlo World';
 const replace = str.replace('World', 'JavaScript');
 const expression = str.replace(/l/gi, '-');
 const callback = str.replace('World', () => 'React');
-
 console.log(replace); // HeLlo JavaScript
 console.log(expression); // He--o Wor-d
 console.log(callback); // HeLlo React
@@ -64,7 +63,6 @@ const split1 = str.split(' ');
 const split2 = str.split(' ',1);
 const split3 = str.split(/l/);
 const split4 = str.split();
-
 console.log(split1); // ['Hello', 'Wrold']
 console.log(split2); // ['Hello']
 console.log(split3); // ['He', '', 'o Wor', 'd']
@@ -78,7 +76,6 @@ String.prototype.substring(start, end) : string
 const str = 'Hello World';
 
 const subString = str.substring(0, 4);
-
 console.log(subString); // Hell
 
 
@@ -89,7 +86,6 @@ const str = 'Hello World';
 
 const slice1 = str.slice(0,4);
 const slice2 = str.slice(0,-1);
-
 console.log(slice1); // Hell
 console.log(slice2); // Hello Worl
 
@@ -99,7 +95,51 @@ String.prototype.toLowerCase() : string
 const str = 'HELLO WORLD';
 
 const toLowerCase = str.toLowerCase();
-
 console.log(toLowerCase); // hello world
 
-String
+
+String.prototype.toUpperCase() : string
+// 대상 문자열의 모든 문자를 대문자로 치환한다.
+const str = 'hello world';
+
+const toUpperCase = str.toUppderCase();
+console.log(toUpperCase) // HELLO WORLD
+
+
+String.prototype.trim() : string
+// 대상 문자열 양 끝의 공백 문자를 제거한 문자를 반환한다.
+const str = '        hello world     ';
+
+const trim = str.trim();
+const trimStart = str.trimStart();
+const trimEnd = str.trimEnd();
+console.log(trim) // 'hello world'
+console.log(trimStart); // 'hello world     
+console.log(trimEnd); // '        hello world'
+
+
+String.prototype.repet(count) : string
+// 인수로 전달한 숫자만큼 문자열을 반복하여 새로운 문자열을 반환한다.
+const str = 'Hello World';
+
+const repeat1 = str.repeat(0);
+const repeat2 = str.repeat(2);
+const repeat3 = str.repeat(2.5); // 2.5 -> 2 치환
+const repeat4 = str.repeat(-1); // RangeError
+console.log(repeat1); // ''
+console.log(repeat2); // 'Hello WorldHello World'
+console.log(repeat3); // 'Hello WorldHello World'
+// console.log(repeat4);
+
+
+String.prototype.includes(searchString, [position]) : boolean
+// 인수로 전달한 문자열이 포함되어 있는지를 검사하고 결과를 boolean 값으로 반환한다.
+// 두번째 인수는 옵션으로 검색할 위치를 나타낸다.
+const str = 'Hello World';
+
+const includes1 = str.includes('Hello');
+const includes2 = str.includes('Hello', 0);
+const includes3 = str.includes('Hello', 2);
+console.log(includes1); // true
+console.log(includes2); // true
+console.log(includes3); // false
