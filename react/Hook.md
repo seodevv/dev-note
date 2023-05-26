@@ -159,6 +159,7 @@ export default App;
 ```
 
 ##### 2. (./src/components/Child.tsx)
+``` javascript
 import { ForwardedRef, forwardRef } from 'react';
 
 interface Props {
@@ -179,18 +180,18 @@ export const Child = forwardRef<HTMLInputElement, Props>(_Child);
 // forwardRef 함수에 컴포넌트를 인자로 담아 export 한다.
 // 제네릭에는 ref를 사용한 Element 타입, Props 타입을 담는다.
 // * 이 부분이 중요하다.
+```
 
 
-
--------------------------------------------------------------------------------------
-useReducer
-// state(상태) 업데이트 로직을, reducer 함수에 따로 분리할 수 있다.
-// state : 상태
-// action : 변화내용 객체
-// reducer : state 와 action 을 인자로 받아 다음 상태를 변환하는 함수
-// dispatch : action 을 반환하는 함수
-----------------------------------   [ code ]   -------------------------------------
-# 1. (./src/components/Counter.tsx) // useReducer 를 사용하는 컴포넌트
+---
+### useReducer
+  > state(상태) 업데이트 로직을, reducer 함수에 따로 분리할 수 있다.
+  > state : 상태
+  > action : 변화내용 객체
+  > reducer : state 와 action 을 인자로 받아 다음 상태를 변환하는 함수
+  > dispatch : action 을 반환하는 함수
+##### 1. (./src/components/Counter.tsx) // useReducer 를 사용하는 컴포넌트
+``` javascript
 import { useReducer } from 'react';
 
 // state 및 action 에 관련된 타입을 정의한다.
@@ -242,18 +243,18 @@ function Counter(){
   )
 }
 export default Counter;
+```
 
 
 
+---
+### useContext
+  + 부모 컴포넌트와 자식 컴포넌트 간의 변수와 함수를 전역적으로 정의할 수 있다.
+  + 컴포넌트가 많아질 경우 props 를 다단계로 거쳐야하는 코드를 줄일 수 있다.
+  + 컨텍스트를 불러올 때 불필요한 호출이 발생한다.
 
--------------------------------------------------------------------------------------
-useContext
-// 부모 컴포넌트와 자식 컴포넌트 간의 변수와 함수를 전역적으로 정의할 수 있다.
-// 컴포넌트가 많아질 경우 props 를 다단계로 거쳐야하는 코드를 줄일 수 있다.
-// 컨텍스트를 불러올 때 불필요한 호출이 발생한다.
----------------------------------   [ code 1 ]   ------------------------------------
-# 1 (./src/context/newContext.ts) // 컨텍스트 생성 및 변수를 생성하는 곳
-
+##### 1 (./src/context/newContext.ts) // 컨텍스트 생성 및 변수를 생성하는 곳
+``` javascript
 import { createContext } from 'react';
 
 type Products = {
@@ -273,10 +274,11 @@ const newContext = createContext(products);
 export { newContext products };
 export type { Products };
 // 사용할 컨텍스트와 초기화된 변수를 export 해준다.
+```
 
----------------------------------   [ code 2 ]   ------------------------------------
-# 2 (./src/App.tsx) // 자식 컴포넌트들에게 컨텍스트를 제공해준다.
-
+  
+##### 2 (./src/App.tsx) // 자식 컴포넌트들에게 컨텍스트를 제공해준다.
+``` javascript
 import { Routes, Route } from 'react-router-dom';
 import { newContext, products } from './context/newContext';
 import Home from './components/Home';
@@ -296,9 +298,11 @@ function App() {
   )
 }
 export default App;
+```
 
----------------------------------   [ code 3 ]   ------------------------------------
-# 3 (./src/components/Home.tsx) // 컨텍스트로 받은 변수를 사용한다.
+---
+##### 3 (./src/components/Home.tsx) // 컨텍스트로 받은 변수를 사용한다.
+``` javascript
 import { useContext } from 'react';
 import { newContext } from '../Context/newContext';
 
@@ -317,3 +321,4 @@ function Home(){
   )
 }
 export default Home;
+```
