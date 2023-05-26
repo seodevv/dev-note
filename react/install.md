@@ -17,9 +17,11 @@ npm install @tanstack/react-query
 
 
 ### (Windows) permission deny
-##### running Powershell
+##### >>> running Powershell
+```
 Set-ExecutionPolicy Unrestricted
 y
+```
 
 
 # start
