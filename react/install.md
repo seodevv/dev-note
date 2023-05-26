@@ -16,8 +16,8 @@ npm install axios
 npm install @tanstack/react-query
 
 
-# (Windows) permission deny
-# running Powershell
+### (Windows) permission deny
+###### running Powershell
 Set-ExecutionPolicy Unrestricted
 y
 
