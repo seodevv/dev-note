@@ -24,7 +24,8 @@ export const MemoizedMovie = React.memo(Movie);
 ```
     * React.memo(Movie)는 새로 메모이징된 컴포넌트인 MemoizedMovie 를 반환한다.
     * 한가지 차이점을 제외하고 원래의 Movie 컴포넌트와 같은 결과를 나타낼 것이다.
-    * MemoizedMovie 의 렌더링 결과는 메모이징 되어있다. 만약 title 이나 releaseData 같은 props 가 변경되지 않는다면 다음 렌더링 때 메모이징 된 내용을 그대로 사용한다.
+    * MemoizedMovie 의 렌더링 결과는 메모이징 되어있다. 
+    * 만약 title 이나 releaseData 같은 props 가 변경되지 않는다면 다음 렌더링 때 메모이징 된 내용을 그대로 사용한다.
 ``` javascript
 // 첫 렌더이다. React 는 MemoizedMovie 함수를 호출한다.
 <MemoizedMovie
