@@ -27,8 +27,8 @@ useEffect( () => {
   }
 }, [data] );
 ```
-  + 최초 랜더링될 땐 return 안의 코드는 생략된다.
-  + 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
+    + 최초 랜더링될 땐 return 안의 코드는 생략된다.
+    + 재랜더링할 경우 return 안의 코드가 먼저 실행된 후, callback 안의 코드가 실행된다.
 
 
 
@@ -185,11 +185,11 @@ export const Child = forwardRef<HTMLInputElement, Props>(_Child);
 
 ---
 ### useReducer
-  > state(상태) 업데이트 로직을, reducer 함수에 따로 분리할 수 있다.
-  > state : 상태
-  > action : 변화내용 객체
-  > reducer : state 와 action 을 인자로 받아 다음 상태를 변환하는 함수
-  > dispatch : action 을 반환하는 함수
+  + state(상태) 업데이트 로직을, reducer 함수에 따로 분리할 수 있다.
+  + state : 상태
+  + action : 변화내용 객체
+  + reducer : state 와 action 을 인자로 받아 다음 상태를 변환하는 함수
+  + dispatch : action 을 반환하는 함수
 ##### 1. (./src/components/Counter.tsx) // useReducer 를 사용하는 컴포넌트
 ``` javascript
 import { useReducer } from 'react';
