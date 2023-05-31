@@ -3,12 +3,17 @@
 npx create-react-app board
 ```
 
-###### if with typescript
+##### if pwa
+```
+npx create-react-app board --template cra-template-pwa
+```
+
+###### if typescript
 ```
 npx create-react-app board --template typescript
 ```
 
-###### if with pwa & typescript
+###### if pwa & typescript
 ```
 npx create-react-app board --template pwa-typescript
 ```
