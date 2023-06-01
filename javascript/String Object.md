@@ -1,4 +1,5 @@
 # String Property
+### String.length
 ```
 const str = 'Hello';
 console.log(str.length); // 5
@@ -19,8 +20,8 @@ console.log(str[5]); // undefined
 ```
 
 ### String.toString() : string
++ String 인스턴스의 값을 문자열로 반환한다.
 ``` javascript
-// String 인스턴스의 값을 문자열로 반환한다.
 const str = 'Hello World';
 
 const toString = str.toString();
@@ -35,15 +36,16 @@ const valueOf = str.valueOf();
 console.log(valueOf); // Hello World
 ```
 
-/* ------------------------------------------------------------------------------------------ */
-String.prototype.indexOf(searchstring [,fromIndex]) : number
-// 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 처음 발견된 index 값을 반환한다.
-// 2번째 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 검색한다.
-// 문자가 없을 경우 -1 값을 반환한다.
+### String.prototype.indexOf(searchstring [,fromIndex]) : number
++ 인수로 전달한 문자 또는 문자열을 대상 문자열에서 검색하여 처음 발견된 index 값을 반환한다.
++ 2번째 인수가 전달되면 검색 시작 위치를 fromindex 로 이동하여 검색한다.
++ 문자가 없을 경우 -1 값을 반환한다.
+``` javascript
 const str = 'Hello World';
 console.log(str.indexOf('l')); // 2
 console.log(str.indexOf('l',5)); // 9
 console.log(str.indexOf('a')); // -1
+```
 
 
 /* ------------------------------------------------------------------------------------------ */
