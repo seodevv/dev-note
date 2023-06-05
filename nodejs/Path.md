@@ -19,7 +19,7 @@ app.get("/path", (req, res) => {
 ```
 > result
 ```
-C:\Users\black\Documents\develope\nodejs\mysql2\data\data.json
+C:\Documents\develope\nodejs\mysql2\data\data.json
 ```
 
 ---
@@ -34,7 +34,7 @@ app.get("/resolve", (req, res) => {
 ```
 > result
 ```
-C:\Users\black\Documents\develope\nodejs\mysql\data\data.json
+C:\Documents\develope\nodejs\mysql\data\data.json
 ```
 
 ---
@@ -48,7 +48,7 @@ app.get("/dirname", (req, res) => {
 ```
 > result
 ```
-C:\Users\black\Documents\develope\nodejs\mysql2/data
+C:\Documents\develope\nodejs\mysql2/data
 ```
 
 ---
@@ -111,7 +111,7 @@ app.get("/normalize", (req, res) => {
 ```
 > result
 ```
-C:\Users\black\Documents\develope\nodejs\mysql2..\mysql2.\data\data.json
+C:\Documents\develope\nodejs\mysql2..\mysql2.\data\data.json
 ```
 
 ---
