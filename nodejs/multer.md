@@ -103,7 +103,7 @@ app.post('/upload', upload.single('profile'), (req, res, next) => {
 </form>
 ```
 + 여러 파일을 받기 위해 multiple 설정을 해준다.
-`` javascript
+``` javascript
 app.post('/uploads', upload.array('profiles'), (req, res, next) => {
   console.log(req.files);
   res.send('upload success');
