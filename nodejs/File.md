@@ -8,19 +8,8 @@ const fs = require('fs');
 
 ---
 ## Usage
-### readFileSync( path [, option : BufferEncoding] )
-+ type BufferEncoding =
-  + 'ascii'
-  + 'utf8'
-  + 'utf-8'
-  + 'utf16le'
-  + 'ucs2'
-  + 'ucs-2'
-  + 'base64'
-  + 'base64url'
-  + 'latin1'
-  + 'binary'
-  + 'hex';
+### fs.readFileSync( path [, option : BufferEncoding] )
++ 
 ``` javascript
 app.get("/readFileSync", (req, res) => {
   var file = fs.readFileSync(__dirname + "/data/data.json", "utf-8"); // readFileSync 함수를 통해 파일을 불러온다.
@@ -37,5 +26,31 @@ app.get("/download", (req, res) => {
   var filePath = path.join( __dirname, `/data/${fileName}` ); // 파일의 절대 경로를 만든다.
   res.setHeader('Content-Disposition', `attachment; filename=${fileName}`); // header 를 설정한다. (이게 핵심)
   res.sendFile(filePath); // 파일의 절대 경로를 보낸다.
+  res.end();
+});
+```
+
+
+### fs.existSync( path )
++ path 의 파일의 존재 여부에 따라 boolean 값을 반환한다.
+``` javascript
+app.post('/existSync', (req, res) => {
+  const category = req.body.category || 'default'; // body로 부터 category 를 받아옴. 없을 경우 default 값을 가짐
+  const dir = path.join(__dirname, './public/image', category); // 존재 여부를 확인할 dir 변수를 작성
+  const exist = fs.existSync(dir); // dir 변수가 존재할 경우 true 를 반환
+  res.send(exist);
+});
+```
+
+
+### fs.mkdirSync( path [, option : fs.MakeDirectoryOptions ])
++ path 경로의 디렉토리를 생성함
++ 2번째 인자로 { recursive: true } 를 줄 경우, 2 Depth 이상의 디렉토리도 생성된다.
+``` javascript
+app.post('/mkdirSync', (req, res) => {
+  const category = req.body.category || 'default'; // body로 부터 category 를 받아옴. 없을 경우 default 값을 가짐
+  const dir = path.join(__dirname, './public/image', category); // 존재 여부를 확인할 dir 변수를 작성
+  fs.existSync(dir) && fs.mkdirSync(dir, { recursive: true });
+  res.send('mkdir success');
 });
 ```
