@@ -137,3 +137,27 @@ app.post('/uploads', upload.array('profiles'), (req, res, next) => {
 ] 
 ```
 + 여러 파일의 경우 req.files 에 배열 형태로 저장된다.
+
+
+---
+> 4-3) 복합 처리
+``` html
+<form action="http://localhost:8081/cool-upload" method="post" encType="multipart/form-data">
+  <input type="text" name="category" />
+  <input type="file" name="profile" />
+  <input type="file" name="profiles" multiple/>
+  <button type="submit">upload</button>
+</form>
+```
++ 단일, 복수 파일을 받는 file input 을 설정한다.
+
+``` javascript
+const cbUpload = upload.fields([
+  { name: "profile", maxCount: 1 },
+  { name: "profiles", maxCount: 3 },
+]);
+app.post('/cool-upload', cbUpload, (req, res, next) => {
+   console.log(req.files);
+  res.send("upload success");
+});
+```
