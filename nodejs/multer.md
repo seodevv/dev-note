@@ -33,7 +33,7 @@ const storage = multer.diskStorage({
 
 ``` javascript
 const upload = multer({
-  storage: storage, // 파일이 저장될 위치
+  storage: storage,
   fileFilter: (req, file, callback) => {
     if(!['.png','.jpg','.jpeg'].includes(ext)){
       callback(new Error("Please upload image file(png, jpg, jpeg)"), false);
