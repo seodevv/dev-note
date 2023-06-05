@@ -1,6 +1,7 @@
 # import
 const path = require('path');
 import path from "path";
+---
 
 
 # Usage
@@ -19,7 +20,7 @@ app.get("/path", (req, res) => {
 C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
 ```
 
-
+---
 ### path.resolve(path, relative path, file)
 + cd 명령어를 연속으로 실행하는 것처럼 작동을 한다.
 + 항상 절대 경로를 반환한다.
@@ -34,7 +35,7 @@ app.get("/resolve", (req, res) => {
 C:\Users\black\Documents\Seodev\develope\nodejs\mysql\data\data.json
 ```
 
-
+---
 ### path.dirname(filePath)
 + 디렉토리 이름을 반환해준다.
 ``` javascript
