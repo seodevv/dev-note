@@ -9,7 +9,8 @@ const fs = require('fs');
 ---
 ## Usage
 ### fs.readFileSync( path [, option : BufferEncoding] )
-+ 
++ 해당 파일을 불러온다.
++ 2번째 인자로 불러올 캐릭터셋을 지정한다.
 ``` javascript
 app.get("/readFileSync", (req, res) => {
   var file = fs.readFileSync(__dirname + "/data/data.json", "utf-8"); // readFileSync 함수를 통해 파일을 불러온다.
