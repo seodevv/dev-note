@@ -4,8 +4,11 @@
 ``` javascript
 npm i -D multer
 ```
+---
+
 
 ### usage
+#### single
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
   <input type="text" name="title" />
@@ -23,8 +26,8 @@ const express = require('express');
 const app = express();
 
 const multer = require('multer');
-const upload = multer({
-    dest: 'uploads/'
+const storage = multer.diskStorage({
+  
 });
 
 app.post('/profile', upload.single('avatar'), function (req, res, next) {
