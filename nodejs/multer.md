@@ -84,9 +84,9 @@ app.post('/upload', upload.single('profile'), (req, res, next) => {
   originalname: '4YDYWEL.jpg',
   encoding: '7bit',
   mimetype: 'image/jpeg',
-  destination: 'C:\\Users\\black\\Documents\\Seodev\\develope\\react\\zerocho\\server\\public\\products',      
+  destination: 'C:\\Users\\black\\Documents\\develope\\server\\public\\products',      
   filename: '4YDYWEL.jpg',
-  path: 'C:\\Users\\black\\Documents\\Seodev\\develope\\react\\zerocho\\server\\public\\products\\4YDYWEL.jpg',
+  path: 'C:\\Users\\black\\Documents\\develope\\server\\public\\products\\4YDYWEL.jpg',
   size: 11140
 } 
 ```
@@ -109,3 +109,31 @@ app.post('/uploads', upload.array('profiles'), (req, res, next) => {
   res.send('upload success');
 });
 ```
++ /uploads 에 여러 파일 업로드 요청이 들어올 경우
++ upload.array 함수가 실행되어 업로드가 진행된다.
++ upload.array 는 인수로 file input 의 name 을 받는다.
+``` javascript
+ [
+  {
+    fieldname: 'profiles',
+    originalname: '4YDYWEL.jpg',
+    encoding: '7bit',
+    mimetype: 'image/jpeg',
+    destination: 'C:\\Users\\black\\Documents\\develope\\server\\public\\products',
+    filename: '4YDYWEL.jpg',
+    path: 'C:\\Users\\black\\Documents\\develope\\server\\public\\products\\4YDYWEL.jpg',
+    size: 11140
+  },
+  {
+    fieldname: 'profiles',
+    originalname: 'DBhxaXb.jpg',
+    encoding: '7bit',
+    mimetype: 'image/jpeg',
+    destination: 'C:\\Users\\black\\Documents\\develope\\server\\public\\products',
+    filename: 'DBhxaXb.jpg',
+    path: 'C:\\Users\\black\\Documents\\develope\\server\\public\\products\\DBhxaXb.jpg',
+    size: 204881
+  }
+] 
+```
++ 여러 파일의 경우 req.files 에 배열 형태로 저장된다.
