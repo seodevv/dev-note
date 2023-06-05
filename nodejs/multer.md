@@ -57,7 +57,7 @@ const upload = multer({
 
 ---
 #### 4) 파일 업로드
-#### 4-1) 단일 파일 업로드
+> 4-1) 단일 파일 업로드
 ``` html
 <form action="http://localhost:8081/upload" method="post" encType="multipart/form-data">
   <input type="text" name="category" />
@@ -94,12 +94,18 @@ app.post('/upload', upload.single('profile'), (req, res, next) => {
 
 
 ---
+> 4-2) 여러 파일 업로드
 ``` html
-<form action="http://localhost:8081/uploas" method="post" encType="multipart/form-data">
+<form action="http://localhost:8081/uploads" method="post" encType="multipart/form-data">
   <input type="text" name="category" />
-  <input type="file" name="profile" multiple/>
+  <input type="file" name="profiles" multiple/>
   <button type="submit">upload</button>
 </form>
 ```
-+ 여러 파일을 업로드하는 form 을 만든다.
-+ 이 때, form 의 encType은 마찬가지로 multipart/form-data 로 설정해준다.
++ 여러 파일을 받기 위해 multiple 설정을 해준다.
+`` javascript
+app.post('/uploads', upload.array('profiles'), (req, res, next) => {
+  console.log(req.files);
+  res.send('upload success');
+});
+```
