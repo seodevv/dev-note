@@ -6,9 +6,9 @@ npm i -D multer
 ```
 ---
 
-
-### usage
-#### single
+## Usage
+### Single
++ 단일 파일 업로드
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
   <input type="text" name="title" />
@@ -16,7 +16,7 @@ npm i -D multer
   <button type="submit">upload</button>
 </form>
 ```
-+ file 을 업로드하는 form 을 만든다.
++ 단일 파일을 업로드하는 form 을 만든다.
 + 이 때, form 의 encType은 multipart/form-data 로 설정해준다.
 ---
 
