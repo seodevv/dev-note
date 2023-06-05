@@ -15,6 +15,7 @@ npm i -D multer
 ```
 + file 을 업로드하는 form 을 만든다.
 + 이 때, form 의 encType은 multipart/form-data 로 설정해준다.
+---
 
 
 ``` javascript
