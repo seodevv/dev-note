@@ -7,7 +7,6 @@ npm i -D multer
 ---
 
 ### Usage : Single
-> 단일 파일을 업로드
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
   <input type="text" name="title" />
@@ -31,11 +30,16 @@ const storage = multer.diskStorage({
     callback(null, upload_path);
   },
   filename: (req, file, callback) => {
-    callback(null, file.originalname);
+    callback(null, file.originalname + "_" + Data.now());
 });
-  
+```
++ multer.diskStorage 를 사용해 파일이 저장될 곳을 지정한다.
+  + destination : 파일을 저장할 위치
+  + filename : 저장할 파일명
+
+``` javascript
 const upload = multer({
-  storage: storage,
+  storage: storage, // 파일이 저장될 위치
   fileFilter: (req, file, callback) => {
     if(!['.png','.jpg','.jpeg'].includes(ext)){
       callback(new Error("Please upload image file(png, jpg, jpeg)"), false);
@@ -46,3 +50,4 @@ const upload = multer({
     fileSize: 1024 * 1024 * 10,
   },
 });
+```
