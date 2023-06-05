@@ -1,30 +1,38 @@
+### basic
 ``` javascript
 npm init -y
 
 npm install express
 npm install nodemon
 npm install dotenv
+``` 
 
-// mongodb
-npm install mongodb
+### include db
+```
+npm install mongodb // mongodb
+npm install mysql // mysql
+npm install mysql2 // mysql promise
+```
 
-// mysql
-npm install mysql
-// mysql promise
-npm install mysql2
-
-// passport
+### if passport
+``` javascript
 npm install passport passport-local passport-kakao express-session
+``` 
 
-// image file upload
-npm install multer
+### if multer
+``` 
+npm install multer // image file upload
+```
 
-// cookie
+### if use cookie
+```
 npm install cookie-parser
+```
 
-// optional
-npm install ejs
-npm install typescript ts-node @types/node @types/express
+### optional
+``` javascript
+npm install ejs // views
+npm install typescript ts-node @types/node @types/express // typescript
 ```
 
 ### template
