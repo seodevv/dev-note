@@ -7,7 +7,7 @@ npm i -D multer
 ---
 
 ### Usage : Single
-+ 단일 파일 업로드
+> 단일 파일을 업로드
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
   <input type="text" name="title" />
@@ -26,27 +26,23 @@ const app = express();
 
 const multer = require('multer');
 const storage = multer.diskStorage({
-  
+  destination: (req, file, callback) => {
+    const upload_path = path.join(__dirname, process.env.PUBLIC_URL, req.body.category);
+    callback(null, upload_path);
+  },
+  filename: (req, file, callback) => {
+    callback(null, file.originalname);
 });
-
-app.post('/profile', upload.single('avatar'), function (req, res, next) {
-  console.log(req.file) // req.file 은 `avatar` 라는 필드의 파일 정보입니다.
-  console.log(req.body) // 텍스트 필드가 있는 경우, req.body가 이를 포함할 것입니다.
-})
-
-app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
-  // req.files 는 `photos` 라는 파일정보를 배열로 가지고 있습니다.
-  // 텍스트 필드가 있는 경우, req.body가 이를 포함할 것입니다.
-})
-
-const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
-app.post('/cool-profile', cpUpload, function (req, res, next) {
-  // req.files는 (String -> Array) 형태의 객체 입니다.
-  // 필드명은 객체의 key에, 파일 정보는 배열로 value에 저장됩니다.
-  //
-  // e.g.
-  //  req.files['avatar'][0] -> File
-  //  req.files['gallery'] -> Array
-  //
-  // 텍스트 필드가 있는 경우, req.body가 이를 포함할 것입니다.
-})
+  
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, callback) => {
+    if(!['.png','.jpg','.jpeg'].includes(ext)){
+      callback(new Error("Please upload image file(png, jpg, jpeg)"), false);
+    }
+  callback(null, true);
+  },
+  limits: {
+    fileSize: 1024 * 1024 * 10,
+  },
+});
