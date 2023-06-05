@@ -52,6 +52,7 @@ const upload = multer({
   + preserverPath : 파일의 base name 대신 보존할 파일의 전체 경로
 
 
+---
 ``` html
 <form action="http://localhost:8081/upload" method="post" encType="multipart/form-data">
   <input type="text" name="category" />
@@ -61,7 +62,6 @@ const upload = multer({
 ```
 + 단일 파일을 업로드하는 form 을 만든다.
 + 이 때, form 의 encType은 multipart/form-data 로 설정해준다.
----
 
 
 ``` javascript
@@ -88,4 +88,13 @@ app.post('/upload', upload.single('profile'), (req, res, next) => {
 + file input 으로부터 받은 파일 정보는 req.file 에 저장된다.
 
 
-
+---
+``` html
+<form action="http://localhost:8081/uploas" method="post" encType="multipart/form-data">
+  <input type="text" name="category" />
+  <input type="file" name="profile" multiple/>
+  <button type="submit">upload</button>
+</form>
+```
++ 여러 파일을 업로드하는 form 을 만든다.
++ 이 때, form 의 encType은 마찬가지로 multipart/form-data 로 설정해준다.
