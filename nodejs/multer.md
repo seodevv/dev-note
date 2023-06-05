@@ -6,10 +6,10 @@ npm i -D multer
 ```
 ---
 
-### Usage : Single
+### Usage
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
-  <input type="text" name="title" />
+  <input type="text" name="category" />
   <input type="file" name="profile" />
   <button type="submit">upload</button>
 </form>
@@ -24,6 +24,11 @@ const express = require('express');
 const app = express();
 
 const multer = require('multer');
+```
++ multer 패키지를 import 한다.
+
+
+``` javascript
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     const upload_path = path.join(__dirname, process.env.PUBLIC_URL, req.body.category);
@@ -36,6 +41,7 @@ const storage = multer.diskStorage({
 + multer.diskStorage 를 사용해 파일이 저장될 곳을 지정한다.
   + destination : 파일을 저장할 위치
   + filename : 저장할 파일명
+
 
 ``` javascript
 const upload = multer({
