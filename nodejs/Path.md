@@ -1,6 +1,8 @@
 # import
+```
 const path = require('path');
 import path from "path";
+```
 ---
 
 
@@ -49,26 +51,36 @@ app.get("/dirname", (req, res) => {
 C:\Users\black\Documents\Seodev\develope\nodejs\mysql2/data
 ```
 
-
-# path.basename(filePath)
-// 파일 이름을 반환해준다.
-// 2번째 인자로 "." 을 포함한 확장자를 넘기면 순수 파일 이름만 반환한다.
+---
+### path.basename(filePath)
++ 파일 이름을 반환해준다.
++ 2번째 인자로 "." 을 포함한 확장자를 넘기면 순수 파일 이름만 반환한다.
+``` javascript
 app.get('/basename', (req, res) => {
   var base1 = path.basename(__dirname + 'data/data.json');
   var base2 = path.basename(__dirname + 'data/data.json', '.json');
   res.send([base1, base2]);
 });
-// res : ["data.json","data"]
+```
+> result
+```
+["data.json","data"]
+```
 
-
-# path.extname(filePath)
-// 파일 확장자명을 반환해준다. 
-// "." 을 포함한 확장자 명을 반환해준다.
+---
+### path.extname(filePath)
++ 파일 확장자명을 반환해준다. 
++ "." 을 포함한 확장자 명을 반환해준다.
+``` javascript
 app.get('/extname', (req, res) => {
   var ext = path.extname(__dirname + '/data/data.json');
   res.send(ext);
 });
-// res : .json
+```
+> result
+```
+.json
+```
 
 
 # path.isAbsolute(filePath)
