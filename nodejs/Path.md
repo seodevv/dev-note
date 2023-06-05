@@ -20,23 +20,33 @@ C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
 ```
 
 
-# path.resolve(path, relative path, file)
-// cd 명령어를 연속으로 실행하는 것처럼 작동을 한다.
-// 항상 절대 경로를 반환한다.
+### path.resolve(path, relative path, file)
++ cd 명령어를 연속으로 실행하는 것처럼 작동을 한다.
++ 항상 절대 경로를 반환한다.
+``` javascript
 app.get("/resolve", (req, res) => {
   var filePath = path.resolive(__dirname, "../mysql/data", "../data", "data.json");
   res.send(filePath); 
 });
-// res : C:\Users\black\Documents\Seodev\develope\nodejs\mysql\data\data.json
+```
+> result
+```
+C:\Users\black\Documents\Seodev\develope\nodejs\mysql\data\data.json
+```
 
 
-# path.dirname(filePath)
-// 디렉토리 이름을 반환해준다.
+### path.dirname(filePath)
++ 디렉토리 이름을 반환해준다.
+``` javascript
 app.get("/dirname", (req, res) => {
   var dir = path.dirname(__dirname + '/data/data.json');
   res.send(dir); 
 });
-// res : C:\Users\black\Documents\Seodev\develope\nodejs\mysql2/data
+```
+> result
+```
+C:\Users\black\Documents\Seodev\develope\nodejs\mysql2/data
+```
 
 
 # path.basename(filePath)
