@@ -6,8 +6,7 @@ npm i -D multer
 ```
 ---
 
-## Usage
-### Single
+### Usage : Single
 + 단일 파일 업로드
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
