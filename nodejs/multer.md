@@ -8,7 +8,9 @@ npm i -D multer
 ### usage
 ``` html
 <form action="http://localhost:8081/image/upload" method="post" encType="multipart/form-data">
-  
+  <input type="text" name="title" />
+  <input type="file" name="profile" />
+  <button type="submit">upload</button>
 </form>
 ```
 
