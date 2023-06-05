@@ -39,8 +39,8 @@ const storage = multer.diskStorage({
 });
 ```
 + multer.diskStorage 를 사용해 파일이 저장될 곳을 지정한다.
-  + destination : 파일을 저장할 위치
-  + filename : 저장할 파일명
+  + destination : 파일이 저장될 위치
+  + filename : 저장될 파일명
 
 
 ``` javascript
@@ -56,4 +56,29 @@ const upload = multer({
     fileSize: 1024 * 1024 * 10,
   },
 });
+```
++ multer 를 사용해 file 을 저장할 위치와 파일 필터링, 용량 제한 등을 설정한다.
+  + dest or storage : 파일이 저장될 위치
+  + fileFilter : 어떤 파일을 허용할 것인지 제어하는 함수
+  + limits : 업로드 된 데이터의 한도
+  + preserverPath : 파일의 base name 대신 보존할 파일의 전체 경로
+
+
+``` javascript
+app.post('/upload', upload.single('profile'), (req, res, next) => {
+  console.log(req.file);
+  res.send('upload success');
+});
+```
+``` json
+{
+  fieldname: 'profile',
+  originalname: '4YDYWEL.jpg',
+  encoding: '7bit',
+  mimetype: 'image/jpeg',
+  destination: 'C:\\Users\\black\\Documents\\Seodev\\develope\\react\\zerocho\\server\\public\\products',      
+  filename: '4YDYWEL.jpg',
+  path: 'C:\\Users\\black\\Documents\\Seodev\\develope\\react\\zerocho\\server\\public\\products\\4YDYWEL.jpg',
+  size: 11140
+} 
 ```
