@@ -14,8 +14,8 @@ app.get("/path", (req, res) => {
   res.send(filePath); 
 });
 ```
-result
-> C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
+> result
+>> C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
 
 
 # path.resolve(path, relative path, file)
