@@ -9,25 +9,31 @@ npm install dotenv
 
 ### include db
 ```
-npm install mongodb // mongodb
-npm install mysql // mysql
-npm install mysql2 // mysql promise
+npm install mongodb
+npm install mysql
+npm install mysql2
 ```
+    * mongodb : mongodb 를 사용하기 위한 패키지
+    * mysql : mysql 을 사용하기 위한 패키지
+    * mysql2 : mysql 을 promise 처럼 사용하기 위한 패키지
 
 ### if passport
 ``` javascript
 npm install passport passport-local passport-kakao express-session
 ``` 
+    * session 방식의 로그인 인증 방식을 구현하기 위한 패키지
 
 ### if multer
 ``` 
 npm install multer // image file upload
 ```
+    * 파일을 업로드하기 위한 패키지
 
 ### if use cookie
 ```
 npm install cookie-parser
 ```
+    * 쿠키를 관리하기 위한 패키지
 
 ### optional
 ``` javascript
