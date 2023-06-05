@@ -1,3 +1,4 @@
+```
 npm init -y
 
 npm install express
@@ -24,3 +25,4 @@ npm install cookie-parser
 // optional
 npm install ejs
 npm install typescript ts-node @types/node @types/express
+```
