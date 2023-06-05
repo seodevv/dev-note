@@ -4,15 +4,18 @@ import path from "path";
 
 
 # Usage
-# path.join(directory, file)
-// 여러 개의 문자열을 통해 경로를 반환해준다.
+### path.join(directory, file)
++ 여러 개의 문자열을 통해 경로를 반환해준다.
+``` javascript
 app.get("/path", (req, res) => {
   var dir = "data";
   var file = "data.json";
   var filePath = path.join(__dirname, dir, file);
   res.send(filePath); 
 });
-// res : C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
+```
+result
+> C:\Users\black\Documents\Seodev\develope\nodejs\mysql2\data\data.json
 
 
 # path.resolve(path, relative path, file)
