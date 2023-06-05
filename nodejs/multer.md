@@ -7,6 +7,7 @@ npm i -D multer
 ---
 
 ### Usage
+#### import library
 ``` javascript
 const express = require('express');
 const app = express();
@@ -16,6 +17,7 @@ const multer = require('multer');
 + multer 패키지를 import 한다.
 
 
+#### storage setting
 ``` javascript
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
@@ -31,6 +33,7 @@ const storage = multer.diskStorage({
   + filename : 저장될 파일명
 
 
+#### multer setting
 ``` javascript
 const upload = multer({
   storage: storage,
@@ -53,6 +56,7 @@ const upload = multer({
 
 
 ---
+### 단일 파일 업로드
 ``` html
 <form action="http://localhost:8081/upload" method="post" encType="multipart/form-data">
   <input type="text" name="category" />
