@@ -173,3 +173,19 @@ app.post('/cool-upload', cbUpload, (req, res, next) => {
 + /cool-upload 에 파일 업로드 요청이 들어올 경우 upload.fields 함수가 실행된다.
 + upload.fields 함수의 인자는 file input 의 파일 객체가 배열 형태로 담긴다.
 + 만약 업로드된 파일의 수가 maxCount 가 넘을 경우 error 가 발생한다.
+
+
+### Error handling
+``` javascript
+const upload = multer().single('profile');
+
+app.post('/profile', (req, res, next) => {
+   upload(req, res, (error) => {
+      if(error){
+         // 업로드할 때 오류가 발생할 경우의 처리
+        return;
+      }
+     // 정상적인 처리
+   });
+});
+```
