@@ -4,7 +4,7 @@ import path from "path";
 
 
 # Usage
-### <mark>path.join(directory, file)</mark>
+### __path.join(directory, file)__
 + 여러 개의 문자열을 통해 경로를 반환해준다.
 ``` javascript
 app.get("/path", (req, res) => {
