@@ -1,7 +1,7 @@
 # Response Object
 
 ---
-### <span style="background: yellow">res.status(code)</span>
+### res.status(code)
 + HTTP 응답 코드를 설정한다. 응답 코드가 redirect(30x)라면 res.redirect 를 쓰는 것이 낫다.
 ``` javascript
 app.get('/status', (req, res) => {
