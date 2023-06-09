@@ -1,9 +1,13 @@
-res.status(code)
-// HTTP 응답 코드를 설정한다. 응답 코드가 redirect(30x)라면 res.redirect 를 쓰는 것이 낫다.
+# Response Object
+
+### res.status(code)
++ HTTP 응답 코드를 설정한다. 응답 코드가 redirect(30x)라면 res.redirect 를 쓰는 것이 낫다.
+``` javascript
 app.get('/status', (req, res) => {
   res.status(200); // 응답 코드를 200으로 설정한다.
   res.json({ message: res.statusCode }); // 설정된 응답 코드를 응답한다.
 });
+```
 
 
 res.set(name, value)
