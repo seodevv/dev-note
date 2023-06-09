@@ -20,10 +20,10 @@ app.get('/set', (req, res) => {
   res.json({ message: 'header set' });
 });
 ```
-+ Response Header 정보
-...
+> Response Header 정보
+```
 setHeader: header is setted
-...
+```
 
 
 ---
@@ -118,7 +118,8 @@ app.get("/sendFile", (req, res) => {
   });
 });
 ```
-> res : 
+> res
+```
 {
   "user": [
     { "name": "kim", "age": 30 },
@@ -126,6 +127,7 @@ app.get("/sendFile", (req, res) => {
     { "name": "park", "age": 32 }
   ]
 }
+```
 
 
 ---
@@ -138,8 +140,10 @@ app.get('/links', (req, res) => {
   res.send('links');
 });
 ```
-+ header.Link = </>; rel="0", <e>; rel="1", <x>; rel="2", <a>; rel="3", <m>; rel="4", <p>; rel="5", <l>; rel="6", <e>; rel="7"
-
+> header.Link : 
+```
+header.Link = </>; rel="0", <e>; rel="1", <x>; rel="2", <a>; rel="3", <m>; rel="4", <p>; rel="5", <l>; rel="6", <e>; rel="7"
+```
 
 ---
 ### res.render
