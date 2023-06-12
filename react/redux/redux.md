@@ -2,7 +2,7 @@
 ```
 npm i redux
 ```
-* 보통 react 와 함께 쓰이긴 하나 여기에선 단일 redux 만을 소개한다.
+* 보통 react 와 함께 쓰이긴 하나 여기에선 studey 의 목적으로 단일 redux 만을 소개한다.
 ```
 {
   "name": "redux",
@@ -40,4 +40,34 @@ const initialState = {
 }
 ```
 
-## 
+## reducer
++ action 에 따라 state 를 조작할 reducer 를 작성해준다.
++ reducer 는 항상 불변성을 지켜주어야 하므로 shallow copy 를 통해 항상 새로운 객체를 반환해준다.
+  * spread syntax 를 주로 사용하며, 이것이 불편할 경우 immer library 를 사용하면 된다.
++ 실수를 방지하기 위해 꼭 default 를 설정해주는 것이 좋다. 
+``` javascript
+const reducer = (state, action) => {
+  switch(action.type){
+    case 'LOG_IN':{
+      const { id, name, admin } = action.payload;
+      return { ...state, user: { id, name, admin, isLoggedIn: true } };
+    }
+    case 'LOG_OUT':{
+      return { ...state, user: null };
+    }
+    case 'ADD_POST':{
+      const { userId, title, content } = action.payload;
+      let nextId;
+      if(state.posts.length === 0){
+        nextId = 0;
+      } else {
+        nextId = Math.max(...state.posts.map(v => v.id)) + 1;
+      }
+      return { ...state , posts: [...state.posts, {id: nextId, userId, title, content} ] };
+    }
+    default:{
+      return { ...state };
+    }
+  }
+};
+```
