@@ -1,4 +1,3 @@
----
 # redux
 * state 를 global 하게 관리하기 위하여 나온 JS Library 이다.
 * react 를 사용하다보면 state 를 props 로 여러 하위 컴포넌트를 거쳐 설정해주어야 하는 상황이 생기는데
@@ -123,6 +122,7 @@ store.dispatch({
 console.log("Action(LOG_OUT):", store.getState());
 ```
 > console
+```
 Action(LOG_IN): {
     "user": {
         "id": 0,
@@ -160,3 +160,4 @@ Action(LOG_OUT): {
     ],
     "isLoggedIn": false
 }
+```
