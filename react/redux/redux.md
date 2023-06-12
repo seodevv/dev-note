@@ -2,6 +2,25 @@
 ```
 npm i redux
 ```
+* 보통 react 와 함께 쓰이긴 하나 여기에선 단일 redux 만을 소개한다.
+```
+{
+  "name": "redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --env development"
+  },
+  "author": "seodev",
+  "license": "ISC",
+  "dependencies": {
+    "redux": "^4.2.1"
+  }
+}
+
+
+```
 
 
 ## data flow
