@@ -1,4 +1,8 @@
 # redux
+* state 를 global 하게 관리하기 위하여 나온 JS Library 이다.
+* react 를 사용하다보면 state 를 props 로 여러 하위 컴포넌트를 거쳐 설정해주어야 하는 상황이 생기는데
+* 다양한 성능 저하를 발생시키게 된다. (특히 렌더링 부분에서)
+* 이를 global 하게 state 를 제공하여 각각 컴포넌트에 state 를 제공해주는 것이 바로 redux 이다.
 ```
 npm i redux
 ```
@@ -72,4 +76,12 @@ const reducer = (state, action) => {
     }
   }
 };
+```
+
+
+## createStore
++ 앞서 생성한 initialState, reducer 를 통해 store 를 생성해준다.
++ 생성한 store 는 react 에서 Provider 태그와 함께 컴포넌트에 state 를 제공해 줄 수 있다.
+``` javascript
+
 ```
