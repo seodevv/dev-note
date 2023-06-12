@@ -35,8 +35,9 @@ npm i redux
 + reducer 가 분리될 경우 각각의 reducer 마다 initialState 를 지정해주어야 한다.
 ``` javascript
 const initialState = {
-  user: [],
+  user: null,
   posts: [],
+  isLoggedIn: false,
 }
 ```
 
@@ -50,10 +51,10 @@ const reducer = (state, action) => {
   switch(action.type){
     case 'LOG_IN':{
       const { id, name, admin } = action.payload;
-      return { ...state, user: { id, name, admin, isLoggedIn: true } };
+      return { ...state, user: { id, name, admin }, isLoggedIn: true };
     }
     case 'LOG_OUT':{
-      return { ...state, user: null };
+      return { ...state, user: null, isLoggedIn: false };
     }
     case 'ADD_POST':{
       const { userId, title, content } = action.payload;
