@@ -308,10 +308,14 @@ module.exports = store;
 
 + createStore 를 정의해줄 때 3번째 인자로 enhancer 를 담는다.
 + enhancer 는 compose, applyMiddleware 등의 함수로 이루어진다.
-+ compose 는 middleware 가 여러 개 일때, 합쳐주는 함수이고, applyMiddleware 함수는 하나의 미들웨어를 설정할 수 있다.
++ compose 는 middleware 가 여러 개 일때 합쳐주는 함수이고, 
++ applyMiddleware 함수로 하나의 미들웨어를 설정할 수 있다.
 + applyMiddleware 인수는 고차 함수로 생성한다.
-  + store: 리덕스 스토어 인스턴스이다. dispatch, getState, subscribe 등의 내장 함수들을 갖는다.
-  + next: action 을 다음 미들웨어에게 전달하는 함수이다. next(action) 이런 형태로 사용된다. (만약, 다음 미들웨어가 없다면 reducer 에게 액션을 전달해준다.)
+  + store: 리덕스 스토어 인스턴스이다. 
+    + dispatch, getState, subscribe 등의 내장 함수들을 갖는다.
+  + next: action 을 다음 미들웨어에게 전달하는 함수이다. 
+    + next(action) 이런 형태로 사용된다. 
+    + (만약, 다음 미들웨어가 없다면 reducer 에게 액션을 전달해준다.)
   + action: 현재 처리하고 있는 action 객체이다.
 ``` javascript
 const { createStore, compose, applyMiddleware } = require("redux");
