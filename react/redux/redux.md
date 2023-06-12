@@ -90,12 +90,28 @@ const store = createStore(reducer, initialState);
 ## dispatch
 + store 의 내장 함수 중 하나로, action을 인수로 담아 reducer를 실행시키는 함수이다
 ``` javascript
-store.dispatch({type: 'LOG_IN', payload: {id: 0, name: 'seodev', admin: true}});
+store.dispatch({
+  type: 'ADD_POST', 
+  payload: { 
+    id: 0, 
+    name: 'seodev', 
+    admin: true,
+  }
+});
 console.log("Action(LOG_IN):", store.getState());
 
-store.dispatch({type: 'ADD_POST', payload: {userId: 0, title: 'Learning Redux', 'Hello, Redux ?'}});
+store.dispatch({
+  type: 'ADD_POST', 
+  payload: { 
+    userId: 0, 
+    title: 'Learning Redux', 
+    content: 'Hello, Redux ?'
+  }
+});
 console.log("Action(ADD_POST):", store.getState());
 
-store.dispatch({type: 'LOG_OUT'});
+store.dispatch({
+  type: 'LOG_OUT'
+});
 console.log("Action(LOG_OUT):", store.getState());
 ```
