@@ -304,4 +304,4 @@ module.exports = store;
 + action 이 dispatch 되기 전에 실행시키는 함수이다.
 + 주로 ajax 등의 ajax, logging, action cancle 등이 middleware 로 작성된다.
 <p align="center"><img src="./middleware.jpg" width="75%"></p>
-<span align="center">copyright: https://react.vlpt.us/redux-middleware/02-make-middleware.html</span>
+<p align="center">copyright: https://react.vlpt.us/redux-middleware/02-make-middleware.html</p>
