@@ -83,5 +83,5 @@ const reducer = (state, action) => {
 + 앞서 생성한 initialState, reducer 를 통해 store 를 생성해준다.
 + 생성한 store 는 react 에서 Provider 태그와 함께 컴포넌트에 state 를 제공해 줄 수 있다.
 ``` javascript
-
+const store = createStore(reducer, initialState);
 ```
