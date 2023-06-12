@@ -6,7 +6,7 @@ npm i redux
 
 ## data flow
 <img src="./redux_dataFlow.gif" width="50%"/>
-1. IntialState와 actions
+1 IntialState와 actions
 
 
 ## initialState
