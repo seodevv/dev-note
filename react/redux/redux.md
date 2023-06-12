@@ -337,7 +337,9 @@ const firstMiddleware = (store) => (next) => (action) => {
   console.log("store", store);
   console.log("next", next);
   console.log("action", action);
+  // execute before dispatch
   next(action);
+  // execute after dispatch
 };
 const enhancer = compose(
   applyMiddleware(firstMiddleware)
