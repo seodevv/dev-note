@@ -167,6 +167,7 @@ Action(LOG_OUT): {
 ## subscribe
 + subscribe 또한 store 의 내장 함수 중 하나이다.
 + 함수를 인수로 가지며, action 이 dispatch 될 때마다 전달해준 함수가 호출된다.
++ react-redux 라는 Library 에서 connect, useSelector Hook 를 사용하기 때문에 보통 사용하지 않음
 ``` javascript
 store.subscribe(() => {
   console.log('changed');
