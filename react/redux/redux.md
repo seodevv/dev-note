@@ -123,7 +123,6 @@ store.dispatch({
 console.log("Action(LOG_OUT):", store.getState());
 ```
 > console
-```
 Action(LOG_IN): {
     "user": {
         "id": 0,
@@ -161,4 +160,3 @@ Action(LOG_OUT): {
     ],
     "isLoggedIn": false
 }
-```
