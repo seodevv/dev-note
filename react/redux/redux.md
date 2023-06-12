@@ -28,7 +28,7 @@ npm i redux
 
 ---
 ## data flow
-<img src="./redux_dataFlow.gif" width="50%">
+<p align="center"><img src="./redux_dataFlow.gif" width="75%"></p>
 
 1. UI 에서 Event 가 발생하고, Dispatch 를 통해 action / thunk 가 store 에 전달된다.
 2. Middleware 가 설정되있을 경우(thunk), dispatch 가 처리되기 전에 Middleware 를 처리한다. (위 사진에서는 서버와의 api 비동기 통신)
@@ -303,5 +303,5 @@ module.exports = store;
 ## middleware
 + action 이 dispatch 되기 전에 실행시키는 함수이다.
 + 주로 ajax 등의 ajax, logging, action cancle 등이 middleware 로 작성된다.
-<img src="./middleware.jpg" width="50%">
-
+<p align="center"><img src="./middleware.jpg" width="75%"></p>
+* copyright: https://react.vlpt.us/redux-middleware/02-make-middleware.html
