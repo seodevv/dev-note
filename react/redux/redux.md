@@ -188,3 +188,21 @@ console.log("Action(LOG_IN):", store.getState());
 changed
 Action(LOG_IN): {user: {…}, posts: Array(0)}
 ```
+
+
+---
+## combineReducers
++ action 들이 많아져 reducer 가 커지는 경우 reducer 를 분리해줄 수 있다.
++ 이 때, 분리된 reducer 들을 하나의 reducer 로 합쳐주는 함수가 combineReducers 이다.
+> 폴더 구조
+```
+└ app
+  └ store.js
+└ reducers
+  └ index.js
+  └ user.js
+  └ posts.js
+```
+### 
+``` javascript
+```
