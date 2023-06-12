@@ -207,6 +207,7 @@ Action(LOG_IN): {user: {…}, posts: Array(0)}
 ```
 
 > reducers/posts.js 
++ postsReducer 를 생성하여 export 한다.
 ``` javascript
 const initialState = [];
 
@@ -230,9 +231,10 @@ const postsReducer = (state = initialState, action) => {
 
 module.exports = postsReducer;
 ```
-+ postsReducer 를 생성하여 export 한다.
+
 
 > reducers/user.js
++ userReducer 를 생성하여 export 한다.
 ``` javascript
 const initialState = {
   isLoggedIn: false,
@@ -256,9 +258,10 @@ const userReducer = (state = initialState, action) => {
 
 module.exports = userReducer;
 ```
-+ userReducer 를 생성하여 export 한다.
+
 
 > reducers/index.js
+* combineReducers 를 통해 postsReducer, userReducer 들을 합친 후 export 한다.
 ``` javascript
 const { combineReducers } = require("redux");
 const userReducer = require("./user");
@@ -269,9 +272,10 @@ module.exports = combineReducers({
   posts: postsReducer,
 });
 ```
-* combineReducers 를 통해 postsReducer, userReducer 들을 합친 후 export 한다.
+
 
 > app/store.js
+* combineReudcers 로 합친 reducer 를 통해 store 를 생성한다.
 ``` javascript
 const { createStore } = require("redux");
 const reducer = require("../reducers");
@@ -293,3 +297,7 @@ const store = createStore(reducer, initialState);
 
 module.exports = store;
 ```
+
+
+---
+## middleware
