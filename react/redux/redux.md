@@ -161,3 +161,29 @@ Action(LOG_OUT): {
     "isLoggedIn": false
 }
 ```
+
+
+---
+## subscribe
++ subscribe 또한 store 의 내장 함수 중 하나이다.
++ 함수를 인수로 가지며, action 이 dispatch 될 때마다 전달해준 함수가 호출된다.
+``` javascript
+store.subscribe(() => {
+  console.log('changed');
+});
+
+store.dispatch({
+  type: "LOG_IN",
+  payload: {
+    id: 0,
+    name: "seodev",
+    admin: true,
+  },
+});
+console.log("Action(LOG_IN):", store.getState());
+```
+> console
+``` javascript
+changed
+Action(LOG_IN): {user: {…}, posts: Array(0)}
+```
