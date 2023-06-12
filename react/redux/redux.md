@@ -5,7 +5,8 @@ npm i redux
 
 
 ## data flow
-<p align="center"><img src="./redux_dataFlow.gif" width="50%"/></p>
+<img src="./redux_dataFlow.gif" width="50%"/>
++ 
 
 
 ## initialState
