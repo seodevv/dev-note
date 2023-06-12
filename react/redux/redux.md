@@ -6,10 +6,10 @@ npm i redux
 
 ## data flow
 <img src="./redux_dataFlow.gif" width="50%"/>
-1. UI 에서 Event 가 발생하고, Dispatch 를 통해 action / thunk 가 store 에 전달된다.
-2. Middleware 가 설정되있을 경우(thunk), dispatch 가 처리되기 전에 Middleware 를 처리한다. (위 사진에서는 서버와의 api 비동기 통신)
-3. dispatch 에 담긴 action 이 정의된 reducer 를 통해 state 가 조작된 후 새로운 state 를 반환한다.
-4. 새로이 반환된 state 를 통해 UI 를 re-rendering 한다.
+* UI 에서 Event 가 발생하고, Dispatch 를 통해 action / thunk 가 store 에 전달된다.
+* Middleware 가 설정되있을 경우(thunk), dispatch 가 처리되기 전에 Middleware 를 처리한다. (위 사진에서는 서버와의 api 비동기 통신)
+* dispatch 에 담긴 action 이 정의된 reducer 를 통해 state 가 조작된 후 새로운 state 를 반환한다.
+* 새로이 반환된 state 를 통해 UI 를 re-rendering 한다.
 
 
 ## initialState
