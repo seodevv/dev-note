@@ -4,5 +4,5 @@ npm i redux react-redux
 ```
 
 
-### data flow
-<img src="./redux_dataFlow.gif" width="50%"/>
+## data flow
+<p align="center"><img src="./redux_dataFlow.gif" width="50%"/></p>
