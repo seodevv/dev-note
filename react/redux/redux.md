@@ -305,3 +305,55 @@ module.exports = store;
 + 주로 ajax 등의 ajax, logging, action cancle 등이 middleware 로 작성된다.
 <p align="center"><img src="./middleware.jpg" width="75%"></p>
 <p align="center">copyright: https://react.vlpt.us/redux-middleware/02-make-middleware.html</p>
+
++ createStore 를 정의해줄 때 3번째 인자로 enhancer 를 담는다.
++ enhancer 는 compose, applyMiddleware 등의 함수로 이루어진다.
++ compose 는 middleware 가 여러 개 일때, 합쳐주는 함수이고, applyMiddleware 함수는 하나의 미들웨어를 설정할 수 있다.
++ applyMiddleware 인수는 고차 함수로 생성한다.
+  + store: 리덕스 스토어 인스턴스이다. dispatch, getState, subscribe 등의 내장 함수들을 갖는다.
+  + next: action 을 다음 미들웨어에게 전달하는 함수이다. next(action) 이런 형태로 사용된다. (만약, 다음 미들웨어가 없다면 reducer 에게 액션을 전달해준다.)
+  + action: 현재 처리하고 있는 action 객체이다.
+``` javascript
+const { createStore, compose, applyMiddleware } = require("redux");
+const reducer = require("../reducers");
+
+const initialState = {
+  user: {
+    isLoggedIn: false,
+    data: null,
+  },
+  posts: [],
+  comments: [],
+  favorites: [],
+  history: [],
+  likes: [],
+  followers: [],
+};
+
+const defaultMiddleware = (store) => (next) => (action) => {
+  next(action);
+};
+const firstMiddleware = (store) => (next) => (action) => {
+  console.log("store", store);
+  console.log("next", next);
+  console.log("action", action);
+  next(action);
+};
+const enhancer = compose(
+  applyMiddleware(firstMiddleware)
+);
+
+const store = createStore(reducer, initialState, enhancer);
+
+module.exports = store;
+```
+* 작성된 defaultMiddleware 고차 함수는 dispatch 의 기본 동작과 동일하다.
+* applyMiddleware(firstMiddleware) 를 설정했으므로 dispatch 가 되기 전 firstMiddleware 가 실행된다.
+> console
+``` javascript
+store   {getState: ƒ, dispatch: ƒ}
+next    ƒ dispatch(action) {
+          if (!isPlainObject(action)) {
+            throw new Error( false ? 0 : "Actions must be plain objects. Instead, the actual type was: '" + kindOf(action) + "'. You may need to add mid…
+action  {type: 'LOG_IN', payload: {…}}
+```
