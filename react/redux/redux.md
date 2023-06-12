@@ -206,9 +206,10 @@ Action(LOG_IN): {user: {…}, posts: Array(0)}
 └ 
 ```
 
-### reducers/posts.js 
+> reducers/posts.js 
 ``` javascript
 const initialState = [];
+
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_POST": {
@@ -226,16 +227,18 @@ const postsReducer = (state = initialState, action) => {
     }
   }
 };
+
 module.exports = postsReducer;
 ```
 + postsReducer 를 생성하여 export 한다.
 
-### reducers/user.js
+> reducers/user.js
 ``` javascript
 const initialState = {
   isLoggedIn: false,
   data: null,
 };
+
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LOG_IN": {
@@ -250,11 +253,12 @@ const userReducer = (state = initialState, action) => {
     }
   }
 };
+
 module.exports = userReducer;
 ```
 + userReducer 를 생성하여 export 한다.
 
-### reducers/index.js
+> reducers/index.js
 ``` javascript
 const { combineReducers } = require("redux");
 const userReducer = require("./user");
@@ -267,4 +271,25 @@ module.exports = combineReducers({
 ```
 * combineReducers 를 통해 postsReducer, userReducer 들을 합친 후 export 한다.
 
-### 
+> app/store.js
+``` javascript
+const { createStore } = require("redux");
+const reducer = require("../reducers");
+
+const initialState = {
+  user: {
+    isLoggedIn: false,
+    data: null,
+  },
+  posts: [],
+  comments: [],
+  favorites: [],
+  history: [],
+  likes: [],
+  followers: [],
+};
+
+const store = createStore(reducer, initialState);
+
+module.exports = store;
+```
