@@ -8,7 +8,7 @@ npm i redux
 ```
 * 보통 react 와 함께 쓰이긴 하나 여기에선 studey 의 목적으로 단일 redux 만을 소개한다.
 > package.json
-```
+``` javascript
 {
   "name": "redux",
   "version": "1.0.0",
@@ -122,7 +122,7 @@ store.dispatch({
 console.log("Action(LOG_OUT):", store.getState());
 ```
 > console
-```
+``` javascript
 Action(LOG_IN): {
     "user": {
         "id": 0,
