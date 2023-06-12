@@ -194,6 +194,7 @@ Action(LOG_IN): {user: {…}, posts: Array(0)}
 ## combineReducers
 + action 들이 많아져 reducer 가 커지는 경우 reducer 를 분리해줄 수 있다.
 + 이 때, 분리된 reducer 들을 하나의 reducer 로 합쳐주는 함수가 combineReducers 이다.
++ reducer 가 분리되기 때문에 분리된 reducer 는 각각의 initialState 를 초기화 해주어야 한다.
 > 폴더 구조
 ```
 └ app
@@ -202,7 +203,68 @@ Action(LOG_IN): {user: {…}, posts: Array(0)}
   └ index.js
   └ user.js
   └ posts.js
+└ 
 ```
-### 
+
+### reducers/posts.js 
 ``` javascript
+const initialState = [];
+const postsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "ADD_POST": {
+      const { userId, title, content } = action.payload;
+      let nextId;
+      if (state.length === 0) {
+        nextId = 0;
+      } else {
+        nextId = Math.max(...state.map((v) => v.id)) + 1;
+      }
+      return [...state, { id: nextId, userId, title, content }];
+    }
+    default: {
+      return [...state];
+    }
+  }
+};
+module.exports = postsReducer;
 ```
++ postsReducer 를 생성하여 export 한다.
+
+### reducers/user.js
+``` javascript
+const initialState = {
+  isLoggedIn: false,
+  data: null,
+};
+const userReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "LOG_IN": {
+      const { id, name, admin } = action.payload;
+      return { ...state, data: { id, name, admin }, isLoggedIn: true };
+    }
+    case "LOG_OUT": {
+      return { ...state, data: null, isLoggedIn: false };
+    }
+    default: {
+      return { ...state };
+    }
+  }
+};
+module.exports = userReducer;
+```
++ userReducer 를 생성하여 export 한다.
+
+### reducers/index.js
+``` javascript
+const { combineReducers } = require("redux");
+const userReducer = require("./user");
+const postsReducer = require("./posts");
+
+module.exports = combineReducers({
+  user: userReducer,
+  posts: postsReducer,
+});
+```
+* combineReducers 를 통해 postsReducer, userReducer 들을 합친 후 export 한다.
+
+### 
