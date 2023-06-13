@@ -370,17 +370,15 @@ const initialState = {
 
 const defaultMiddleware = (store) => (next) => (action) => {
   next(action);
-};
+}; // 수동으로 미들웨어를 작성할 수 있다.
 const firstMiddleware = (store) => (next) => (action) => {
   console.log("store", store);
-  console.log("next", next);
-  console.log("action", action);
   // execute before dispatch
   next(action);
   // execute after dispatch
 };
 const enhancer = compose(
-  applyMiddleware(firstMiddleware)
+  applyMiddleware(defaultMiddleware, firstMiddleware)
 );
 
 const store = createStore(rootReducer, initialState, enhancer);
