@@ -63,14 +63,14 @@ export const ADD_POST = 'ADD_POST';
 
 const reducer = (state, action) => {
   switch(action.type){
-    case 'LOG_IN':{
+    case LOG_IN:{
       const { id, name, admin } = action.payload;
       return { ...state, user: { id, name, admin }, isLoggedIn: true };
     }
-    case 'LOG_OUT':{
+    case LOG_OUT:{
       return { ...state, user: null, isLoggedIn: false };
     }
-    case 'ADD_POST':{
+    case ADD_POST:{
       const { userId, title, content } = action.payload;
       let nextId;
       if(state.posts.length === 0){
@@ -119,6 +119,7 @@ const store = createStore(reducer, initialState);
 ---
 ## dispatch
 + store 의 내장 함수 중 하나로, action을 인수로 담아 reducer를 실행시키는 함수이다
++ action creator 가 있느 경우 코드가 단순화된다.
 ``` javascript
 store.dispatch(logIn(0, 'seodev', true));
 console.log("Action(LOG_IN):", store.getState());
