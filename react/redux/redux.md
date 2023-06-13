@@ -148,7 +148,7 @@ console.log("Action(LOG_OUT):", store.getState());
 ```
 > console
 ``` javascript
-Action(LOG_IN): {
+> Action(LOG_IN): {
     "user": {
         "id": 0,
         "name": "seodev",
@@ -157,7 +157,7 @@ Action(LOG_IN): {
     "posts": [],
     "isLoggedIn": true
 }
-Action(ADD_POST): {
+> Action(ADD_POST): {
     "user": {
         "id": 0,
         "name": "seodev",
@@ -173,7 +173,7 @@ Action(ADD_POST): {
     ],
     "isLoggedIn": true
 }
-Action(LOG_OUT): {
+> Action(LOG_OUT): {
     "user": null,
     "posts": [
         {
@@ -211,8 +211,8 @@ console.log("Action(LOG_IN):", store.getState());
 ```
 > console
 ``` javascript
-changed
-Action(LOG_IN): {user: {…}, posts: Array(0)}
+> changed
+> Action(LOG_IN): {user: {…}, posts: Array(0)}
 ```
 
 
