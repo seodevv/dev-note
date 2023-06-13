@@ -435,4 +435,4 @@ console.log(dispatchResult);
 > Added a new todo:  Learn about actions
 ```
 > browser
-<p align="center"><img src="./redux-devtools.png" width="75%"></p>
+<p align="center"><img src="./redux-devtools.jpg" width="75%"></p>
