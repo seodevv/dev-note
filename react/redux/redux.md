@@ -434,3 +434,5 @@ console.log(dispatchResult);
 > dispatchResult {type: 'todos/todoAdded', payload: 'Learn about redux-devtools'}
 > Added a new todo:  Learn about actions
 ```
+> browser
+<p align="center"><img src="./redux-devtools.png" width="75%"></p>
