@@ -119,12 +119,12 @@ const store = createStore(reducer, initialState);
 ---
 ## dispatch
 + store 의 내장 함수 중 하나로, action을 인수로 담아 reducer를 실행시키는 함수이다
-+ action creator 가 있느 경우 코드가 단순화된다.
++ action creator 가 있는 경우 코드가 단순화된다.
 ``` javascript
-store.dispatch(logIn(0, 'seodev', true));
+store.dispatch(logIn(0, 'seodev', true)); // use action creator
 console.log("Action(LOG_IN):", store.getState());
 
-store.dispatch({
+store.dispatch({ // use anonyous action object
   type: "ADD_POST",
   payload: {
     userId: 0,
@@ -134,7 +134,7 @@ store.dispatch({
 });
 console.log("Action(ADD_POST):", store.getState());
 
-store.dispatch({
+store.dispatch({ // use anonyous action object
   type: "LOG_OUT",
 });
 console.log("Action(LOG_OUT):", store.getState());
