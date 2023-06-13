@@ -395,3 +395,42 @@ next    ƒ dispatch(action) {
             throw new Error( false ? 0 : "Actions must be plain objects. Instead, the actual type was: '" + kindOf(action) + "'. You may need to add mid…
 action  {type: 'LOG_IN', payload: {…}}
 ```
+
+
+---
+## devtools
++ chrome extension(redux DevTools) 설치
+  + https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ko
++ store 에 enhancer 설정
+```
+npm i redux-devtools-extension
+```
+``` javascript
+import { applyMiddleware, createStore } from 'redux';
+import rootReducer from '../features/reducers';
+import { addTodo } from '../actions/todos';
+import { ADD_TODO } from '../features/todos/todoSlice';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const delayedMessageMiddleware = (storeAPI) => (next) => (action) => {
+  if(action.type === ADD_TODO){
+    setTimeout(()=>{
+      console.log('Added a new todo: ', action.payload);
+    },3000);
+  }
+  return next(action);
+};
+
+const composedEnhancer = composeWithDevtools(
+  applyMiddleware(delayedMessageMiddleware)
+)
+
+const store = createStore(rootReducer, undefined, composedEnhancer);
+const dispatchResult = store.dispatch(addTodo('Learn about redux-devtools');
+console.log(dispatchResult);
+```
+> console
+``` javascript
+> dispatchResult {type: 'todos/todoAdded', payload: 'Learn about redux-devtools'}
+> Added a new todo:  Learn about actions
+```
