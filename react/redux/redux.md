@@ -54,8 +54,13 @@ const initialState = {
 + action 에 따라 state 를 조작할 reducer 를 작성해준다.
 + reducer 는 항상 불변성을 지켜주어야 하므로 shallow copy 를 통해 항상 새로운 객체를 반환해준다.
   * spread syntax 를 주로 사용하며, 이것이 불편할 경우 immer library 를 사용하면 된다.
-+ 실수를 방지하기 위해 꼭 default 를 설정해주는 것이 좋다. 
++ 실수를 방지하기 위해 꼭 default 를 설정해주는 것이 좋다.
+* action.type 의 경우 실수 방지를 위해 const 변수로 빼주는 것이 좋다.
 ``` javascript
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';
+export const ADD_POST = 'ADD_POST';
+
 const reducer = (state, action) => {
   switch(action.type){
     case 'LOG_IN':{
