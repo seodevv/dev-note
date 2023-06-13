@@ -92,9 +92,9 @@ const reducer = (state, action) => {
 ## action creator
 + action 은 reducer 에 정의된 로직을 실행시킬 수 있는 파라미터이다.
 + action 은 dispatch 를 통해 reducer 에 전달된다.
-+ action 은 익명 객체로 전달되도 되나, 코드 중복 방지를 위해 action 객체를 반환하는 함수를 만들어 사용해도 된다.
++ action 은 익명 객체로 전달되도 되나, 코드 중복 방지를 위해 action 객체를 반환하는 함수를 만들어 사용하는 것이 좋다.
 ``` javascript
-const logIn = (id, name, admin) => {
+export const logIn = (id, name, admin) => {
   return {
     type: 'LOG_IN',
     payload: {
