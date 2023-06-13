@@ -30,10 +30,10 @@ npm i redux
 ## data flow
 <p align="center"><img src="./redux_dataFlow.gif" width="75%"></p>
 
-1. UI 에서 Event 가 발생하고, Dispatch 를 통해 action / thunk 가 store 에 전달된다.
-2. Middleware 가 설정되있을 경우(thunk), dispatch 가 처리되기 전에 Middleware 를 처리한다. (위 사진에서는 서버와의 api 비동기 통신)
-3. dispatch 에 담긴 action 이 정의된 reducer 를 통해 state 가 조작된 후 새로운 state 를 반환한다.
-4. 새로이 반환된 state 를 통해 UI 를 re-rendering 한다.
+1. UI 에서 Event 가 발생하고, dispatch 를 통해 action 이 store 에 전달된다.
+2. Middleware 가 설정되있을 경우, dispatch 가 처리되기 전에 Middleware 를 처리한다.
+3. action 과 매칭되는 reducer 함수가 실행되고, state 가 조작된 후 새로운 state 를 반환하여 store에 저장된다.
+4. 새롭게 저장된 state 를 통해 store 는 UI 를 re-rendering 한다.
 
 
 ---
@@ -84,6 +84,25 @@ const reducer = (state, action) => {
 
 
 ---
+## action creator
++ action 은 reducer 에 정의된 로직을 실행시킬 수 있는 파라미터이다.
++ action 은 dispatch 를 통해 reducer 에 전달된다.
++ action 은 익명 객체로 전달되도 되나, 코드 중복 방지를 위해 action 객체를 반환하는 함수를 만들어 사용해도 된다.
+``` javascript
+const logIn = (id, name, admin) => {
+  return {
+    type: 'LOG_IN',
+    payload: {
+      id,
+      name,
+      admin,
+    }
+  }
+}
+```
+
+
+---
 ## createStore
 + 앞서 생성한 initialState, reducer 를 통해 store 를 생성해준다.
 + 생성한 store 는 react 에서 Provider 태그와 함께 컴포넌트에 state 를 제공해 줄 수 있다.
@@ -96,14 +115,7 @@ const store = createStore(reducer, initialState);
 ## dispatch
 + store 의 내장 함수 중 하나로, action을 인수로 담아 reducer를 실행시키는 함수이다
 ``` javascript
-store.dispatch({
-  type: "LOG_IN",
-  payload: {
-    id: 0,
-    name: "seodev",
-    admin: true,
-  },
-});
+store.dispatch(logIn(0, 'seodev', true));
 console.log("Action(LOG_IN):", store.getState());
 
 store.dispatch({
