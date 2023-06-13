@@ -40,6 +40,7 @@ npm i redux
 ## initialState
 + global 하게 사용할 state 의 초기값을 생성해준다.
 + reducer 가 분리될 경우 각각의 reducer 마다 initialState 를 지정해주어야 한다.
+> store.js
 ``` javascript
 const initialState = {
   user: null,
@@ -56,6 +57,7 @@ const initialState = {
   * spread syntax 를 주로 사용하며, 이것이 불편할 경우 immer library 를 사용하면 된다.
 + 실수를 방지하기 위해 꼭 default 를 설정해주는 것이 좋다.
 * action.type 의 경우 실수 방지를 위해 const 변수로 빼주는 것이 좋다.
+> store.js
 ``` javascript
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
@@ -93,10 +95,11 @@ const reducer = (state, action) => {
 + action 은 reducer 에 정의된 로직을 실행시킬 수 있는 파라미터이다.
 + action 은 dispatch 를 통해 reducer 에 전달된다.
 + action 은 익명 객체로 전달되도 되나, 코드 중복 방지를 위해 action 객체를 반환하는 함수를 만들어 사용하는 것이 좋다.
+> store.js
 ``` javascript
 export const logIn = (id, name, admin) => {
   return {
-    type: 'LOG_IN',
+    type: LOG_IN,
     payload: {
       id,
       name,
@@ -111,7 +114,10 @@ export const logIn = (id, name, admin) => {
 ## createStore
 + 앞서 생성한 initialState, reducer 를 통해 store 를 생성해준다.
 + 생성한 store 는 react 에서 Provider 태그와 함께 컴포넌트에 state 를 제공해 줄 수 있다.
+> store.js
 ``` javascript
+import { createStore } from 'redux';
+
 const store = createStore(reducer, initialState);
 ```
 
@@ -120,6 +126,7 @@ const store = createStore(reducer, initialState);
 ## dispatch
 + store 의 내장 함수 중 하나로, action을 인수로 담아 reducer를 실행시키는 함수이다
 + action creator 가 있는 경우 코드가 단순화된다.
+> store.js
 ``` javascript
 store.dispatch(logIn(0, 'seodev', true)); // use action creator
 console.log("Action(LOG_IN):", store.getState());
@@ -186,6 +193,7 @@ Action(LOG_OUT): {
 + subscribe 또한 store 의 내장 함수 중 하나이다.
 + 함수를 인수로 가지며, action 이 dispatch 될 때마다 전달해준 함수가 호출된다.
 + react-redux 라는 Library 에서 connect, useSelector Hook 를 사용하기 때문에 보통 사용하지 않음
+> store.js
 ``` javascript
 store.subscribe(() => {
   console.log('changed');
@@ -229,9 +237,11 @@ Action(LOG_IN): {user: {…}, posts: Array(0)}
 ``` javascript
 const initialState = [];
 
+export const ADD_POST = 'ADD_POST';
+
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_POST": {
+    case ADD_POST: {
       const { userId, title, content } = action.payload;
       let nextId;
       if (state.length === 0) {
@@ -247,7 +257,7 @@ const postsReducer = (state = initialState, action) => {
   }
 };
 
-module.exports = postsReducer;
+export default postsReducer;
 ```
 
 
@@ -258,6 +268,9 @@ const initialState = {
   isLoggedIn: false,
   data: null,
 };
+
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -274,29 +287,31 @@ const userReducer = (state = initialState, action) => {
   }
 };
 
-module.exports = userReducer;
+export default userReducer;
 ```
 
 
 > reducers/index.js
 * combineReducers 를 통해 postsReducer, userReducer 들을 합친 후 export 한다.
 ``` javascript
-const { combineReducers } = require("redux");
-const userReducer = require("./user");
-const postsReducer = require("./posts");
+import { combineReducers } from 'redux';
+const userReducer from './users';
+const postsReducer from './posts';
 
-module.exports = combineReducers({
+const rootReducer = combineReducers({
   user: userReducer,
   posts: postsReducer,
 });
+
+export default rootReducer;
 ```
 
 
 > app/store.js
 * combineReudcers 로 합친 reducer 를 통해 store 를 생성한다.
 ``` javascript
-const { createStore } = require("redux");
-const reducer = require("../reducers");
+import { createStore } from 'redux';
+import rootReducer from '../reducers'; // index.js 는 생략이 가능함
 
 const initialState = {
   user: {
@@ -313,7 +328,7 @@ const initialState = {
 
 const store = createStore(reducer, initialState);
 
-module.exports = store;
+export default store;
 ```
 
 
@@ -336,8 +351,9 @@ module.exports = store;
     + (만약, 다음 미들웨어가 없다면 reducer 에게 액션을 전달해준다.)
   + action: 현재 처리하고 있는 action 객체이다.
 ``` javascript
-const { createStore, compose, applyMiddleware } = require("redux");
-const reducer = require("../reducers");
+
+import { createStore, compose, applyMiddleware } from "redux";
+import rootReducer from '../reducers';
 
 const initialState = {
   user: {
@@ -367,9 +383,9 @@ const enhancer = compose(
   applyMiddleware(firstMiddleware)
 );
 
-const store = createStore(reducer, initialState, enhancer);
+const store = createStore(rootReducer, initialState, enhancer);
 
-module.exports = store;
+export default store;
 ```
 * 작성된 defaultMiddleware 고차 함수는 dispatch 의 기본 동작과 동일하다.
 * applyMiddleware(firstMiddleware) 를 설정했으므로 dispatch 가 되기 전 firstMiddleware 가 실행된다.
