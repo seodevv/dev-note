@@ -462,9 +462,10 @@ const store = createStore(rootReducer, undefined, composedEnhancer);
 + 전달된 action 함수에 인자로 dispatch 와 getState 를 넘긴다.
 > actions/todos.js
 ``` javascript
+import { FETCH_TODO_LOADED } from "../features/todos/todosSlice";
 export const fetchTodoLoaded = (todos) => {
   return {
-    type: 'FETCH_TODO_LOADED,
+    type: FETCH_TODO_LOADED,
     payload: todos,
   }
 }
@@ -477,3 +478,19 @@ export const fetchData = async (dispatch, getState) => {
   }
 }
 ```
++ fetchData 함수는 전달 받은 dispatch, getState 를 사용해 async 로직을 처리한다.
++ async/await 문법을 사용해 response 를 기다린 후 response 를 action 에 전달한다.
+> features/todos/todosSlice.js
+``` javascript
+export const FETCH_TODO_LOADED = 'todos/fetchTodosLoaded';
+const todosReducers = (state, action) => {
+  switch(action.type){
+      // ... skip
+    case FETCH_TODO_LOADED: {
+      return [...state, ...action.payload];
+    }
+      // ... skip
+  }
+}
+```
++ action 으로부터 받은 payload 를 state 에 추가하여 새로운 객체로 반환한다.
