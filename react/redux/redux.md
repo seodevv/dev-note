@@ -489,10 +489,10 @@ const todosReducers = (state, action) => {
   switch(action.type){
       // ... skip
     case FETCH_TODO_LOADED: {
-      return [...state, ...action.payload];
+      return action.payload;
     }
       // ... skip
   }
 }
 ```
-+ action 으로부터 받은 payload 를 state 에 추가하여 새로운 객체로 반환한다.
++ action 으로부터 받은 payload 로 state 를 설정한다.
