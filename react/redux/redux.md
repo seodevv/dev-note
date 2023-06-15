@@ -436,3 +436,44 @@ console.log(dispatchResult);
 ```
 > browser
 <p align="center"><img src="./redux-devtools.jpg" width="75%"></p>
+
+
+---
+## async Middleware
++ reducer 는 async 로직을 처리할 수 없기에 middleware 를 통해 async 를 처리할 수 있다.
++ redux-thunk 가 있지만, applyMiddleware 를 통해 async 를 구현할 수도 있다.
++ async 는 ajax library 인 axios 를 사용했다.
+> app/store.js
+``` javascript
+const fetchMiddleware = (storeAPI) => (next) => (action) => {
+  if(typeof action === 'function'){
+    return action(storeAPI.dispatch, storeAPI.getState);
+  }
+  return next(action);
+};
+
+const composedEndhancer = composeWithDevTools(
+  applyMiddleware(fetchMiddleware)
+)
+
+const store = createStore(rootReducer, undefined, composedEnhancer);
+```
++ 전달된 action 이 function 일 경우에 fetchMiddleware 가 동작한다.
++ 전달된 action 함수에 인자로 dispatch 와 getState 를 넘긴다.
+> actions/todos.js
+``` javascript
+export const fetchTodoLoaded = (todos) => {
+  return {
+    type: 'FETCH_TODO_LOADED,
+    payload: todos,
+  }
+}
+export const fetchData = async (dispatch, getState) => {
+  try {
+    const response = await axios.get(process.env.SERVER_URL + '/get/todos');
+    dispatch(fetchTodoLoaded(response.data));
+  } catch(error){
+    throw new Error(error);
+  }
+}
+```
