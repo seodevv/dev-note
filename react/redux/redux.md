@@ -496,3 +496,27 @@ const todosReducers = (state, action) => {
 }
 ```
 + action 으로부터 받은 payload 로 state 를 설정한다.
+
+
+---
+# thunk
++ 위에서 직접 작성한 async Middleware (fetchMiddleware) 가 thunk 와 똑같다고 생각하면 된다.
++ 직접 작성한 async Middleware 는 함수를 직접 작성했지만,
++ thunk 는 import 해서 바로 applyMiddleware 에 넣어주면 된다
+``` javascript
+npm i redux-thunk
+```
+> app/store.js
+``` javascript
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunkMiddleware from "redux-thunk";
+import rootReducer from "../features/reducers";
+import { fetchData } from "../actions/todos";
+
+const composeEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
+const store = createStore(rootReducer, undefined, composedEnhancer);
+store.dispatch(fetchData);
+```
++ 다소 길었던 store.js 가 상당히 짧아졌다.
++ 나머지 사용법은 위의 async Middleware 와 동일하다.
