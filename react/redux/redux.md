@@ -462,7 +462,9 @@ const store = createStore(rootReducer, undefined, composedEnhancer);
 + 전달된 action 함수에 인자로 dispatch 와 getState 를 넘긴다.
 > actions/todos.js
 ``` javascript
+import axios from 'axios'; // npm i axios
 import { FETCH_TODO_LOADED } from "../features/todos/todosSlice";
+
 export const fetchTodoLoaded = (todos) => {
   return {
     type: FETCH_TODO_LOADED,
