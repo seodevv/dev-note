@@ -192,4 +192,78 @@ const Counter = () => {
     <div>{count}</div>
   )
 }
+
+export default Counter;
 ```
+
+
+---
+## dispatch
++ dispatch 를 통해 사전에 정의된 reducer 를 action 을 통해 실행시킬 수 있다.
++ useDispatch hook 을 사용해서 action 을 reducer 에 전달할 수 있다.
+> features/counter/Counter.jsx
+``` javascript
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  selectValue,
+} from "./counterSlice";
+
+const Counter = () => {
+  const count = useSelector(selectValue);
+  const dispatch = useDispatch();
+
+  const increaseCount = () => {
+    dispatch(increment());
+  };
+  const decreaseCount = () => {
+    dispatch(decrement());
+  };
+  const increaseByAmount = (amount) => {
+    dispatch(incrementByAmount(amount));
+  };
+  return (
+    <>
+      <div>
+        <span style={{ margin: "10px", fontSize: "2rem" }}>{count}</span>
+        <button onClick={increaseCount}>➕</button>
+        <button onClick={decreaseCount}>➖</button>
+        <button
+          onClick={() => {
+            increaseByAmount(5);
+          }}
+        >
+          ➕5
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default Counter;
+```
++ 버튼을 클릭하면 dispatch 가 실행된다.
++ action 이 필요한 reducer 의 경우 파라미터를 담아 보낸다.
+> features/counter/counterSlice.js
+``` javascript
+// ...skip
+const counterSlice = createSlice({
+  // ...skip
+  reducers: {
+    increment: (state, action) => {
+      state.value += 1;
+    },
+    decrement: (state, action) => {
+      state.value -= 1;
+    },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload;
+    },
+  }
+});
+```
++ action 에 맞는 함수가 동작된다.
++ dispatch 로 받은 파라미터는 action.payload 에 담긴다.
