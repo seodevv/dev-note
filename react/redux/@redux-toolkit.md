@@ -131,7 +131,28 @@ export const incrementAsync = amount => dispatch => {
 > app/store.js
 ``` javascript
 // ... skip
-console.log(store.getState());
+console.log('before', store.getState());
 store.dispatch(incrementAsync(5));
-setTimeout(()=>{ console.log(store.getState()}, 1000);
+setTimeout(() => {
+  console.log('after', store.getState()
+}, 1000);
+```
+> console
+```
+> before {"counter": { "value": 0 }}
+> after  {"counter": { "value": 5 }}
+```
++ 만약 ajax 를 사용한다면..
+> featuers/counter/counterslice.js
+``` javascript
+const fetchUserById = userId => {
+  return async (dispatch, getState) => {
+    try {
+      const user = await axios.get('http://localhost:8081/post/user', {userId} );
+      dispatch(userLoaded(user));
+    } catch(error){
+      // If something went wrong, handle it here
+    }
+  }
+}
 ```
