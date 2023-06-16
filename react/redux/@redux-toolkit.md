@@ -89,7 +89,7 @@ export const { increment, decrment, incrementByAmount } = counterSlice.actions;
 ```
 + 원래는 state 를 변경할 때 불변성(Immutable)을 지켜주어야 하나
 + @redux/toolkit 에는 immer 라이브러리가 포함되어 있어 state가 프록시로 연결되며 복사본으로 교체된다.
-+ 원래는 아래 처럼 작성해야됨.. 😢
++ 원래는 아래 처럼 작성해야되나... 가독성도 나쁘고 코드도 길어져서 immer 가 포함된 redux/toolkit 을 쓰자 !
 > Immutable
 ``` javascript
 const handwrittenReducer = (state, action) => {
