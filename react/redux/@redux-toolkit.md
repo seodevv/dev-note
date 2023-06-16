@@ -267,3 +267,30 @@ const counterSlice = createSlice({
 ```
 + action 에 맞는 함수가 동작된다.
 + dispatch 로 받은 파라미터는 action.payload 에 담긴다.
+
+
+---
+## Provider
++ store 을 만들었으면 이를 제공해줄 Component 상위에 Provider 를 설정해준다.
++ Provider 의 store 인수에 만든 store 을 담아준다.
+> index.js
+``` javascript
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./app/store";
+
+const start = () => {
+  ReactDOM.render(
+    <>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </>,
+    document.querySelector("#root")
+  );
+};
+
+start();
+```
