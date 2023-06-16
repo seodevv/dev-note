@@ -156,3 +156,40 @@ const fetchUserById = userId => {
   }
 }
 ```
+
+
+---
+## selector
++ state 에서 원하는 state 를 뽑아내는데 사용하는 함수를 selector 라고 부른다.
++ UI 에서 useSelector hook 을 사용해서 state 를 가져올 수 있는데 다음과 같이 사용한다.
++ @redux/toolkit 은 memoized 된 selector 인 createSelector API를 제공하는데 추추헤 설명하도록 한다.
+> features/counter/Counter.jsx
+``` javascript
+import { useSelector } from 'react-redux;
+
+const Counter = () => {
+  const count = useSelector((state) => state.counter.value);
+  return (
+    <div>{count}</div>
+  )
+}
+```
++ 이 때에 state => state.counter.value 가 selector 가 된다.
++ 위와 같이 익명 함수로 selector 때마다 작성할 수도 있지만
++ 보통 slice 파일에 selector 를 미리 지정해놓고 import 하여 사용한다.
+> features/counter/counterSlice.js
+``` javascript
+// ...skip
+export const selectValue = (state) => state.counter.value;
+```
+> features/counter/Counter.jsx
+``` javascript
+import { selectValue } from './counterSlice';
+
+const Counter = () => {
+  const count = useSelector(selectValue);
+  return (
+    <div>{count}</div>
+  )
+}
+```
