@@ -92,6 +92,7 @@ export const { increment, decrment, incrementByAmount } = counterSlice.actions;
 + 원래는 아래 처럼 작성해야되나... 가독성도 나쁘고 코드도 길어져서 immer 가 포함된 redux/toolkit 을 쓰자 !
 > Immutable
 ``` javascript
+// Immutable update logic by hand.
 const handwrittenReducer = (state, action) => {
   return {
     ...state,
@@ -107,7 +108,30 @@ const handwrittenReducer = (state, action) => {
     }
   }
 }
+// Use immer
+const reducerWithImmer = (state, action) => {
+  state.first.second[action.someId].fourth = action.someValue
+}
 ```
 
 ---
-## 
+## Writing Async Logic with Thunks
++ 위에선 synchronous 한 코드만 처리하였다.
++ 그렇다면, asynchronous 한 코드는 어떻게 처리할 수 있을까?
++ @redux/toolkit은 createAsyncThunk 라는 asynchronous 전용 API 를 제공하지만, 먼저 직접 작성해보자.
+> features/counter/counterSlice.js
+``` javascript
+// ... skip
+export const incrementAsync = amount => dispatch => {
+  setTimeout(()=>{
+    dispatch(incrementByAmount(amount));
+  }, 1000);
+}
+```
+> app/store.js
+``` javascript
+// ... skip
+console.log(store.getState());
+store.dispatch(incrementAsync(5));
+setTimeout(()=>{ console.log(store.getState()}, 1000);
+```
