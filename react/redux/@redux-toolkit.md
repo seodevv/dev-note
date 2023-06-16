@@ -77,7 +77,16 @@ const counterSlice = createSlice({
   }
 });
 
+console.log(counterSlice.actions.increment());
+
 const counterReducer = counterSlice.reducer;
 export default counterReducer;
 export const { increment, decrment, incrementByAmount } = counterSlice.actions;
 ```
+> console
+```
+> { "type": "counter/increment" }
+```
+
+---
+## 
