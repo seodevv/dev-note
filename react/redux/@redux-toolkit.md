@@ -284,9 +284,9 @@ import store from "./app/store";
 const start = () => {
   ReactDOM.render(
     <>
-      <Provider store={store}>
-        <App />
-      </Provider>
+        <Provider store={store}>
+          <App />
+        </Provider>
     </>,
     document.querySelector("#root")
   );
@@ -296,6 +296,7 @@ start();
 ```
 
 
+---
 # redux turtorial
 + 얼추 @reduxjs/toolkit 을 알았으니, 본격적으로 [redux tutorial](https://redux.js.org/tutorials/essentials/part-3-data-flow) 진행해보면서 Simple sns 을 만들어보자.
 
@@ -375,13 +376,16 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import { BrowserRouter } from "react-router-dom";
 
 const start = () => {
   ReactDOM.render(
     <>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
     </>,
     document.querySelector("#root")
   );
@@ -389,6 +393,7 @@ const start = () => {
 start();
 ```
 + store 를 Provider 를 통해 컴포넌트에 제공해주었다.
++ 좀 더 간편한 path 관리를 위해 react-router-dom 도 사용했다.
 
 
 ---
@@ -422,3 +427,28 @@ const PostsList = () => {
 
 export default PostsList;
 ``` 
++ useSelector hook 및 사전에 정의해둔 selectAllPosts selector 를 사용하여 state.posts 를 가져온다.
++ 가져온 state.posts 를 posts 변수에 담고 component 를 작성한다.
+> App.jsx
+``` javascript
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./app/Navbar";
+import PostsList from "./featrues/posts/postsList";
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<PostsList />} />
+        </Routes>
+      </div>
+    </>
+  );
+}
+
+export default App;
+```
++ App.jsx 에선 react-ruter-dom 을 통해 / 경로 접속 시 PostsList 컴포넌트가 보이도록 설정한다.
