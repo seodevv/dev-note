@@ -326,7 +326,7 @@ start();
   + package.json 을 가져와 local 에 구성하면 될 듯하다.
 
 ---
-# Create postsSlice and store
+## Create postsSlice and store
 > features/posts/postSlice.js
 ``` javascript
 const { createSlice } = require("@reduxjs/toolkit");
@@ -397,7 +397,7 @@ start();
 
 
 ---
-# Create Components
+## Create Components
 + store 에서 posts state 를 불러와 postsList 컴포넌트를 작성한다.
 > features/posts/PostsList.jsx
 ``` javascript
@@ -452,3 +452,7 @@ function App() {
 export default App;
 ```
 + App.jsx 에선 react-ruter-dom 을 통해 / 경로 접속 시 PostsList 컴포넌트가 보이도록 설정한다.
+
+
+---
+## 
