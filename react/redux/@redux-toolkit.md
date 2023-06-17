@@ -297,4 +297,29 @@ start();
 
 
 # redux turtorial
-+ 얼추 @reduxjs/toolkit 을 알았으니, [redux tutorial](https://redux.js.org/tutorials/essentials/part-3-data-flow) 
++ 얼추 @reduxjs/toolkit 을 알았으니, 본격적으로 [redux tutorial](https://redux.js.org/tutorials/essentials/part-3-data-flow) 진행해보면서 Simple sns 을 만들어보자.
+
+
+---
+# Application Content
+```
+└ /public
+└ /src
+  └ /app
+    └ store.js
+    └ Navbar.jsx
+  └ /features
+    └ /posts
+      └ postSlice.js
+    └ /users
+      └ userSlice.js
+    └ /notifications
+      └ notificationsSlice.js
+  └ index.jsx
+  └ App.jsx
+```
++ tutorial 에선 asynchronous logic 을 구현할 떄 사용하는 fakeAPI(./src/api/server.js, client.js) 가 존재하나, 본인은 express 로 구현하여 asynchronous logic 을 구현하였다.
+
+
+---
+# 
