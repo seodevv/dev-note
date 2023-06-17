@@ -310,17 +310,15 @@ start();
     └ Navbar.jsx
   └ /features
     └ /posts
-      └ postSlice.js
     └ /users
-      └ userSlice.js
-    └ /notifications
-      └ notificationsSlice.js
+  └ /components
+    └ Spinner.jsx
   └ index.css
   └ index.jsx
   └ App.jsx
 ```
-+ tutorial 에선 asynchronous logic 을 구현할 떄 사용하는 fakeAPI(./src/api/server.js, client.js) 가 존재하나, 본인은 express 로 구현하여 asynchronous logic 을 구현하였다.
-
++ tutorial 에선 asynchronous logic 을 구현할 떄 사용하는 fakeAPI(./src/api/server.js, client.js) 가 존재하나, 본인은 express server 로 구현하여 asynchronous logic 을 구현하였다.
++ 만약 server 가 없다면 redux 가 제공해주는 [open sandbox](https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/master/?from-embed=&file=/src/components/Spinner.js:0-276) 을 이용하거나 package.json 을 가져와 local 에 구성하면 될 듯하다.
 
 ---
 # 
