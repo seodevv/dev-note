@@ -315,6 +315,7 @@ start();
       └ userSlice.js
     └ /notifications
       └ notificationsSlice.js
+  └ index.css
   └ index.jsx
   └ App.jsx
 ```
