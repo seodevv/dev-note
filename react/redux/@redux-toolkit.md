@@ -391,3 +391,34 @@ start();
 + store 를 Provider 를 통해 컴포넌트에 제공해주었다.
 
 
+---
+# Create Components
++ store 에서 posts state 를 불러와 postsList 컴포넌트를 작성한다.
+> features/posts/PostsList.jsx
+``` javascript
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectAllPosts } from "./postsSlice";
+
+const PostsList = () => {
+  const posts = useSelector(selectAllPosts);
+
+  const renderedPosts = posts.map((post) => (
+    <article key={post.id} className="post-excerpt">
+      <h3>{post.title}</h3>
+      <p className="post-content">{post.content}</p>
+    </article>
+  ));
+
+  return (
+    <>
+      <section className="posts-list">
+        <h2>Posts</h2>
+        {renderedPosts}
+      </section>
+    </>
+  );
+};
+
+export default PostsList;
+``` 
