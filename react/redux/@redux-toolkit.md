@@ -317,8 +317,77 @@ start();
   └ index.jsx
   └ App.jsx
 ```
-+ tutorial 에선 asynchronous logic 을 구현할 떄 사용하는 fakeAPI(./src/api/server.js, client.js) 가 존재하나, 본인은 express server 로 구현하여 asynchronous logic 을 구현하였다.
-+ 만약 server 가 없다면 redux 가 제공해주는 [open sandbox](https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/master/?from-embed=&file=/src/components/Spinner.js:0-276) 을 이용하거나 package.json 을 가져와 local 에 구성하면 될 듯하다.
++ tutorial 에선 asynchronous logic 을 구현할 떄 사용하는
+  + fakeAPI(./src/api/server.js, client.js) 가 존재하나,
+  + 본인은 express server 로 구현하여 asynchronous logic 을 구현하였다.
++ 만약 server 가 없다면 redux 가 제공해주는
+  + [open sandbox](https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/master/?from-embed=&file=/src/components/Spinner.js:0-276) 을 이용하거나
+  + package.json 을 가져와 local 에 구성하면 될 듯하다.
 
 ---
-# 
+# 게시물(postsSlice) 및 스토어(store) 생성
+> features/posts/postSlice.js
+``` javascript
+const { createSlice } = require("@reduxjs/toolkit");
+
+const nextId = (posts) => {
+  return Math.max(...posts.map((post) => post.id)) + 1;
+};
+
+const initialState = [
+  { id: 1, title: "First Post!", content: "Hello!" },
+  { id: 2, title: "Second Post!", content: "Hi!" },
+];
+
+const postsSlice = createSlice({
+  name: "posts",
+  initialState,
+  reducers: {},
+});
+
+const postsReducer = postsSlice.reducer;
+
+export default postsReducer;
+export const {} = postsSlice.actions;
+
+export const selectAllPosts = (state) => state.posts;
+```
++ 초기 값과 게시물(posts)를 조회하는 simple selector 을 작성하였다.
+> app/store.js
+``` javascript
+const { configureStore } = require("@reduxjs/toolkit");
+const { default: postsReducer } = require("../featrues/posts/postsSlice");
+
+const store = configureStore({
+  reducer: {
+    posts: postsReducer,
+  },
+});
+
+export default store;
+```
++ 만든 postsSlice 를 posts 라는 변수로 store 에 등록해주었다.
+> index.jsx
+``` javascript
+import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./app/store";
+
+const start = () => {
+  ReactDOM.render(
+    <>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </>,
+    document.querySelector("#root")
+  );
+};
+start();
+```
++ store 를 Provider 를 통해 컴포넌트에 제공해주었다.
+
+
