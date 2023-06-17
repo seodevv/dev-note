@@ -325,7 +325,7 @@ start();
   + package.json 을 가져와 local 에 구성하면 될 듯하다.
 
 ---
-# 게시물(postsSlice) 및 스토어(store) 생성
+# Create postsSlice and store
 > features/posts/postSlice.js
 ``` javascript
 const { createSlice } = require("@reduxjs/toolkit");
