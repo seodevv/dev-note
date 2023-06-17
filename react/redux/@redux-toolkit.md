@@ -297,4 +297,4 @@ start();
 
 
 # redux turtorial
-+ 얼추 @reduxjs/toolkit 을 알았으니, [redux tutorial]https://redux.js.org/tutorials/essentials/part-3-data-flow
++ 얼추 @reduxjs/toolkit 을 알았으니, [redux tutorial](https://redux.js.org/tutorials/essentials/part-3-data-flow) 
