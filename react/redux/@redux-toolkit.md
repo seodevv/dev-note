@@ -762,3 +762,17 @@ export default EditPostForm;
 ```
 + SinglePostPage 컴포넌트와 마찬가지로 postId 를 router 통해 받고, 이를 토대로 post 를 select 하고 UI 를 구현한다.
 + button 이 클릭되면 editPost action 을 dispatch 하고 SinglePostPage 로 navigate 한다.
+
+> App.jsx
+``` javascript
+import EditPostForm from "./featrues/posts/EditPostForm";
+
+// ...skip
+const App = () => {
+  return (
+    <Routes>
+    // ...skil
+      <Route path="/edit/:postId" element={<>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  )
+}
+```
