@@ -615,7 +615,6 @@ export default SinglePostPage;
 + post 가 없을 경우에 대한 예외 처리와 postsList 로 돌아갈 수 있는 버튼을 만들었다.
 
 > features/posts/PostsList.jsx
-+ view 가 구성됬으니 PostsList 에 event 를 추가한다.
 ``` javascript
 // ... skip
 import { useNavigate } from 'react-router-dom';
@@ -635,11 +634,11 @@ const renderedPosts = posts.map((post) => (
   </article>
 ));
 ```
++ view 가 구성됬으니 PostsList 에 event 를 추가한다.
 + useNavigate hook 을 사용해서 게시물이 클릭되면 /post/:postId 의 url 로 이동하도록 설정하였다.
 
 
 > App.jsx
-+ 새로운 url 을 생겼으니 App 컴포넌트에서 새로운 route 를 설정해준다.
 ``` javascript
 // ...skip
 <Routes>
@@ -648,3 +647,4 @@ const renderedPosts = posts.map((post) => (
 </Routes>
 // ...skil
 ```
++ 새로운 url 을 생겼으니 App 컴포넌트에서 새로운 route 를 설정해준다.
