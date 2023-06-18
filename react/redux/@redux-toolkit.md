@@ -808,6 +808,7 @@ const usersReducer = usersSlice.reducer;
 export default usersReducer;
 
 export const selectAllUsers = (state) => state.users;
+export const selectUserById = (state, id) => state.users.find((user) => user.id === id);
 ```
 > app/store.js
 ``` javascript
@@ -857,4 +858,84 @@ const postSlice = createSlice({
 ```
 + addPost 부분에 userId 파라미터를 추가적으로 받는다.
 
+> features/posts/AddPostForm.jsx
+``` javascript
+// ...skip
+const users = useSelector(selectAllUsers);
+const [author, setAuthor] = useState('');
 
+const canSave = title.trim() && content.trim() && author
+const onAuthorChanged = (e) => setAuthor(e.target.value);
+
+const onClickAddPost = (e) => {
+  if(canSave){
+    dispatch(addPost(title, content, author));
+    setTitle('');
+    setContent('');
+    setAuthor('');
+  }
+}
+
+const renderedSelectOption = (
+  <select value={author} onChange={onAuthorChanged}>
+    <option value=""></option>
+    {users.map((user) => (
+      <option key={user.id} value={user.id}>
+        {user.name}
+      </option>
+    ))}
+  </select>
+);
+
+return (
+  <>
+    <section>
+      // ...skip
+        <label>Author:</label>
+        {renderedSelectOption}
+      // ...skip
+    </section>
+  </>
+);
+```
++ selectAllUsers selector 를 통해 users 정보를 가져온 다음 select/option UI를 구현한다.
++ addPost event 가 발생할 때 title, content 와 함께 userId 도 함께 넘긴다.
+ 
+> features/posts/PostAuthor.jsx
+``` javascript
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectUserById } from "../users/usersSlice";
+
+const PostAuthor = ({ userId }) => {
+  const author = useSelector((state) => selectUserById(state, userId));
+  return (
+    <>
+      <span>by {author ? author.name : "Unknown author"}</span>
+    </>
+  );
+};
+
+export default PostAuthor;
+```
++ post 의 userId 를 props 로 받아 selectUserById selector 를 통해 user 정보를 가져온다.
++ 만약 user 정보가 없을 경우 Unknown author 가 표현된다.
+
+> features/posts/PostList.jsx
+``` javascript
+import PostAuthor from "./PostAuthor";
+// ...skip
+const renderedPosts = posts.map((post) => (
+  <article
+    key={post.id}
+    className="post-excerpt"
+    onClick={() => onClickViewPost(post.id)}
+  >
+    <h3>{post.title}</h3>
+    <PostAuthor userId={post.userId} />
+    <p className="post-content">{post.content}</p>
+  </article>
+));
+// ...skip
+```
++ PostList 가 표현될 때 author 정보도 표현되도록 추가해준다.
