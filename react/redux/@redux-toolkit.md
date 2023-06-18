@@ -325,6 +325,7 @@ start();
   + [open sandbox](https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/master/?from-embed=&file=/src/components/Spinner.js:0-276) 을 이용하거나
   + package.json 을 가져와 local 에 구성하면 될 듯하다.
 
+
 ---
 ## createSlice
 + @reduxjs/toolkit 으로부터 createSlice 를 import 하여 postsSlice 를 생성한다.
@@ -353,6 +354,8 @@ export const selectAllPosts = (state) => state.posts;
 + 초기 값과 게시물(posts)를 조회하는 simple selector 또한 작성해주었다.
 + reducers 는 추후 action 이 필요할 때 작성할 예정이다.
 
+
+---
 ## configureStore
 + @reduxjs/toolkit 으로부터 configureStore 를 import 하여 store 를 생성한다.
 > app/store.js
@@ -370,6 +373,8 @@ export default store;
 ```
 + 이전에 만든 postsSlice 로부터 reducer 를 가져와 posts state 에 설정해주었다.
 
+
+---
 ## Provider
 + react-redux 로부터 Provider 를 import 하여 만든 store를 컴포넌트가 사용할 수 있도록 설정한다.
 > index.jsx
@@ -490,6 +495,8 @@ export const { addPost } = postSlice.actions;
 + reducer, prepare 를 사용하여 action 을 정의해주었다.
 + 만든 addPost action 을 export 해준다.
 
+
+---
 ## dispatch
 + dispatch 를 사용하여 AddPostForm 으로부터 받은 input 을 state.posts 에 추가한다.
 > features/posts/AddPostForm.jsx
