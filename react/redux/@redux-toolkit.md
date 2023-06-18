@@ -652,7 +652,7 @@ const renderedPosts = posts.map((post) => (
 
 
 ---
-+ 이어서 생성된 post 를 수정할 수 있는 EditPostForm 도 만들어보자.
+### 이어서 생성된 post 를 수정할 수 있는 EditPostForm 도 만들어보자.
 + 마찬가지로 reducer -> view -> Route 순으로 구현한다.
 > features/posts/postsSlice.js
 ``` javascript
@@ -781,7 +781,7 @@ const App = () => {
 
 
 ---
-+ 이번엔 post 마다 user 정보를 담아보자.
+### 이번엔 post 마다 user 정보를 담아보자.
 + post 에 user 정보를 담기전 고려해야할 부분은 아래와 같다.
 1. users 정보를 저장할 userSlice 의 생성 및 store 등록
 2. posts 정보에 작성자 정보(userId) 를 추가하고 addPost action을 수정
