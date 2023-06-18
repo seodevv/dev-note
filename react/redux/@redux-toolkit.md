@@ -772,7 +772,9 @@ const App = () => {
   return (
     <Routes>
     // ...skil
-      <Route path="/edit/:postId" element={<>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      <Route path="/edit/:postId" element={<EditPostForm />} />
+    </Routes>
   )
 }
 ```
++ 마지막으로 /edit/:postId 로 router 를 걸어준다.
