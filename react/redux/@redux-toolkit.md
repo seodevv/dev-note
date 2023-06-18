@@ -778,3 +778,83 @@ const App = () => {
 }
 ```
 + 마지막으로 /edit/:postId 로 router 를 걸어준다.
+
+
+---
++ 이번엔 post 마다 user 정보를 담아보자.
++ post 에 user 정보를 담기전 고려해야할 부분은 아래와 같다.
+1. users 정보를 저장할 userSlice 의 생성 및 store 등록
+2. posts 정보에 작성자 정보(userId) 를 추가하고 addPost action을 수정
+3. AddPostForm 컴포넌트 에서 users 정보를 가져와 UI 구현
+4. PostsList, SinglePostPage 에서 users 정보를 가져와 UI 구현
+
+> features/users/usersSlice.js
+``` javascript
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = [
+  { id: 0, name: "Tianna Jenkins" },
+  { id: 1, name: "Kevin Grant" },
+  { id: 2, name: "Madison Price" },
+];
+
+const usersSlice = createSlice({
+  name: "users",
+  initialState,
+  reducers: {},
+});
+
+const usersReducer = usersSlice.reducer;
+export default usersReducer;
+
+export const selectAllUsers = (state) => state.users;
+```
+> app/store.js
+``` javascript
+// ...skip
+import usersReducer from "../featrues/users/usersSlice";
+
+const store = configureStore({
+  reducer: {
+    posts: postsReducer,
+    users: usersReducer,
+  },
+});
+
+export default store;
+```
++ usersSlice 와 간단한 selector 를 생성하고 export 해주었다.
++ usersReudcer 를 가져와 store 에 등륵해주었다.
+
+> features/posts/postsSlice
+``` javascript
+// ...skip
+const initialState = [
+  { id: 0, title: "First Post!", content: "Hello!", userId: 1 },
+  { id: 1, title: "Second Post!", content: "Hi!", userId: 2 },
+];
+/// ...skip
+const postSlice = createSlice({
+  // ...skip
+  reducers: {
+    addPost: {
+      reducer: (state, action) => {
+        const id = Math.max(...state.map((post) => post.id)) + 1;
+        state.push({ id, ...action.payload });
+      },
+      prepare: (title, content, author) => ({
+        payload: {
+          title,
+          content,
+          userId: author
+        }
+      }),
+    }
+  }
+  // ...skip
+)}
+// ...skip
+```
++ addPost 부분에 userId 파라미터를 추가적으로 받는다.
+
+
