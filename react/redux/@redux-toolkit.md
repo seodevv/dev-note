@@ -560,7 +560,57 @@ export default AddPostForm;
 ---
 ## Selector
 + Selector 를 사용하여 post 의 상세페이지(SinglePostPage)를 구현한다.
+> features/posts/postsSlice.js
+``` javascript
+// ... skip
+export const selectPostById = (state, postId) => state.posts.find(post => post.id === postId);
+```
++ state 와 postId 를 파라미터로 받아 post 를 찾는 selectPostById 라는 selector 를 생성해주고
 > features/posts/SinglePostPage.jsx
 ``` javascript
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { selectPostById } from "./postsSlice";
 
+const SinglePostPage = () => {
+  const navigator = useNavigate();
+  const { postId } = useParams();
+  const post = useSelector((state) => selectPostById(state, postId));
+
+  const onClickBack = () => {
+    navigator(-1);
+  };
+
+  let content;
+  if (!post) {
+    content = <h2>Post not found !</h2>;
+  } else {
+    content = (
+      <article className="post">
+        <h2>{post.title}</h2>
+        <p className="post-content">{post.content}</p>
+        <button
+          className="btn btn-secondary"
+          type="button"
+          onClick={onClickBack}
+        >
+          Back
+        </button>
+      </article>
+    );
+  }
+  return (
+    <>
+      <section>{content}</section>
+    </>
+  );
+};
+
+export default SinglePostPage;
 ```
++ useSelector hook 와 방금 만든 selector 를 사용해 post 를 찾는다.
+  + postId 는 url match 로 데이터를 받는다.
++ post 가 없을 경우에 대한 예외 처리와 postsList 로 돌아갈 수 있는 버튼을 만들었다.
+
+
