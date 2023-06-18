@@ -683,3 +683,82 @@ const postsSlice = createSlice({
 // ...skip
 export const { addPost, editPost } = postsSlice.actions
 ```
++ addPost 와 마찬가지로 dispatch 로 받은 파라미터를 prepare 를 통해 paylaod 객체를 만들고
++ 이를 토대로 해당 post 를 찾아 post 를 update(edit) 해준다.
+
+> features/posts/EditPostForm.jsx
+``` javascript
+import React, { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { editPost, selectPostById } from "./postsSlice";
+
+const EditPostForm = () => {
+  const { postId } = useParams();
+  const post = useSelector((state) => selectPostById(state, postId));
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+
+  const onTitleChanged = (e) => setTitle(e.target.value);
+  const onContentChanged = (e) => setContent(e.target.value);
+
+  const canSave = title.trim() && content.trim();
+  const onClickEditPost = (e) => {
+    if (canSave) {
+      dispatch(editPost(postId, title, content));
+      navigator(`/post/${postId}`);
+    }
+  };
+
+  const contentRef = useRef(null);
+  const onEnterChangeFocus = (e) => {
+    if (e.code === "Enter") {
+      e.preventDefault();
+      if (title.trim() && contentRef) {
+        contentRef.current.focus();
+      }
+    }
+  };
+
+  return (
+    <>
+      <section>
+        <h2>Edit Post</h2>
+        <form className="post-add-form">
+          <label htmlFor="postTitle">Post Title:</label>
+          <input
+            type="text"
+            id="postTitle"
+            name="postTitle"
+            ref={titleRef}
+            value={title}
+            onChange={onTitleChanged}
+            onKeyDown={onEnterChangeFocus}
+          />
+          <label htmlFor="postContent">Content:</label>
+          <textarea
+            id="postContent"
+            name="postContent"
+            ref={contentRef}
+            value={content}
+            onChange={onContentChanged}
+          />
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={onClickEditPost}
+          >
+            Save Post
+          </button>
+        </form>
+      </section>
+    </>
+  );
+};
+
+export default EditPostForm;
+```
++ SinglePostPage 컴포넌트와 마찬가지로 postId 를 router 통해 받고, 이를 토대로 post 를 select 하고 UI 를 구현한다.
++ button 이 클릭되면 editPost action 을 dispatch 하고 SinglePostPage 로 navigate 한다.
