@@ -3,6 +3,7 @@
 + "action" 이라는 이벤트를 사용하여 어플리케이션의 상태를 관리하고 업데이트하기 위한 패턴 및 라이브러리이다.
 + redux 라이브러리도 있지만, redux 에 비해 코드가 짧고 API 가 통합되어 있어 redux 에서도 @redux/toolkit 사용을 권장한다.
 
+
 ---
 # Install
 ```
@@ -648,3 +649,37 @@ const renderedPosts = posts.map((post) => (
 // ...skil
 ```
 + 새로운 url 을 생겼으니 App 컴포넌트에서 새로운 route 를 설정해준다.
+
+
+---
++ 이어서 생성된 post 를 수정할 수 있는 EditPostForm 도 만들어보자.
++ 마찬가지로 reducer -> view -> Route 순으로 구현한다.
+> features/posts/postsSlice.js
+``` javascript
+// ...skip
+const postsSlice = createSlice({
+  // ...skip
+  reducers: {
+    // ...skip
+    editPost: {
+      reducer: (state, action) => {
+        const { id, title, content } = action.payload;
+        const post = state.find(post => post.id === id);
+        if(post){
+          post.title = title;
+          post.content = content;
+        }
+      },
+      prepare: (id, title, content) => ({
+        payload: {
+          id: Number(id);
+          title,
+          content,
+        }
+      });
+    }
+  }
+});
+// ...skip
+export const { addPost, editPost } = postsSlice.actions
+```
