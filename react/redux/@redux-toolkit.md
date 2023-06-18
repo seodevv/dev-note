@@ -517,6 +517,8 @@ const AddPostForm = () => {
   const onClickAddPost = (e) => {
     if (canSave) {
       dispatch(addPost(title, content));
+      setTitle('');
+      setContent('');
     }
   };
 
@@ -542,7 +544,7 @@ const AddPostForm = () => {
           />
           <button type="button" onClick={onClickAddPost}>
             Save Post
-          </button>
+          </button>t
         </form>
       </section>
     </>
@@ -550,4 +552,15 @@ const AddPostForm = () => {
 };
 
 export default AddPostForm;
+```
++ input, textarea 으로 받은 데이터는 local state 에 저장하고,
++ button 이 클릭됬을 때 dispatch 를 사용하여 global state 에 post 를 저장해주었다.
+
+
+---
+## Selector
++ Selector 를 사용하여 post 의 상세페이지(SinglePostPage)를 구현한다.
+> features/posts/SinglePostPage.jsx
+``` javascript
+
 ```
