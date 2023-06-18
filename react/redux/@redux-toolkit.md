@@ -302,7 +302,7 @@ start();
 
 
 ---
-# Application Content
+## Application Content
 ```
 └ /public
 └ /src
@@ -326,14 +326,10 @@ start();
   + package.json 을 가져와 local 에 구성하면 될 듯하다.
 
 ---
-## Create postsSlice and store
+## createSlice & configureStore
 > features/posts/postSlice.js
 ``` javascript
 const { createSlice } = require("@reduxjs/toolkit");
-
-const nextId = (posts) => {
-  return Math.max(...posts.map((post) => post.id)) + 1;
-};
 
 const initialState = [
   { id: 1, title: "First Post!", content: "Hello!" },
@@ -353,7 +349,8 @@ export const {} = postsSlice.actions;
 
 export const selectAllPosts = (state) => state.posts;
 ```
-+ 초기 값과 게시물(posts)를 조회하는 simple selector 을 작성하였다.
++ @reduxjs/toolkit 으로부터 createSlice 를 import 하여 postsSlice 를 생성하였다.
++ 초기 값과 게시물(posts)를 조회하는 simple selector 또한 작성해주었다.
 > app/store.js
 ``` javascript
 const { configureStore } = require("@reduxjs/toolkit");
@@ -367,7 +364,8 @@ const store = configureStore({
 
 export default store;
 ```
-+ 만든 postsSlice 를 posts 라는 변수로 store 에 등록해주었다.
++ @reduxjs/toolkit 으로부터 configureStore 를 import 하여 store 를 생성하였다.
++ 이전에 만든 postsSlic 를 가져와 posts 라는 state 를 생성해주었다.
 > index.jsx
 ``` javascript
 import "./index.css";
@@ -397,8 +395,7 @@ start();
 
 
 ---
-## Create Components
-+ store 에서 posts state 를 불러와 postsList 컴포넌트를 작성한다.
+## useSelector
 > features/posts/PostsList.jsx
 ``` javascript
 import React from "react";
@@ -427,8 +424,8 @@ const PostsList = () => {
 
 export default PostsList;
 ``` 
-+ useSelector hook 및 사전에 정의해둔 selectAllPosts selector 를 사용하여 state.posts 를 가져온다.
-+ 가져온 state.posts 를 posts 변수에 담고 component 를 작성한다.
++ useSelector hook 와 미리 정의해둔 selector 를 사용해 posts state 를 불러왔다.
++ 이를 통해 postsList 컴포넌트를 작성해주었다.
 > App.jsx
 ``` javascript
 import React from "react";
