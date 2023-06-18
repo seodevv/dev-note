@@ -563,9 +563,10 @@ export default AddPostForm;
 > features/posts/postsSlice.js
 ``` javascript
 // ... skip
-export const selectPostById = (state, postId) => state.posts.find(post => post.id === postId);
+export const selectPostById = (state, postId) => state.posts.find(post => post.id === Number(postId));
 ```
 + state 와 postId 를 파라미터로 받아 post 를 찾는 selectPostById 라는 selector 를 생성해주고
+
 > features/posts/SinglePostPage.jsx
 ``` javascript
 import React from "react";
@@ -613,4 +614,37 @@ export default SinglePostPage;
   + postId 는 url match 로 데이터를 받는다.
 + post 가 없을 경우에 대한 예외 처리와 postsList 로 돌아갈 수 있는 버튼을 만들었다.
 
+> features/posts/PostsList.jsx
++ view 가 구성됬으니 PostsList 에 event 를 추가한다.
+``` javascript
+// ... skip
+import { useNavigate } from 'react-router-dom';
 
+const navigator = useNavigate();
+const onClickViewPost = (postId) => {
+  navigator(`/post/${postId}`);
+}
+
+const renderedPosts = posts.map((post) => (
+  <article
+    key={post.id}
+    className="post-excerpt"
+    onClick={() => onClickViewPost(post.id)}
+  >
+    // ... skip
+  </article>
+));
+```
++ useNavigate hook 을 사용해서 게시물이 클릭되면 /post/:postId 의 url 로 이동하도록 설정하였다.
+
+
+> App.jsx
++ 새로운 url 을 생겼으니 App 컴포넌트에서 새로운 route 를 설정해준다.
+``` javascript
+// ...skip
+<Routes>
+  // ...skip
+  <Route path="/post/:postId" element={<SinglePostPage />} />
+</Routes>
+// ...skil
+```
