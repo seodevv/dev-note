@@ -56,6 +56,7 @@ const store = configureStore({
   + name : action 의 구분이 되는 키
   + initialState : 초기 값으로 사용할 state
   + reducers: action 에 따라 실행할 reducers
+> features/posts/postsSlice.js
 ``` javascript
 import { counterSlice } from '@reduxjs/toolkit';
 
