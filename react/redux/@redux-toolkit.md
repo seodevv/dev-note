@@ -326,7 +326,8 @@ start();
   + package.json 을 가져와 local 에 구성하면 될 듯하다.
 
 ---
-## createSlice & configureStore
+## createSlice
++ @reduxjs/toolkit 으로부터 createSlice 를 import 하여 postsSlice 를 생성한다.
 > features/posts/postSlice.js
 ``` javascript
 const { createSlice } = require("@reduxjs/toolkit");
@@ -349,8 +350,11 @@ export const {} = postsSlice.actions;
 
 export const selectAllPosts = (state) => state.posts;
 ```
-+ @reduxjs/toolkit 으로부터 createSlice 를 import 하여 postsSlice 를 생성하였다.
 + 초기 값과 게시물(posts)를 조회하는 simple selector 또한 작성해주었다.
++ reducers 는 추후 action 이 필요할 때 작성할 예정이다.
+
+## configureStore
++ @reduxjs/toolkit 으로부터 configureStore 를 import 하여 store 를 생성한다.
 > app/store.js
 ``` javascript
 const { configureStore } = require("@reduxjs/toolkit");
@@ -364,8 +368,10 @@ const store = configureStore({
 
 export default store;
 ```
-+ @reduxjs/toolkit 으로부터 configureStore 를 import 하여 store 를 생성하였다.
-+ 이전에 만든 postsSlic 를 가져와 posts 라는 state 를 생성해주었다.
++ 이전에 만든 postsSlice 로부터 reducer 를 가져와 posts state 에 설정해주었다.
+
+## Provider
++ react-redux 로부터 Provider 를 import 하여 만든 store를 컴포넌트가 사용할 수 있도록 설정한다.
 > index.jsx
 ``` javascript
 import "./index.css";
@@ -390,12 +396,12 @@ const start = () => {
 };
 start();
 ```
-+ store 를 Provider 를 통해 컴포넌트에 제공해주었다.
 + 좀 더 간편한 path 관리를 위해 react-router-dom 도 사용했다.
 
 
 ---
 ## useSelector
++ useSelector hook 와 미리 정의해둔 selector 를 사용해 posts state 를 불러온다.
 > features/posts/PostsList.jsx
 ``` javascript
 import React from "react";
@@ -424,9 +430,11 @@ const PostsList = () => {
 
 export default PostsList;
 ``` 
-+ useSelector hook 와 미리 정의해둔 selector 를 사용해 posts state 를 불러왔다.
 + 이를 통해 postsList 컴포넌트를 작성해주었다.
+
+
 > App.jsx
++ 앞서 만든 PostsList 컴포넌트를 route 에 등록한다.
 ``` javascript
 import React from "react";
 import { Route, Routes } from "react-router-dom";
@@ -448,8 +456,91 @@ function App() {
 
 export default App;
 ```
-+ App.jsx 에선 react-ruter-dom 을 통해 / 경로 접속 시 PostsList 컴포넌트가 보이도록 설정한다.
++ react-ruter-dom 을 통해 / 경로 접속 시 PostsList 컴포넌트가 보이도록 설정한다.
 
 
 ---
-## 
+## reducer
++ post 를 추가하는 AddPostForm 컴포넌트를 작성하기 전에 필요한 addPost reducer 를 작성한다.
+
+> features/posts/postsSlice.js
+``` javascript
+// ... skip
+const postsSlice = createSlice({
+  name: "posts",
+  initialState,
+  reducers: {
+    addPost: {
+      reducer: (state, action) => {
+        const id = Math.max(...state.map((post) => post.id)) + 1;
+        state.push({ id, ...action.payload });
+      },
+      prepare: (title, content) => ({
+        payload: {
+          title,
+          content,
+        },
+      }),
+    },
+  },
+});
+
+export const { addPost } = postSlice.actions;
+```
++ reducer, prepare 를 사용하여 action 을 정의해주었다.
++ 만든 addPost action 을 export 해준다.
+
+## dispatch
++ dispatch 를 사용하여 AddPostForm 으로부터 받은 input 을 state.posts 에 추가한다.
+> features/posts/AddPostForm.jsx
+``` javascript
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addPost } from "./postsSlice";
+
+const AddPostForm = () => {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const canSave = title.trim() && content.trim();
+
+  const onTitleChanged = (e) => setTitle(e.target.value);
+  const onContentChanged = (e) => setContent(e.target.value);
+  const onClickAddPost = (e) => {
+    if (canSave) {
+      dispatch(addPost(title, content));
+    }
+  };
+
+  return (
+    <>
+      <section>
+        <h2>Add a New Post</h2>
+        <form className="post-add-form">
+          <label htmlFor="postTitle">Post Title:</label>
+          <input
+            type="text"
+            id="postTitle"
+            name="postTitle"
+            value={title}
+            onChange={onTitleChanged}
+          />
+          <label htmlFor="postContent">Content:</label>
+          <textarea
+            id="postContent"
+            name="postContent"
+            value={content}
+            onChange={onContentChanged}
+          />
+          <button type="button" onClick={onClickAddPost}>
+            Save Post
+          </button>
+        </form>
+      </section>
+    </>
+  );
+};
+
+export default AddPostForm;
+```
