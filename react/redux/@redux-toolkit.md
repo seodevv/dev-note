@@ -321,7 +321,7 @@ const Counter = () => {
   const count = useSelector((state) => state.counter.value);
   return (
     <div>{count}</div>
-  )
+  );
 }
 ```
 + 이 때에 state => state.counter.value 가 selector 가 된다.
