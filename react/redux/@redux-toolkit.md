@@ -163,6 +163,7 @@ const fetchCounterLoaded = () => {
 + @reduxjs/toolkit 에선 위에 작성한 asynchornous 한 logic 을 createAsyncThunk API 형태로 제공해준다.
 + createAsyncThunk API 사용하여 thunk 를 생성해준 후,
 + 해당 함수의 pending, fulfilled, rejected 상황을 고려하여 extraReducers 를 작성해주면 된다.
+> features/counter/counterSlice.js
 ``` javascript
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -181,7 +182,7 @@ export const fetchCounterValue = createAsyncThunk(
   'counter/fetchCounterValue', // action 의 명칭이 되는 파라미터이다.
   async () => { // async logic 이 실행되는 함수이다.
     const response = await axios.get(process.env.SERVER_URL + '/get/counter');
-    return response.data; // async logic 으로 받은 data 를 return 해준다. 추후 extraReducers 에서 state 관리에 사용한다.
+    return response.data; // ajax 로 받은 data 를 return 해준다. 추후 extraReducers 에서 state 관리에 사용한다.
   }
 );
 
@@ -227,6 +228,84 @@ const counterSlice = createSlice({
       })
   },
 });
+const counterReducer = counterSlice.reducer;
+export default counterReducer;
+
+export const selectCounterValue = (state) => state.counter.value;
+export const selectCounterStatus = (state) => state.counter.status;
+```
+
+> features/counter/Counter.jsx
+``` javascript
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  COUNTER_INCREASE,
+  COUNTER_DECREASE,
+  fetchCounterValue,
+  fetchCounterUpdated,
+  selectCounterValue,
+  selectCounterStatus,
+} from "./counterSlice";
+import Spinner from "../../components/Spinner";
+
+const ButtonGroup = ({ type, dispatch }) => { // 부모 컴포넌트로부터 type, dispatch 를 받는다.
+  const [amount, setAmount] = useState(5); // input value 를 관리할 state 이다.
+
+  // 클릭된 button 에 따라 amount, type 을 결정하고 이를 토대로 dispatch 한다.
+  const updateCounterValue = (amount, type) => {
+    dispatch(fetchCounterUpdated({ amount, type }));
+  };
+
+  return (
+    <div className="counter-button-group">
+      <button onClick={() => updateCounterValue(1, type)}>
+        {type === COUNTER_INCREASE ? "+1" : "-1"}
+      </button>
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      ></input>
+      <button onClick={() => updateCounterValue(amount, type)}>
+        {type === COUNTER_INCREASE ? "+" : "-"}
+      </button>
+    </div>
+  );
+};
+
+const Counter = () => {
+  const count = useSelector(selectCounterValue); // counter value 를 가져온다.
+  const status = useSelector(selectCounterStatus); // counter status 를 가져온다.
+  const dispatch = useDispatch(); 
+
+  let content;
+  if (status === "pending") { // counter status 가 pending 이면 Loading 를 표현한다.
+    content = <Spinner text="Loading" />;
+  } else if (status === "failed") { // counter status 가 failed 이면 error 를 표현한다.
+    content = <h2>Sorry, Network Error</h2>;
+  } else { // counter status 가 idle 이면 counter 를 표현한다.
+    content = (
+      <>
+        <div className="counter-value">{count}</div>
+        <ButtonGroup type={COUNTER_INCREASE} dispatch={dispatch} />
+        <ButtonGroup type={COUNTER_DECREASE} dispatch={dispatch} />
+      </>
+    );
+  }
+
+  useEffect(() => {
+    dispatch(fetchCounterValue());
+  }, []); // 컴포넌트가 실행되는 최초에 server 로부터 value 를 가져와 state 를 load 한다.
+
+  return (
+    <>
+      <div className="container">{content}</div>
+    </>
+  );
+};
+
+export default Counter;
 ```
 
 ---
