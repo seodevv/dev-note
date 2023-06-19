@@ -160,6 +160,12 @@ const fetchUserById = userId => {
 
 
 ---
+## createAsyncThunk
++ @reduxjs/toolkit 에선 위에 작성한 asynchornous 한 logic 을 createAsyncThunk API 형태로 제공해준다.
++ 
+
+
+---
 ## selector
 + state 에서 원하는 state 를 뽑아내는데 사용하는 함수를 selector 라고 부른다.
 + UI 에서 useSelector hook 을 사용해서 state 를 가져올 수 있는데 다음과 같이 사용한다.
@@ -297,3 +303,5 @@ start();
 ```
 
 
+---
+## 
