@@ -323,6 +323,7 @@ const Counter = () => {
     <div>{count}</div>
   );
 }
+export default Counter;
 ```
 + 이 때에 state => state.counter.value 가 selector 가 된다.
 + 위와 같이 익명 함수로 selector 때마다 작성할 수도 있지만
