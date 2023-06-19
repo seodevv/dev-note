@@ -939,3 +939,177 @@ const renderedPosts = posts.map((post) => (
 // ...skip
 ```
 + PostList 가 표현될 때 author 정보도 표현되도록 추가해준다.
+
+
+### 이번엔 postsList 의 정렬 및 reactionButtons 를 구현해보자.
++ 고려해야할 사항은 다음과 같을 것이다.
+1. postsList 를 정렬에 필요한 date 와 reactions 을 기록할 필드를 추가
+2. postsList 를 date 로 정렬해서 UI 를 재구성
+3. ReactionButtons 컴포넌트 구성
+4. ReactionButtons 을 클릭할 때마다 해당하는 reaction count 를 1씩 증가
+5. addPost 할 때 reactions 도 같이 초기화
+
+> features/posts/postsslice.js
+``` javascript
+// ... skip
+import { sub } from 'date-fns';
+
+const initialState = [
+  {
+    id: 0,
+    title: "First Post !",
+    content: "Hello !",
+    userId: 0,
+    date: sub(new Date(), { days: 3 }).toISOString(),
+    reactions: {
+      thumbsUp: 0,
+      hooray: 0,
+      heart: 0,
+      rocket: 0,
+      eyes: 0,
+    },
+  },
+  {
+    id: 1,
+    title: "Second Post !",
+    content: "Hi !",
+    userId: 1,
+    date: sub(new Date(), { days: 1 }).toISOString(),
+    reactions: {
+      thumbsUp: 0,
+      hooray: 0,
+      heart: 0,
+      rocket: 0,
+      eyes: 0,
+    },
+  },
+];
+
+const postsSlice = createSlice({
+  // ...skip
+  reducers: {
+    addPost: {
+      reducer: (state, action) => {
+        const id = Math.max(...state.map((post) => post.id)) + 1;
+        state.push({ id, ...action.payload});
+      },
+      prepare: (title, content, author) => ({
+        payload: {
+          title,
+          content,
+          userId: Number(author),
+          date: new Date().toISOString(),
+          reactions: {
+            thumbsUp: 0,
+            hooray: 0,
+            heart: 0,
+            rocket: 0,
+            eyes: 0,
+          },
+        }
+      }),
+    },
+    // ... skip
+    reactionsAdded: {
+      reducer: (state, action) => {
+        const { id, key } = action.payload;
+        const post = state.find(post => post.id === id);
+        if(post){
+          post.reactions[key]++;
+        }
+      },
+      prepare: (id, key) => ({
+        payload: { id, key },
+      }),
+    }
+  }
+});
+// ... skip
+```
++ date-fns 라이브러리를 이용해 1일, 3일이 지난 date 를 각각 게시물에 넣어주었다.
++ reactions 필드를 생성해서 리액션 종류마다 count 를 기록할 수 있도록 지정해주었다.
++ addPost reducer 에서 post 가 추가될 때 reactions 도 초기화 될 수 있도록 구성해주었다.
++ reactionsAdded reducer 를 생성하여 reaction 종류에 따라 count 를 1씩 추가해줄 수 있도록 해주었다.
+
+> features/posts/PostsList.jsx
+``` javascript
+// ... skip
+const PostsList = () => {
+  // ... skip
+  const orderedPosts = posts.slice().sort((a,b) => b.date.localeCompare(a.date));
+
+  const renderedPosts = oreredPosts.map((post) => (
+    // ... skip
+      <PostAuthor userId={post.userId}/>
+      <TimeAgo timestamp={post.date}/>
+      <p className="post-content">{post.content}</p>
+      <ReactionButtons post={post} />
+    // ...skip
+  ));
+  ...skip
+}
+```
++ selector 를 이용해 가져온 posts 를 sort 를 이용해 정렬한다.
++ 정렬한 orderedPosts 를 이용해 post 가 언제 게시되었는지에 대한 정보를 담는 TimeAgo 를 구성한다.
++ 각각 post 마다 reactions 을 표현할 ReactionButtons 도 같이 구성해준다.
+
+> features/posts/TimeAgo.jsx
+``` javascript
+import React from 'react';
+import { parseISO } from 'date-fns';
+
+const TimeAgo = ({timestamp}) => {
+  let timeAgo = '';
+  if(timestamp){
+    const date = parseISO(timestamp);
+    const timePeriod = formatDistanceToNow(date);
+    timeAgo = `${timePeriod} ago`;
+  }
+  return (
+    <span title={timestamp}>
+      &nbsp; <i>{timeAgo}</i>
+    </span>
+  );
+};
+export default TimeAgo;
+```
++ props 로 받은 post 의 date 를 가지고 컴포넌트를 구성한다.
+
+> features/posts/ReactionButtons
+``` javascript
+import React from 'react';
+import { reactionsAdded } from './postsSlice';
+
+const reactionEmoji = {
+  thumbsUp: "👍",
+  hooray: "🎉",
+  heart: "❤️",
+  rocket: "🚀",
+  eyes: "👀",
+};
+
+const ReactionButtons = ({post}) => {
+  const onClickReactionButton = (e, key) => {
+    e.stopPropagation();
+    dispatch(reactionsAdded(post.id, key);
+  };
+  
+  const reactionButtons = Object.entries(reactionEmoji).map(([key, value]) => (
+    <button
+      key={key}
+      type="button"
+      className="muted-button reaction-button"
+      onClick={(e) => }
+    >
+      {value} {post.reactions[key]}
+    </button>
+  ));
+  retrun (
+    <div>{reactionButtons}</div>  
+  );
+}
+export default ReactionButtons;
+```
++ reactionEmoji 라는 reaction 종류별 모양의 변수를 선언하고
++ 이를 통해 컴포넌트를 구성해주었다.
++ 각 버튼을 클릭할 때 마다 reaction 의 key 값과 post.id 가 dispatch 된다.
