@@ -122,7 +122,6 @@ const reducerWithImmer = (state, action) => {
 + @redux/toolkit은 createAsyncThunk 라는 asynchronous 전용 API 를 제공하지만, 먼저 직접 작성해보자.
 > features/counter/counterSlice.js
 ``` javascript
-// ... skip
 export const incrementAsync = amount => dispatch => {
   setTimeout(()=>{
     dispatch(incrementByAmount(amount));
@@ -131,10 +130,9 @@ export const incrementAsync = amount => dispatch => {
 ```
 > app/store.js
 ``` javascript
-// ... skip
 console.log('before', store.getState());
 store.dispatch(incrementAsync(5));
-setTimeout(() => {
+setTimeout(() => { // incrementAsync 함수가 1초 후에 실행되기 떄문에 getState 도 1초 후에 실행해주었다.
   console.log('after', store.getState()
 }, 1000);
 ```
@@ -146,17 +144,18 @@ setTimeout(() => {
 + 만약 ajax 를 사용한다면..
 > featuers/counter/counterslice.js
 ``` javascript
-const fetchUserById = userId => {
+const fetchCounterLoaded = () => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(process.env.SERVER_URL + '/get/counter');
-      dispatch(userLoaded(response.data));
+      dispatch(counterLoaded(response.data));
     } catch(error){
       // If something went wrong, handle it here
     }
   }
 }
 ```
++ 위와 같이 ajax 를 사용하여 async logic 을 처리할 수 있다.
 
 
 ---
@@ -168,18 +167,66 @@ const fetchUserById = userId => {
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// counter 를 업데이트할 때 사용할 type 을 상수로 지정해주었다.
+// 상수로 지정해준 이유는 increase, decrease 를 수기로 입력하다보면 오타가 날 수 있기 때문...(찾기 힘듬)
+export const COUNTER_INCREASE = "increase";
+export const COUNTER_DECREASE = "decrease";
+
 const initialState = {
   value: null, // server 에서 value 값을 가져올 것이기 때문에 null 로 초기화 해준다.
   status: 'idle', // asynchronous logic 특성 상 응답 시간이 있기 때문에 상태에 따른 UI 를 구현한다.
 }
 
 export const fetchCounterValue = createAsyncThunk(
-  'counter/fetchCounterValue',
-  async () => {
+  'counter/fetchCounterValue', // action 의 명칭이 되는 파라미터이다.
+  async () => { // async logic 이 실행되는 함수이다.
     const response = await axios.get(process.env.SERVER_URL + '/get/counter');
-    return response.data;
+    return response.data; // async logic 으로 받은 data 를 return 해준다. 추후 extraReducers 에서 state 관리에 사용한다.
   }
 );
+
+// counter 를 업데이트 해주는 Thunk 도 만들어주었다.
+export const fetchCounterUpdated = createAsyncThunk(
+  "counter/fetchCounterUpdated",
+  // createAsyncThunk 는 하나의 파라미터만 받을 수 있기 때문에 파라미터가 여러 개일 경우 객체로 전달하여 받는다.
+  async ({ amount, type }) => { 
+    // 전달된 type 에 따라 increase/decrease url 을 결정
+    const requestUrl = `${process.env.SERVER_URL}/post/counter/${type}`;
+    const response = await axios.post(requestUrl, { amount }); // ajax 요청
+    return { ...response.data, amount, type }; // extraReducer 에 action.payload 로 넘긴다.
+  }
+);
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      // fetchCounterValue async 함수가 pending(진행 중) 상태 일 때의 처리
+      .addCase(fetchCounterValue.pending, (state, action) => { 
+        state.status = 'pending'; // status 를 pending 으로 변경하고 UI 에서 loading 을 표현할 예정이다.
+      })
+      // fetchCounterValue async 함수가 fulfilled(성공) 상태 일 때의 처리
+      .addCase(fetchCounterValue.fulfilled, (state, action) => {
+        state.status = 'idle'; // status 를 idle 로 변경하고 UI 는 counter value 를 표현할 예정이다.
+        state.value = action.payload.value; // createAsyncThunk 에서 return 된 값이 action.payload 에 담긴다.
+      })
+      // fetchCounterValue async 함수가 rejexted(실패) 상태 일 때의 처리
+      .addCase(fetchCounterValue.rejected, (state, action) => {
+        state.status = 'failed'; // status 를 failed 로 변경하고 UI 는 error 를 표현할 예정이다.
+      })
+      // fetchCounterUpdated async 함수는 fulfilled(성공) 상태만 작성해주었다.
+      .addCase(fetchCounterUpdated.fulfilled, (state, action) => {
+        // type 에 따라 state 를 increase/decrease 한다.
+        if(action.payload.type === COUNTER_INCREASE){
+          state.value += action.payload.amount;
+          return;
+        }
+        state.value -= action.payload.amount;
+      })
+  },
+});
 ```
 
 ---
