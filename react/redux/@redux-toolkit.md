@@ -149,8 +149,8 @@ setTimeout(() => {
 const fetchUserById = userId => {
   return async (dispatch, getState) => {
     try {
-      const user = await axios.get('http://localhost:8081/post/user', {userId} );
-      dispatch(userLoaded(user));
+      const response = await axios.get(process.env.SERVER_URL + '/get/counter');
+      dispatch(userLoaded(response.data));
     } catch(error){
       // If something went wrong, handle it here
     }
@@ -162,8 +162,25 @@ const fetchUserById = userId => {
 ---
 ## createAsyncThunk
 + @reduxjs/toolkit 에선 위에 작성한 asynchornous 한 logic 을 createAsyncThunk API 형태로 제공해준다.
-+ 
++ createAsyncThunk API 사용하여 thunk 를 생성해준 후,
++ 해당 함수의 pending, fulfilled, rejected 상황을 고려하여 extraReducers 를 작성해주면 된다.
+``` javascript
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+const initialState = {
+  value: null, // server 에서 value 값을 가져올 것이기 때문에 null 로 초기화 해준다.
+  status: 'idle', // asynchronous logic 특성 상 응답 시간이 있기 때문에 상태에 따른 UI 를 구현한다.
+}
+
+export const fetchCounterValue = createAsyncThunk(
+  'counter/fetchCounterValue',
+  async () => {
+    const response = await axios.get(process.env.SERVER_URL + '/get/counter');
+    return response.data;
+  }
+);
+```
 
 ---
 ## selector
