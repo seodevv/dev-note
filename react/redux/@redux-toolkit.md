@@ -450,8 +450,8 @@ start();
 ---
 ## Normalizing Data (createEntityAdpter)
 + 데이터를 정규화하는 것은 중요하다. 왜냐하면...
-  1. 데이터 정규화 시 데이터 중복이 없어져 중복으로 인한 낭비, 부작용을 예방할 수 있다.
-  2. 데이터 정규화 시 데이터 검색, 데이터 정렬 성능 등 간의 이점을 가져올 수 있다.
+1. 데이터 정규화 시 데이터 중복이 없어져 중복으로 인한 낭비, 부작용을 예방할 수 있다.
+2. 데이터 정규화 시 데이터 검색, 데이터 정렬 성능 등 간의 이점을 가져올 수 있다.
 + @reduxjs/toolkit 에서는 데이터를 정규화할 수 있는 API 를 제공하는데, 바로 createEntityAdapter 이다.
 + 데이터를 정규화하기 위해선 배열 데이터가 필요하기 떄문에 간단한 postsSlice 를 작성해보자
 > features/posts/postsSlice.js
@@ -511,15 +511,115 @@ export const {
 export const selectPostsStatus = (state) => state.posts.status;
 ```
 + createEntityAdapter 의 CRUD Functions
-  1. addOne: 단일 entity 를 수락하고 entity가 없는 경우 추가한다.
-  2. addMany: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 없는 경우 추가한다.
-  3. setOne: 단일 entity 를 수락하고 추가하거나 교체한다.
-  4. setMany: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 추가하거나 교체한다.
-  5. setAll: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 모든 기존 개체를 대체한다.
-  6. removeOne: 단일 entityId 를 수락하고 해당 entityId 가 있을 경우 제거한다.
-  7. removeMany: entityIds 배열을 수락하고 해당 entityId 가 있을 경우 제거한다.
-  8. removeAll: 모든 entity 를 제거한다.
-  9. updateOne: 단일 entityId 와 변경 필드를 포함한 개체를 수락하고 해당 entity 에서 얕은 업데이트를 수행한다.
-  10. updateMany: 업데이트 개체의 배열을 수락하고 모든 해당 entity 에 대해 얕은 업데이트를 수행한다.
-  11. upsertOne: 단일 entity 를 수락하고 해당 entityId 가 있을 경우 얕은 업데이트를 수행하고 기존 entity 와 일치하는 필드는 기존 값을 덮어쓴다. entity 가 없으면 추가된다.
-  12. upsertMany: 얕게 upsert 될 Record<EntityId, T> 모양의 개체 또는 개체 배열을 허용한다.
+1. addOne: 단일 entity 를 수락하고 entity가 없는 경우 추가한다.
+2. addMany: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 없는 경우 추가한다.
+3. setOne: 단일 entity 를 수락하고 추가하거나 교체한다.
+4. setMany: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 추가하거나 교체한다.
+5. setAll: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 모든 기존 개체를 대체한다.
+6. removeOne: 단일 entityId 를 수락하고 해당 entityId 가 있을 경우 제거한다.
+7. removeMany: entityIds 배열을 수락하고 해당 entityId 가 있을 경우 제거한다.
+8. removeAll: 모든 entity 를 제거한다.
+9. updateOne: 단일 entityId 와 변경 필드를 포함한 개체를 수락하고 해당 entity 에서 얕은 업데이트를 수행한다.
+10. updateMany: 업데이트 개체의 배열을 수락하고 모든 해당 entity 에 대해 얕은 업데이트를 수행한다.
+11. upsertOne: 단일 entity 를 수락하고 해당 entityId 가 있을 경우 얕은 업데이트를 수행하고 기존 entity 와 일치하는 필드는 기존 값을 덮어쓴다. entity 가 없으면 추가된다.
+12. upsertMany: 얕게 upsert 될 Record<EntityId, T> 모양의 개체 또는 개체 배열을 허용한다.
+
+> app/store.js
+``` javascript
+import { configureStore } from "@reduxjs/toolkit";
+import counterReducer from "../features/counter/counterSlice";
+import postsReudcer from "../features/posts/postsSlice";
+
+const store = configureStore({
+  reducer: {
+    counter: counterReducer,
+    posts: postsReudcer, // Slice 가 추가되었으니 store 에 추가해준다.
+  },
+});
+
+export default store;
+```
+
+> features/posts/PostsList.jsx
+``` javascript
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { formatDistanceToNow, parseISO } from "date-fns";
+import {
+  fetchPostsLoaded,
+  selectPostById,
+  selectPostsIds,
+  selectPostsStatus,
+} from "./postsSlice";
+import Spinner from "../../components/Spinner";
+
+const Post = ({ postId }) => { // 부모 컴포넌트로부터 postId 를 props 로 받는다.
+  // 사전에 정의된 selector 를 통해 post 정보를 가져온다.
+  const post = useSelector((state) => selectPostById(state, postId));
+  // date-fns 의 formatDistnaceToNow 를 사용하기 위해 date 를 ISO type 으로 변경한다.
+  const date = parseISO(post.date);
+  return (
+    <section className="post-excerpt">
+      <h3>{post.title}</h3>
+      <span>{formatDistanceToNow(date)} ago</span>
+      <p>{post.content}</p>
+    </section>
+  );
+};
+
+const PostsList = () => {
+  // 사전에 정의된 selector 를 통해 postsIds 배열을 가져온다.
+  const postsIds = useSelector(selectPostsIds);
+  // posts 정보는 서버로부터 가져오기 때문에 데이터 상태 값을 가져온다.
+  const status = useSelector(selectPostsStatus);
+  const dispatch = useDispatch();
+
+  let content;
+  if (status === "pending") { // posts 정보를 가져오는 중이면 로딩 화면
+    content = <Spinner text="loading" />;
+  } else if (status === "failed") { // posts 정보를 가져오는게 실패했으면 에러 화면
+    content = <h2>Sorry, Network Error</h2>;
+  } else { // posts 정보를 정상적으로 가져왔으면 posts list 를 표현
+    content = (
+      <article className="post">
+        <h2>Posts</h2>
+        {postsIds.map((postId) => (
+          <Post key={postId} postId={postId} />
+        ))}
+      </article>
+    );
+  }
+
+  // status 가 idle 상태면 server 로부터 posts 정보를 가져와 dispatch 한다.
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchPostsLoaded());
+    }
+  }, []);
+  return (
+    <>
+      <section className="container">{content}</section>
+    </>
+  );
+};
+
+export default PostsList;
+```
+
+> App.jsx
+``` javascript
+import React from "react";
+import Counter from "./features/counter/Counter";
+import PostsList from "./features/posts/PostsList";
+
+const App = () => {
+  return (
+    <>
+      <Counter />
+      <PostsList />
+    </>
+  );
+};
+
+export default App;
+```
