@@ -846,3 +846,34 @@ const App = () => {
 export default App;
 ```
 + App.jsx 에 routing 을 추가해준다.
+
+### newPost 기능 추가
++ endpoints 의 query 가 아닌 mutation 으로 newPost 기능을 추가해보도록 하자.
+> features/posts/postsSlice.js
+``` javascript
+export const apiSlice = createApi({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.SERVER_URL }),
+  tagTypes: ["Post"], // cache tag 를 지정해준다.
+  endpoints: (builder) => ({
+    getPosts: builder.query({
+      query: () => "/get/posts",
+      providesTags: ["Post"],
+    }),
+    getPost: builder.query({
+      query: (postId) => `/get/post/${postId}`,
+    }),
+    newPost: builder.mutation({ // post 요청을 할 것이기 때문에, mutation 을 이용하여 선언해준다.
+      query: (initialPost) => ({ 
+        url: "/post/post/new",
+        method: "POST", // method 를 지정해주고
+        body: initialPost, // body 에 담을 데이터를 지정해준다.
+      }),
+      // cache tag "Post" 를 invalidated 시킨다. 
+      // -> cache tag 가 지정된 endpoint 들이 데이터를 다시 가져와야 함을 알린다.
+      invalidatesTags: ["Post"], 
+    }),
+  }),
+});
+export const { useGetPostsQuery, useGetPostQuery, useNewPostMutation } = apiSlice;
+```
