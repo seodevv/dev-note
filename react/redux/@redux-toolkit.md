@@ -646,3 +646,35 @@ export const searchPostsIds = createSelector(
   }
 );
 ```
+
+
+---
+## createApi
++ createAsyncThunk 로 ajax 와 ajax 요청 상태에 따른 처리를 해보았는데, 다소 중복된 코드가 많다는 것을 느꼈을 것이다.
++ 이에 @reduxjs/toolkit 에서는 createApi API 를 제공해준다.
+> features/posts/postsSlice.js
+``` javascript
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit'; 
+
+// createApi 를 import 하여 apiSlice 를 선언한다.
+export const apiSlice = createApi({
+  // reducer path 가 되는 부분이다. (posts/fetchPostsLoaded 의 posts 부분)
+  reducerPath: 'api', 
+  // fetch 를 요청할 base url 이다. 
+  // fetchBaseQuery 를 사용해 fetch 요청 시 동일한 header 등의 정보로 요청할 수 있다.
+  baseQuery: fetchBaseQuery({baseUrl: process.env.SERVER_URL}), 
+  // endPoints 는 서버와 상호 작용하기 위한 일련의 작업 정의이다.
+  // GET 요청은 builder.query() 로, POST 등의 요청은 builder.mutation() 을 사용한다.
+  endPoints: (builder) => ({
+    getPosts: builder.query({
+      query: () => "/get/posts",
+    }),
+    getPost: builder.query({
+      query: (postId) => `/get/post/${postId}`,
+    }),
+});
+// endPoints 에서 만든 작업은 apiSlice 가 자동으로 hook 을 만들어준다.
+// 만들어진 훅은 보통 use + 작업명 + Query 로 apiSlice 가 만들어준다.
+// 이 hook 을 통해 fetch 요청 및 요청 상태 등의 정보를 가져올 수 있다.
+export const { useGetPostsQuery, useGetPostQuery } = apiSlice;
+```
