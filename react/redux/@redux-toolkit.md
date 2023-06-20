@@ -511,4 +511,15 @@ export const {
 export const selectPostsStatus = (state) => state.posts.status;
 ```
 + createEntityAdapter 의 CRUD Functions
-  1. 
+  1. addOne: 단일 entity 를 수락하고 entity가 없는 경우 추가한다.
+  2. addMany: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 없는 경우 추가한다.
+  3. setOne: 단일 entity 를 수락하고 추가하거나 교체한다.
+  4. setMany: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 추가하거나 교체한다.
+  5. setAll: Record<EntityId, T> 모양의 개체 또는 개체 배열을 수락하고 모든 기존 개체를 대체한다.
+  6. removeOne: 단일 entityId 를 수락하고 해당 entityId 가 있을 경우 제거한다.
+  7. removeMany: entityIds 배열을 수락하고 해당 entityId 가 있을 경우 제거한다.
+  8. removeAll: 모든 entity 를 제거한다.
+  9. updateOne: 단일 entityId 와 변경 필드를 포함한 개체를 수락하고 해당 entity 에서 얕은 업데이트를 수행한다.
+  10. updateMany: 업데이트 개체의 배열을 수락하고 모든 해당 entity 에 대해 얕은 업데이트를 수행한다.
+  11. upsertOne: 단일 entity 를 수락하고 해당 entityId 가 있을 경우 얕은 업데이트를 수행하고 기존 entity 와 일치하는 필드는 기존 값을 덮어쓴다. entity 가 없으면 추가된다.
+  12. upsertMany: 얕게 upsert 될 Record<EntityId, T> 모양의 개체 또는 개체 배열을 허용한다.
