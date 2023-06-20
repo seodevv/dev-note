@@ -849,6 +849,7 @@ export default App;
 
 ### newPost 기능 추가
 + endpoints 의 query 가 아닌 mutation 으로 newPost 기능을 추가해보도록 하자.
++ post 가 추가 되었을 때 postsList 의 posts 도 다시 가져와야한다. tag 를 사용하여 구현해보자.
 > features/posts/postsSlice.js
 ``` javascript
 export const apiSlice = createApi({
