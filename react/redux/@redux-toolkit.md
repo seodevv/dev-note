@@ -678,3 +678,171 @@ export const apiSlice = createApi({
 // 이 hook 을 통해 fetch 요청 및 요청 상태 등의 정보를 가져올 수 있다.
 export const { useGetPostsQuery, useGetPostQuery } = apiSlice;
 ```
+
+> features/posts/PostsList.jsx
+``` javascript
+import React, { useMemo, useRef, useState } from "react";
+import { formatDistanceToNow, parseISO } from "date-fns";
+import { useGetPostsQuery } from "./postsSlice";
+import Spinner from "../../components/Spinner";
+import { useNavigate } from "react-router-dom";
+
+const Post = ({ post }) => { // 부모 컴포넌트로부터 post 를 받는다.
+  const date = parseISO(post.date);
+
+  const navigator = useNavigate();
+  const onClickViewPost = () => { // 버튼 클릭시 post detail page 로 routing 한다.
+    navigator(`/post/detail/${post.id}`);
+  };
+  return (
+    <article className="post-excerpt">
+      <h3>{post.title}</h3>
+      <span>{formatDistanceToNow(date)} ago</span>
+      <p>{post.content}</p>
+      <button className="view-post btn btn-primary" onClick={onClickViewPost}>
+        view Post
+      </button>
+    </article>
+  );
+};
+
+const PostsList = () => {
+  const [search, setSearch] = useState(""); // 검색 창의 input 을 저장하는 state
+  const searchRef = useRef(null);
+  const onKeyDownSearch = (e) => { // 검색 창에 enter 가 입력 되면 state 를 저장한다.
+    if (e.code === "Enter") {
+      setSearch(e.target.value);
+      searchRef.current.value = "";
+    }
+  };
+
+  // apiSlice 로부터 data 및 요청 상태 값을 가져온다.
+  const {
+    data: posts = [], // posts 를 가져오는 동안 posts 를 빈 배열로 초기화 해주었다.
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetPostsQuery();
+
+  // 검색 창 구현과 최신 post 가 위로 오도록 posts 를 정렬하였다.
+  // sort, filter 특성 상 새로운 객체를 반환하기 때문에 
+  // useMemo 를 사용하여 posts, search 값이 변경될 때만 rendering 되도록 설정하였다.
+  const sortedFilteredPosts = useMemo(() => {
+    let sortedFilteredPosts = posts.slice();
+    sortedFilteredPosts.sort((a, b) => b.date.localeCompare(a.date));
+    if (search) {
+      sortedFilteredPosts = sortedFilteredPosts.filter((post) =>
+        post.title.toLowerCase().includes(search)
+      );
+    }
+    return sortedFilteredPosts;
+  }, [posts, search]);
+
+  let content;
+  if (isLoading) { // 요청 상태일 때는 로딩 화면
+    content = <Spinner text="loading" />;
+  } else if (isError) { // 에러 상태일 때는 에러 화면
+    content = <h2>{error.toString()}</h2>;
+  } else if (isSuccess) { // 성공 상태일 때는 post list 를 표현한다.
+    content = (
+      <article className="post">
+        <h2>Posts</h2>
+        <div className="post-search">
+          <h4>Search</h4>
+          <input ref={searchRef} onKeyDown={onKeyDownSearch}></input>
+          {sortedFilteredPosts.map((post) => (
+            <Post key={post.id} post={post} />
+          ))}
+        </div>
+      </article>
+    );
+  }
+  return (
+    <>
+      <section className="container">{content}</section>
+    </>
+  );
+};
+
+export default PostsList;
+```
+
+> features/posts/PostDetail.jsx
+``` javascript
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useGetPostQuery } from "./postsSlice";
+import Spinner from "../../components/Spinner";
+import { formatDistanceToNow, parseISO } from "date-fns";
+
+const PostDetail = () => {
+  const { postId } = useParams(); // postId 를 router 를 통해 가져온다.
+  // useGetPostQuery hook 을 사용하여 post 와 fetch 여부, success 여부를 가져온다.
+  const { data: post, isFetching, isSuccess } = useGetPostQuery(postId);
+
+  // 각 button 에 따른 routing
+  const navigator = useNavigate();
+  const onClickBack = () => {
+    navigator("/");
+  };
+  const onClickEdit = () => {
+    navigator(`/post/edit/${postId}`);
+  };
+
+  let content;
+  if (isFetching) { // fetch 가 진행 중일 때, 로딩 화면
+    content = <Spinner text="Loading" />;
+  } else if (isSuccess) { // fetch 가 성공 중일 때, post 표현
+    const date = parseISO(post.date);
+    content = (
+      <article>
+        <h3>{post.title}</h3>
+        <span>{formatDistanceToNow(date)} ago</span>
+        <p>{post.content}</p>
+        <div className="excerpt-button-group">
+          <button onClick={onClickBack}>Back</button>
+          <button onClick={onClickEdit}>Edit</button>
+        </div>
+      </article>
+    );
+  }
+  return (
+    <>
+      <section className="container">{content}</section>
+    </>
+  );
+};
+
+export default PostDetail;
+```
++ apiSlice 로 인해 생성된 hook 는 다음을 포함한다.
+1. data : 서버에서 실제로 받은 내용. 응답이 오기 전까지 정의되지 않는다.
+2. isLoading : 이 Hook 가 첫 번째 요청을 하고 있는지를 나타내는 Boolean 값이다.
+3. isFetching : 이 Hook 가 현재 서버에 요청하고 있는지 여부를 나타내는 Boolean 값이다.
+4. isSuccess : 이 Hook 가 성공적인 요청을 했고, 캐시된 데이터를 사용할 수 있는지에 대한 Boolean 값이다.
+5. isError : 마지막 요청에 오류가 있는지 나타내는 Boolean 값이다.
+6. error : 에러 객체의 내용을 담고 있다.
+
+> App.jsx
+``` javascript
+import React from "react";
+import Counter from "./features/counter/Counter";
+import PostsList from "./features/posts/PostsList";
+import { Route, Routes } from "react-router-dom";
+import PostDetail from "./features/posts/PostDetail";
+
+const App = () => {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<> <Counter /> <PostsList /> </>}/>
+        <Route path="/post/detail/:postId" element={<> <PostDetail /> </>}/>
+      </Routes>
+    </>
+  );
+};
+
+export default App;
+```
++ App.jsx 에 routing 을 추가해준다.
