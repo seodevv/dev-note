@@ -877,3 +877,99 @@ export const apiSlice = createApi({
 });
 export const { useGetPostsQuery, useGetPostQuery, useNewPostMutation } = apiSlice;
 ```
+
+> features/posts/PostsList.jsx
+``` javascript
+ const navigator = useNavigate();
+  const onClickNewPost = () => {
+    navigator("/post/new"); // 버튼 클릭 시 /post/new 로 routing
+  };
+
+  let content;
+  if (isLoading) {
+    content = <Spinner text="loading" />;
+  } else if (isError) {
+    content = <h2>{error.toString()}</h2>;
+  } else if (isSuccess) {
+    content = (
+      <article className="post">
+        // ... 
+        <div className="post-button-group">
+          <button className="btn-danger" onClick={onClickNewPost}> // new Post 버튼을 추가
+            New Post
+          </button>
+        </div>
+        // ...
+      </article>
+    );
+  }
+```
+
+> App.jsx
+``` javascript
+<Route path="/post/new" element={<NewPost />} /> // routing 추가
+```
+
+> features/posts/NewPost.jsx
+``` javascript
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useNewPostMutation } from "./postsSlice";
+
+const NewPost = () => {
+  // 사용자에게서 input 을 받고 저장하는 state 들을 선언
+  const [title, setTitle] = useState(""); 
+  const [content, setContent] = useState("");
+
+  // postsSlice 에서 만든 Mutation hook 을 가져온다.
+  // 첫 번째 값은 트리거 함수으로 사용되고, 두 번쨰 값은 현재 진행 중인 요청의 메타 데이터가 있는 객체이다.
+  const [newPost, { isLoading }] = useNewPostMutation();
+  const navigator = useNavigate();
+  const canSave = title.trim() && content.trim();
+  const onClickDone = async () => {
+    console.log("canSave", canSave);
+    if (canSave) {
+      try {
+        // 트리거 함수에 파라미터를 담아 endpoint 를 실행시킨다.
+        // unwrap() 메서드가 있는 특별한 Promise 를 반환하고 결과를 기다린다.
+        await newPost({ title, content }).unwrap();
+        // newPost 요청이 성공적으로 완료되면 / 경로로 routing 한다.
+        // getPosts 와 newPost 는 동일한 tag 로 설정되있기 떄문에 / 경로로 돌아가면 getPosts 가 다시 실행된다.
+        navigator("/"); 
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+  const onClickCancle = () => {
+    navigator("/");
+  };
+  return (
+    <>
+      <section className="container new-post">
+        <h2>Adding New Post</h2>
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+        <label htmlFor="content">Content</label>
+        <textarea
+          id="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        ></textarea>
+        <button className="btn btn-primary" onClick={onClickDone}>
+          Done
+        </button>
+        <button className="btn btn-secondary" onClick={onClickCancle}>
+          Cancle
+        </button>
+      </section>
+    </>
+  );
+};
+
+export default NewPost;
+```
