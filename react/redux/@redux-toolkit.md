@@ -623,3 +623,26 @@ const App = () => {
 
 export default App;
 ```
+
+
+---
+## createSelector
++ @reduxjs/toolkit 에선 memoized 된 selector 를 지원하는데 바로 createSelector 이다.
++ createSelector 는 여러 파라미터를 가지는데, n-1 번쨰 까지가 input selector 가 되고 n 번쨰 파라미터가 output selector 가 된다.
++ input selector 의 값이 변하지 않는 이상 rerendering 되지 않는다.
+> features/posts/postsSlice.js
+``` javascript
+export const searchPostsIds = createSelector(
+  (state) => state.posts.entities, // 1 번쨰 input selector 로 entities 를 반환한다.
+  (state, search) => search, // 2 번째 input selector 로 search 값을 반환한다.
+  (entities, search) => { // 마지막 output selector 로 1, 2 번째 input selector 로부터 return 된 값을 순서대로 받는다. 
+    if (search) { // search 값이 있을 경우
+      return Object.values(entities) // title 에서 search 가 포함된 post 의 id 만 반환한다.
+        .filter((post) => post.title.toLowerCase().includes(search))
+        .map((post) => post.id);
+    } else {
+      return Object.values(entities).map((post) => post.id); // search 값이 없을 경우 전체 posts 의 ids 를 반환한다.
+    }
+  }
+);
+```
