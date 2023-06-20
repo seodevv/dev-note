@@ -448,4 +448,67 @@ start();
 
 
 ---
-## 
+## Normalizing Data (createEntityAdpter)
++ 데이터를 정규화하는 것은 중요하다. 왜냐하면...
+  1. 데이터 정규화 시 데이터 중복이 없어져 중복으로 인한 낭비, 부작용을 예방할 수 있다.
+  2. 데이터 정규화 시 데이터 검색, 데이터 정렬 성능 등 간의 이점을 가져올 수 있다.
++ @reduxjs/toolkit 에서는 데이터를 정규화할 수 있는 API 를 제공하는데, 바로 createEntityAdapter 이다.
++ 데이터를 정규화하기 위해선 배열 데이터가 필요하기 떄문에 간단한 postsSlice 를 작성해보자
+> features/posts/postsSlice.js
+``` javascript
+import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+// createEntityAdapter API 를 사용하여 postsAdapter 를 선언한다.
+// 파라미터로는 ids 를 어떻게 정렬할 것인지 결정하는 sortComparer 을 제공한다.
+const postsAdapter = createEntityAdapter({
+  sortComparer: (a,b) => b.date.localeCompare(a.date);
+});
+// createEntityAdapter 는 getInitialState 함수도 제공하는데,
+// 이를 사용하면 자동으로 initiaiState 에 ids: [], entities: [] 가 포함된다. (추가적인 state 는 본인이 작성하면 된다.)
+const initialState = postsAdapter.getInitialState({
+  status: 'idle',
+});
+
+// createAsyncThunk 를 통해 server 로부터 data 를 가져온다.
+export const fetchPostsLoaded = createAsyncThunk('posts/fetchPostsLoaded', async () => {
+  const response = await axios.get(process.env.SERVER_URL + '/get/posts');
+  return response.data;
+});
+
+const postsSlice = createSlice({
+  name: 'posts',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+      builder
+      .addCase(fetchPostsLoaded.pending, (state, action) => {
+        state.status = "pending";
+      })
+      .addCase(fetchPostsLoaded.fulfilled, (state, action) => {
+        state.status = "idle";
+        // postsAdapter 를 사용해 state 를 설정할 수 있다.
+        // postsAdpater.setAll 은 모든 ids 와 entities 를 대체한다.
+        postsAdapter.setAll(state, action.payload);
+      })
+      .addCase(fetchPostsLoaded.rejected, (state, action) => {
+        state.status = "failed";
+      });
+  },
+});
+
+const postsReducer = postsSlice.reducer;
+export default postsReducer;
+// createEntityAdapter 는 간단한 selector 도 제공을 해주는데, getSelectors 를 통해 destructure 가 가능하다.
+// selectAll: 모든 entities 를 배열 형태로 가져온다.
+// selectById: 특정 id 의 entities 데이터를 가져온다.
+// selectIds: 모든 Ids 를 배열 형태로 가져온다.
+export const {
+  selectAll: selectPostsAll,
+  selectById: selectPostById,
+  selectIds: selectPostsIds,
+} = postsAdapter.getSelectors((state) => state.posts);
+export const selectPostsStatus = (state) => state.posts.status;
+```
++ createEntityAdapter 의 CRUD Functions
+  1. 
