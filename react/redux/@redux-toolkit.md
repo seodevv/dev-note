@@ -974,3 +974,109 @@ const NewPost = () => {
 
 export default NewPost;
 ```
+
+
+### EditPost 기능 추가
++ AddPost 와 거의 비슷한 EditPost 도 구현해보자.
+> features/posts/postSlice.js
+``` javascript
+export const apiSlice = createApi({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.SERVER_URL }),
+  tagTypes: ["Post"],
+  endpoints: (builder) => ({
+    // ...
+    editPost: builder.mutation({ // mutation 으로 editPost endpoint 를 작성
+      query: (initialPost) => ({
+        url: "/patch/post/edit",
+        method: "PATCH",
+        body: initialPost,
+      }),
+    }),
+  }),
+});
+```
+
+> features/posts/PostDetail.jsx
+``` javascript
+const PostDetail = () => {
+  // ...
+  const onClickEdit = () => { // PostDetail Page 에서 EditPage 로 routing
+    navigator(`/post/edit/${postId}`);
+  };
+  // ...
+  content = (
+    // ...
+    <button onClick={onClickEdit}>Edit</button> // PostDetail Page 에서 EditPage 로 routing 하는 버튼
+    // ...
+  );
+  // ...
+};
+```
+
+> features/posts/EditPost.jsx
+``` javascript
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEditPostMutation, useGetPostQuery } from "./postsSlice";
+
+const EditPost = () => {
+  const { postId } = useParams(); // postId 를 match 로부터 가져오고
+  const { data: post } = useGetPostQuery(postId); // postId 로부터 hook을 통해 post 정보를 가져온다.
+
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+
+  const canSave = title.trim() && content.trim();
+  const navigator = useNavigate();
+  const [editPost, { isLoading }] = useEditPostMutation(); // endpoint 의 trigger 함수를 가져오고
+  const onClickDone = async () => { // 수정 완료 버튼을 클릭하면 endpoint 를 실행시킨다.
+    if (canSave) {
+      try {
+        await editPost({ title, content, postId }).unwrap();  // endpoint 의 응답을 기다려서
+        navigator(`/post/detail/${postId}`); // 응답이 오면 detail page 로 돌아간다.
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+  const onClickCancle = () => {
+    navigator(`/post/detail/${postId}`);
+  };
+  return (
+    <>
+      <section className="container new-post">
+        <h2>Editing Post</h2>
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+        <label htmlFor="content">Content</label>
+        <textarea
+          id="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        ></textarea>
+        <button className="btn btn-primary" onClick={onClickDone}>
+          Done
+        </button>
+        <button className="btn btn-secondary" onClick={onClickCancle}>
+          Cancle
+        </button>
+      </section>
+    </>
+  );
+};
+
+export default EditPost;
+```
++ 성공적으로 editing 이 되었지만 detail Page 로 돌아갔을 때 여전히 수정하기 전의 post 정보가 보일 것이다.
++ useGetPostQuery(postId) 를 사용할 때 postId 가 동일하기 때문에 캐시된 데이터를 가져오기 때문에,
++ tag 를 지정해서 apiSlice 에게 데이터를 다시 가져와야한다고 알려줘야 한다.
+
+> features/api/apiSlice.js
+``` javascript
+
+```
