@@ -19,7 +19,7 @@ npx create-react-app board --template pwa-typescript
 ```
 
 ----------
-# Usagble Package
+# Usable Package
 ```
 npm install react-bootstrap bootstrap
 npm install styled-components@5.3.10 @types/styled-components
