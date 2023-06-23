@@ -1,4 +1,4 @@
-# Regular expression(정규표현식)
+# Regular Expression(정규표현식)
 
 ## syntax
 + ^x
