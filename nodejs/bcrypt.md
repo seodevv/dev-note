@@ -13,6 +13,9 @@ npm i -D bcrypt
 + express 환경에서 사용하였고,
 + bcrypt 는 sync logic 과 async logic 이 존재하는데, async 를 추천하여 async 를 사용하였다.
 + http 구간 패스워드 암호화는 Client 단에서 [CryptoJS 라이브러리](https://github.com/seodevv/dev-note/blob/main/react/CryptoJS.md)를 사용하였다.
+
+### hash
++ 평문 상태의 password 를 암호화 한다.
 > routes/auth/login.js
 ``` javascript
 const router = require('express').Router();
@@ -72,4 +75,44 @@ const insertUser = async ({ userId, password, phone, date }) => {
 ``` javascript
 // ...
 app.use("/auth", require("./routes/auth/login.js"));
+```
+
+### compare
++ password 체크를 할 때 사용자로부터 입력 받은 plainPassword 와 DB 에 저장된 decryptedPassword 를 비교함
++ hash 와 마찬가지로 async logic 으로 작성 가능
+> routes/auth/login.js
+``` javascript
+// ...
+router.post("/compare", async (req, res) => {
+  const { userId, password } = req.body;
+
+  if (!userId || !password) {
+    res.status(400).json({ error: true, message: "bad request" });
+    return;
+  }
+
+  // CryptoJS 로 http 구간 암호화 했던 것을 복호화하는 과정
+  const decryptedPassword = CryptoJS.AES.decrypt(
+    password,
+    process.env.CRYPTO_SECRET_KEY
+  ).toString(CryptoJS.enc.Utf8);
+
+  try {
+    // DB 에서 user 정보를 찾음
+    const [result] = await selectPasswordUser({ userId });
+    
+    if (result) {
+      // user 정보가 있다면 사용자로부터 입력받은 password 와 db 에 저장된 hash password 를 비교
+      // 결과 값은 Boolean 형태로 정해짐
+      const compared = await bcrypt.compare(decryptedPassword, result.password);
+      res.json({ compared });
+      return;
+    }
+    res.json({ compared: false });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error });
+  }
+});
+
 ```
