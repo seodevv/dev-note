@@ -103,9 +103,9 @@ router.post("/compare", async (req, res) => {
     
     if (result) {
       // user 정보가 있다면 사용자로부터 입력받은 password 와 db 에 저장된 hash password 를 비교
-      // 결과 값은 Boolean 형태로 정해짐
+      // 결과 값은 같으면 true, 다르면 false
       const compared = await bcrypt.compare(decryptedPassword, result.password);
-      res.json({ compared });
+      res.json({ compared }); // 결과 값을 response 에 반환
       return;
     }
     res.json({ compared: false });
@@ -114,5 +114,19 @@ router.post("/compare", async (req, res) => {
     res.status(500).json({ error });
   }
 });
-
+```
+> lib/user.js
+``` javascript
+// ...
+const selectPasswordUser = async ({ userId }) => {
+  let queryString = `SELECT password FROM user WHERE userId = "${userId}"`;
+  try {
+    const connection = await chatDB();
+    const [rows] = await connection.query(queryString);
+    connection.end();
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+};
 ```
