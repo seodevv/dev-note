@@ -654,7 +654,7 @@ export const searchPostsIds = createSelector(
 + 이에 @reduxjs/toolkit 에서는 createApi API 를 제공해준다.
 > features/posts/postsSlice.js
 ``` javascript
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit'; 
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // createApi 를 import 하여 apiSlice 를 선언한다.
 export const apiSlice = createApi({
