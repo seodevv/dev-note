@@ -9,12 +9,22 @@ import React, {useState} from 'react';
 
 const App = () => {
   const [title, setTitle] = useState('');
+  const onChangeTitle = (e) => setTitle(e.target.value);
+
+  const [result, setResult] = useState('');
+  const onClickSubmit = (e) => {
+    console.log(e.target.value, e.nativeEvent.isComposing);
+    if(e.target.value.trim() && e.antiveEvent.isComposing){
+      console.log('submit');
+    }
+  };
   return (
     <>
       <form>
         <input type="text" value="title" onChange={onChangeTitle}/>
         <button type="button" onClick={onClickSubmit}>Submit</button>
       </form>
+      <h1>${result}</h1>
     </>
   )
 }
