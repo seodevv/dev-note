@@ -14,8 +14,8 @@ const App = () => {
   const [result, setResult] = useState('');
   const onClickSubmit = (e) => {
     console.log(e.target.value, e.nativeEvent.isComposing);
-    if(e.target.value.trim() && e.antiveEvent.isComposing){
-      console.log('submit');
+    if(e.target.value.trim() && !e.antiveEvent.isComposing){
+      setResult(title);
     }
   };
   return (
