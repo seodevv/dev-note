@@ -14,9 +14,10 @@ const App = () => {
   const onChangeTitle = (e) => setTitle(e.target.value);
   const onKeyDownTitle = (e) => {
     e.preventDefault();
+    setResult(e.target.value);
+
     console.log(e.target.value, e.nativeEvent.isComposing);
     if (e.keyCode === 13 && !e.nativeEvent.isComposing) {
-      setResult(title);
       setTitle("");
     }
   };
@@ -39,4 +40,11 @@ export default App;
 ```
 > console
 ``` javascript
+// ㅁㄴㅇㄹ 을 순차적으로 입력
+>  false
+> ㅁ true
+> ㅁㄴ true
+> ㅁㄴㅇ true
+> ㅁㄴㅇㄹ true // Enter
+> ㅁㄴㅇㄹ false
 ```
