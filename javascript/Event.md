@@ -48,3 +48,5 @@ export default App;
 > ㅁㄴㅇㄹ true // Enter
 > ㅁㄴㅇㄹ false
 ```
+* 위와 같이 ㅁㄴㅇㄹ 똑같은 값이 2번 실행되는 것을 볼 수 있음.
+* 따라서, event.nativeEvent.isComposing 를 사용하여 1 번만 submit 되도록 해야 한다.
