@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       <form>
-        <input type="text" value="title" onChange={onChangeTitle}/>
+        <input type="text" value={title} onChange={onChangeTitle}/>
         <button type="button" onClick={onClickSubmit}>Submit</button>
       </form>
       <h1>{result}</h1>
