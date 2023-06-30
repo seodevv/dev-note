@@ -24,7 +24,7 @@ const App = () => {
         <input type="text" value="title" onChange={onChangeTitle}/>
         <button type="button" onClick={onClickSubmit}>Submit</button>
       </form>
-      <h1>${result}</h1>
+      <h1>{result}</h1>
     </>
   )
 }
