@@ -1,14 +1,14 @@
 # socket.io
 
-## install
+## Install
 ``` javascript
 npm i socket.io // server side
 npm i socket.io-client // client side
 ```
 
 ---
-## usage
-### server - creating connection
+## Usage
+### server - Creating connection
 ``` javascript
 const express = require('express');
 const app = express();
@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 });
 ```
 
-### server - disconnecting client
+### server - Disconnecting client
 ``` javascript
 io.on('connection', (socket) => {
   console.log('a user connected');
@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
 });
 ```
 
-### both - emitting events
+### both - Emitting events
 > client
 ``` javascript
 <script>
@@ -69,6 +69,73 @@ io.on('connection', (socket) => {
 });
 ```
 
+### server - Broadcasting
+> client
+``` javascript
+<script>
+  var socket = io();
+
+  var messages = document.getElementById('messages');
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+
+  // server 측으로 input.value 를 emit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit('chat message', input.value);
+      input.value = '';
+    }
+  });
+
+  // client 측의 'chat message' event listener 을 생성
+  // 받은 msg 를 통해 li tag 를 생성
+  socket.on('chat message', function(msg) {
+    var item = document.createElement('li');
+    item.textContent = msg;
+    messages.appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+  });
+</script>
+```
+> server
+``` javascript
+// If you want to send a message to everyone except for a certain emitting socket, we have the broadcast flag for emitting from that socket:
+io.on('connection', (socket) => {
+  socket.broadcast.emit('hi');
+});
+```
+``` javascript
+// In this case, for the sake of simplicity we’ll send the message to everyone, including the sender.
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+  });
+});
+```
+
+### server - namespace
+``` javascript
+// to attach a shared middleware to each namespace
+io.on("new_namespace", (namespace) => {
+  namespace.use(myMiddleware);
+});
+
+// to track the dynamically created namespaces
+io.of(/\/nsp-\w+/);
+
+io.on("new_namespace", (namespace) => {
+  console.log(namespace.name);
+});
+
+// An alias for the main namespace (/).
+io.sockets.emit("hi", "everyone");
+// is equivalent to
+io.of("/").emit("hi", "everyone");
+```
+
+
+---
 ## example
 > server.js
 ``` javascript
