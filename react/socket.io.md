@@ -6,7 +6,43 @@ npm i socket.io // server side
 npm i socket.io-client // client side
 ```
 
+---
 ## usage
+### (server) creating connection
+``` javascript
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require('socket.io');
+const io = new Server(server);
+
+// listening the http server
+const serverPort = process.env.SERVER_PORT || 8080;
+const serverIp = process.env.SERVER_HOST || "0.0.0.0";
+server.listen(serverPort, serverIp, () => {
+  console.log(`litening on ${serverIp}:${serverPort}`);
+});
+
+// creating connection
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
+```
+
+### (server) disconnecting client
+``` javascript
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+```
+
+###
+
+## example
 > server.js
 ``` javascript
 const express = require('express');
