@@ -8,7 +8,7 @@ npm i socket.io-client // client side
 
 ---
 ## usage
-### (server) creating connection
+### server - creating connection
 ``` javascript
 const express = require('express');
 const app = express();
@@ -30,17 +30,44 @@ io.on('connection', (socket) => {
 });
 ```
 
-### (server) disconnecting client
+### server - disconnecting client
 ``` javascript
 io.on('connection', (socket) => {
   console.log('a user connected');
+  // client 가 disconnect 됬을 때
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
 });
 ```
 
-###
+### both - emitting events
+> client
+``` javascript
+<script>
+  var socket = io();
+  var form = document.getElementById('form');
+  var input = document.getElementById('input');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // server 측에 'chat message' 라는 event 를 input.value 를 담아서 보냄
+    if (input.value) {
+      socket.emit('chat message', input.value);
+      input.value = '';
+    }
+  });
+</script>
+```
+> server
+``` javascript
+io.on('connection', (socket) => {
+  // client 로부터 "chat message" event 로 emit 이 왔을 때 logic 을 실행한다.
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg);
+  });
+});
+```
 
 ## example
 > server.js
