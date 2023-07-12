@@ -13,19 +13,17 @@
 | animation-play-state | 애니메이션을 멈추거나 다시 시작할 수 있습니다. |
 | animation-timing-function | 중간 상태들의 전환을 어떤 시간간격으로 진행할지 지정합니다. |
 | animation-fill-mode | 애니메이션이 시작되기 전이나 끝나고 난 후 어떤 값이 적용될지 지정합니다. |
-``` javascript
-<style>
-    .object {
-        animation-name: 1s;
-        animation-duration: 2s;
-        animation-delay: 1s;
-        animation-direction: alternate;
-        animation-iteration-count: 3;
-        animation-play-state: paused;
-        animation-timing-function: 1s;
-        animation-fill-mode: both;
-    }
-</style>
+``` css
+.object {
+    animation-name: 1s;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: 3;
+    animation-play-state: paused;
+    animation-timing-function: 1s;
+    animation-fill-mode: both;
+}
 ```
 
 
