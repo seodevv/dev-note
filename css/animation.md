@@ -58,3 +58,5 @@ div{
   animation:ball 1s ease-in Infinite Alternate;
 }
 ```
+> result
+<img src="./gif/animation.gif">
