@@ -3,8 +3,8 @@
 + browser 가 보이지 않는 element 의 animation 은 업데이트 주기를 줄여 부하를 줄여준다.
 
 # syntax
-|---|------------|
 |:attribute:|:desc:|
+|---|------------|
 | animation-name | 애니메이션의 중간 상태를 지정하기 위한 이름을 정의합니다. 중간 상태는 @keyframes 규칙을 이용하여 기술합니다. |
 animation-duration : 한 싸이클의 애니메이션이 얼마에 걸쳐 일어날지 지정합니다.
 animation-delay :엘리먼트가 로드되고 나서 언제 애니메이션이 시작될지 지정합니다.
