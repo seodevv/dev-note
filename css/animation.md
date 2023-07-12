@@ -30,5 +30,31 @@
 # usage
 + animation: name | duration | timing-function | delay | iteration-count | direction | fill-mode | play-state> [,...];
 ``` html
-<div>Box</div>
+<div></div>
+```
+``` css
+@keyframes ball {
+  0% {
+    top:0px;
+  }
+  95% {
+    width: 100px;
+  }
+  to {
+    top:300px;
+    width:115px;
+    height:90px
+  } 
+}
+
+div{
+  position:relative;
+  left: 100px;
+  top:0;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:#000;
+  animation:ball 1s ease-in Infinite Alternate;
+}
 ```
