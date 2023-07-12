@@ -59,4 +59,5 @@ div{
 }
 ```
 > result
+https://github.com/seodevv/dev-note/assets/104405313/48f1dd40-2ae6-42ba-a36d-f1873aaf9b2e
 <img src="./gif/animation.gif">
