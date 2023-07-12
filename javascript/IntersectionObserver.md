@@ -24,8 +24,13 @@ const [observer, setObserver] = useState(
   })
 );
 
+// observe 할 target element 를 찾고, 등록해준다.
 const $targets = document.querySelectorAll('div');
 $targets.forEach(target => {
   observer.observe(target);
 });
+
+// observe 대상을 제거하고 싶은 경우 unobserve 를 사용하면 된다.
+const target = document.querySelector('div');
+observer.unobserve(target);
 ```
