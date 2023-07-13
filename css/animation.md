@@ -60,3 +60,15 @@ div{
 ```
 > result
 <img src="./gif/animation.gif"/>
+
+
+# advanced
++ javascript 로 animation 을 재실행하고 싶을 때 다음과 같이 다시 구동할 수 있다.
++ 여기서 catwink 는 animation 을 포함한 class 
+``` javascript
+const addCart = (e) => {
+	e.target.classList.remove('cartwink');
+	e.target.offsetWidth;
+	e.target.classList.add('cartwink');
+}
+```
