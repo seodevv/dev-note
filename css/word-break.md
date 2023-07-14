@@ -3,7 +3,12 @@
 + 줄바꿈은 공백(띄어쓰기) 혹은 하이픈(hyphen) 사용 시 줄바꿈이 시행되지만, CJK(중국, 일본, 한국)의 언어에서는 '음절'에 따라 줄바꿈이 시행된다.
 + 특수 문자는 적용되지 않는다.
 
-## attribute
+## syntax
+``` css
+word-break: normal|break-all|keep-all|break-word|initial|inherit;
+```
+
+## property
 | property | desc |
 |----|--------------|
 | normal(default) | 기존 줄바꿈 규칙으로 사용한다. |
@@ -15,7 +20,7 @@
 + 박스의 가로 영역에 넘친 단어를 분리한다.
 + word-wrap 이 적용되려면 width 값이 지정된 inline, block 요소여야한다.
 
-## synctax
+## syntax
 ``` css
 word-wrap: normal|break-word|initial|inherit;
 ```
