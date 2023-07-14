@@ -28,5 +28,7 @@ word-wrap: normal|break-word|initial|inherit;
 ## property
 | property | desc |
 |----|--------------|
-| normal(default) | 허용된 중단점에서만 단어를 중단한다. |
-| break-word | overflow-wrap 속성의 실제 값에 관계 없이 word-break: normal 과 결합된 overflow-wrap: where 와 동일한 효과가 있다. |
+| normal | break point 에서 줄바꿈한다. |
+| break-word | 요소의 경계에서 break point 가 아니여도 줄바꿈을 한다. |
+| initial | 기본 값으로 설정한다. |
+| inherit | 부모 요소의 속성 값을 상속 받는다. |
