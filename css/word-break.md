@@ -14,7 +14,14 @@
 # word-wrap
 + 박스의 가로 영역에 넘친 단어를 분리한다.
 + word-wrap 이 적용되려면 width 값이 지정된 inline, block 요소여야한다.
-|property|desc|
+
+## synctax
+``` css
+word-wrap: normal|break-word|initial|inherit;
+```
+
+## property
+| property | desc |
 |----|--------------|
 | normal(default) | 허용된 중단점에서만 단어를 중단한다. |
 | break-word | overflow-wrap 속성의 실제 값에 관계 없이 word-break: normal 과 결합된 overflow-wrap: where 와 동일한 효과가 있다. |
