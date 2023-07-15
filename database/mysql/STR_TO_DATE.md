@@ -28,6 +28,9 @@
 
 
 ## syntax
++ STR_TO_DATE( string , format )
++ 문자열을 DATETIME/DATE/TIME 타입으로 반환
++ 문자열과 포맷이 다를 경우 NULL 반환
 ``` 
 mysql> select STR_TO_DATE('2013-09-05T10:10:02Z','%Y-%m-%dT%TZ');
 +----------------------------------------------------+
@@ -37,24 +40,13 @@ mysql> select STR_TO_DATE('2013-09-05T10:10:02Z','%Y-%m-%dT%TZ');
 +----------------------------------------------------+
 1 row in set (0.00 sec)
 ```
-```
--- STR_TO_DATE('문자열', '포맷')
--- 문자열을 DATETIME/DATE/TIME 타입으로 반환
--- 문자열과 포맷이 다를 경우 NULL 반환
-
-SELECT STR_TO_DATE('20210407090000', '%Y%m%d%H%i%s') TEST1 -- DATETIME 형식으로 반환
-       ,STR_TO_DATE('20210407', '%Y%m%d') TEST2 -- DATE 형식으로 반환
-       ,STR_TO_DATE('090000', '%H%i%s') TEST3 -- TIME 형식으로 반환
-       ,STR_TO_DATE('2021-04-07', '%Y%m%d') TEST4 -- 문자열과 포맷이 다를 경우 NULL
-       ,STR_TO_DATE('2021-04-07', '%Y-%m-%d') TEST5 -- 문자열과 포맷을 맞췄을 경우
-```
 > result
 ```
-MariaDB [chat]> SELECT STR_TO_DATE('20210407090000', '%Y%m%d%H%i%s') TEST1
-    ->        ,STR_TO_DATE('20210407', '%Y%m%d') TEST2
-    ->        ,STR_TO_DATE('090000', '%H%i%s') TEST3
-    ->        ,STR_TO_DATE('2021-04-07', '%Y%m%d') TEST4
-    ->        ,STR_TO_DATE('2021-04-07', '%Y-%m-%d') TEST5;
+MariaDB [chat]> SELECT STR_TO_DATE('20210407090000', '%Y%m%d%H%i%s') TEST1 -- DATETIME 형식으로 반환
+                      ,STR_TO_DATE('20210407', '%Y%m%d') TEST2 -- DATE 형식으로 반환
+                      ,STR_TO_DATE('090000', '%H%i%s') TEST3 -- TIME 형식으로 반환
+                      ,STR_TO_DATE('2021-04-07', '%Y%m%d') TEST4 -- 문자열과 포맷이 다를 경우 NULL
+                      ,STR_TO_DATE('2021-04-07', '%Y-%m-%d') TEST5; -- 문자열과 포맷을 맞췄을 경우
 +---------------------+------------+----------+-------+------------+
 | TEST1               | TEST2      | TEST3    | TEST4 | TEST5      |
 +---------------------+------------+----------+-------+------------+
