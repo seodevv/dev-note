@@ -1,5 +1,11 @@
 # STR_TO_DATE
-
++ 문자열을 FORMAT 형식의 DATETIME, DATE, TIME 으로 반환 시 사용한다.
++ FORMAT 을..
+  + "년월일 시분초" 일 경우 DATETIME
+  + "년월일" 일 경우 DATE
+  + "시분초" 일 경우 TIME
++ 타입의 값을 반환하게 된다.
++ 문자열과 포맷이 다를 경우 NULL 을 반환하기 때문에 주의가 요한다.
 
 ## property
 | Format | desc | example |
@@ -30,4 +36,29 @@ mysql> select STR_TO_DATE('2013-09-05T10:10:02Z','%Y-%m-%dT%TZ');
 | 2013-09-05 10:10:02                                |
 +----------------------------------------------------+
 1 row in set (0.00 sec)
+```
+```
+-- STR_TO_DATE('문자열', '포맷')
+-- 문자열을 DATETIME/DATE/TIME 타입으로 반환
+-- 문자열과 포맷이 다를 경우 NULL 반환
+
+SELECT STR_TO_DATE('20210407090000', '%Y%m%d%H%i%s') TEST1 -- DATETIME 형식으로 반환
+       ,STR_TO_DATE('20210407', '%Y%m%d') TEST2 -- DATE 형식으로 반환
+       ,STR_TO_DATE('090000', '%H%i%s') TEST3 -- TIME 형식으로 반환
+       ,STR_TO_DATE('2021-04-07', '%Y%m%d') TEST4 -- 문자열과 포맷이 다를 경우 NULL
+       ,STR_TO_DATE('2021-04-07', '%Y-%m-%d') TEST5 -- 문자열과 포맷을 맞췄을 경우
+```
+> result
+```
+MariaDB [chat]> SELECT STR_TO_DATE('20210407090000', '%Y%m%d%H%i%s') TEST1
+    ->        ,STR_TO_DATE('20210407', '%Y%m%d') TEST2
+    ->        ,STR_TO_DATE('090000', '%H%i%s') TEST3
+    ->        ,STR_TO_DATE('2021-04-07', '%Y%m%d') TEST4
+    ->        ,STR_TO_DATE('2021-04-07', '%Y-%m-%d') TEST5;
++---------------------+------------+----------+-------+------------+
+| TEST1               | TEST2      | TEST3    | TEST4 | TEST5      |
++---------------------+------------+----------+-------+------------+
+| 2021-04-07 09:00:00 | 2021-04-07 | 09:00:00 | NULL  | 2021-04-07 |
++---------------------+------------+----------+-------+------------+
+1 row in set, 1 warning (0.000 sec)
 ```
