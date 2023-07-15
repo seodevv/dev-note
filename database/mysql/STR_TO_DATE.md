@@ -2,8 +2,8 @@
 
 
 ## property
-| Format | desc | example | Format | desc | example |
-|--------|------|---------|--------|------|---------|
+| Format | desc | example |
+|--------|------|---------|
 | %Y | 4자리 년도 | 2023 |
 | %y | 2자리 년도 | 23 |
 | %M | 영문 월 | March |
