@@ -92,5 +92,5 @@ const regex = /https?:\/\/(www\.)?youtube.com\/channel\/UC([-_a-z0-9]{22})/i
 ```
 
 
-#### reference
+#### source
 + https://digitalfortress.tech/tips/top-15-commonly-used-regex/
