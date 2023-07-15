@@ -1,7 +1,12 @@
 # STR_TO_DATE
 
 
-# syntax
+## property
+| Format | desc |
+|--------|------|
+| %Y | 4자리 년도 |
+
+## syntax
 ``` 
 mysql> select STR_TO_DATE('2013-09-05T10:10:02Z','%Y-%m-%dT%TZ');
 +----------------------------------------------------+
