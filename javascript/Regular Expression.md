@@ -42,7 +42,7 @@
 | m | Multi line을 표현하며 대상 문자열이 다중 라인의 문자열인 경우에도 검색하는 것을 의미한다. |
 
  
-### email
+### Email
 ``` javascript
 const regex = /^([\w\.\_\-])*[a-zA-Z0-9]+([\w\.\_\-])*([a-zA-Z0-9])+([\w\.\_\-])+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,8}$/;
 ```
@@ -55,7 +55,7 @@ const cellularPhoneRegex = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 ```
 
 
-### password
+### Password
 ``` javascript
 // 최소 8 자, 최소 하나의 문자 및 하나의 숫자
 const regex = /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -76,8 +76,21 @@ const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]
 ### URL
 ``` javascript
 // http, https 반드시 포함
-const regex = https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#()?&//=]*)
+const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#()?&//=]*)/
 
 //http(s) 프로토콜은 있으나 없으나 상관없음
-const regex = (https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)
+const regex = /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
 ```
+
+### Youtube
+``` javascript
+// Youtube Video ID 추출
+const regex = /https?:\/\/(?:youtu\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#\!)v=)([\w-]{11}).*/gi
+
+// Youtube Channel ID 추출
+const regex = /https?:\/\/(www\.)?youtube.com\/channel\/UC([-_a-z0-9]{22})/i
+```
+
+
+#### reference
++ https://digitalfortress.tech/tips/top-15-commonly-used-regex/
