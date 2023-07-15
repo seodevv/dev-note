@@ -9,7 +9,7 @@
 | %W | 영문 일 | Monday | %d | 2글자 일 | 01, 30 | %e | 1글자 일 | 1, 30 |
 | %H | 24시간 | 13 | %h | 12시간 | 01 |
 | %i | 분 | 45 | %S | 초 | 13 |
-| %T | hh:mm:ss AM/PM | 13:45:13 PM |
+| %T | hh:mm:ss AM/PM | 13:45:13 PM | %r | hh:mm:ss AM/PM 
 
 
 ## syntax
