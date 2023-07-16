@@ -1,4 +1,4 @@
-# newTab
+# new-tab
 + react 에서 새로운 탭을 띄우는 방법
 
 ## a tag
