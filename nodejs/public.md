@@ -9,7 +9,7 @@ app.use(express.static("public"));
 ```
 
 ## usage
-> directory setting
+> directory
 ```
 └ /public
   └ /css
