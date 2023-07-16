@@ -1,5 +1,5 @@
 # public
-+ static 폴더를 설정한다.
++ static(정적) 폴더를 설정한다.
 + build 를 하여도 static 파일들은 설정한 경로에 그대로 남는다.
 
 ## set middleware
