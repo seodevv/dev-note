@@ -1,5 +1,5 @@
-# new-tab
-+ react 에서 새로운 탭을 띄우는 방법
+# href-new-tab
++ react 에서 href 를 새로운 탭으로 띄우는 방법을 설명한다.
 
 ## a tag
 + 알다시피 a tag 를 활용하여 새로운 탭을 띄울 수 있음.
@@ -36,3 +36,6 @@ export default function App() {
   );
 }
 ```
+
+#### source
++ https://developer-talk.tistory.com/862
