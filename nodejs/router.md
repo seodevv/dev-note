@@ -1,3 +1,5 @@
+# router
+
 # /board 페이지를 처리할 라우터를 생성한다.
 # routes/board/board.js
 const router = require("express").Router();
