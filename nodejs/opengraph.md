@@ -3,7 +3,7 @@
 + 이 데이터는 해당 html head 의 meta opengraph 를 보여준다.
 
 
-## in HTMl
+## in HTML
 ``` html
 <head>
   <meta property="og:title" content="네이버">
@@ -12,3 +12,10 @@
   <meta property="og:description" content="네이버 메인에서 다양한 정보와 유용한 컨텐츠를 만나 보세요">
 </head>
 ```
+
+
+## git
++ https://github.com/samholmes/node-open-graph
+
+
+# install
