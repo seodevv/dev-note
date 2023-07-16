@@ -18,4 +18,60 @@
 + https://github.com/samholmes/node-open-graph
 
 
-# install
+## install
+```
+npm i open-graph
+```
+
+
+## Usage
+```
+const og = require('open-graph');
+const url = 'http://github.com/samholmes/node-open-graph/raw/master/test.html';
+
+og(url, function (err, meta) {
+  console.log(meta);
+});
+```
+> output
+```
+{
+  title: 'OG Testing',
+  type: 'website',
+  url: 'http://github.com/samholmes/node-open-graph/raw/master/test.html',
+  site_name: 'irrelavent',
+  description: 'This is a test bed for Open Graph protocol.',
+  image: {
+    url: 'http://google.com/images/logo.gif',
+    width: '100',
+    height: '100'
+  }
+}
+```
+
+
+## example code
+``` javascript
+const og = require("open-graph");
+router.get("/opengraph", (req, res) => {
+  const { url } = req.query;
+  if (!url) {
+    res.status(400).json({ error: true, message: "bad request" });
+    return;
+  }
+  og(url, (error, meta) => {
+    if (error) {
+      setTimeout(() => {
+        res.json({ error: true, ...error });
+      }, 300);
+
+      // console.log(error);
+      // res.status(500).json({ error: true, ...error });
+      return;
+    }
+    setTimeout(() => {
+      res.json(meta);
+    }, 300);
+  });
+});
+```
