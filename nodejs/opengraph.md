@@ -19,13 +19,14 @@
 
 
 ## install
++ express 에선 잘 동작하나, react 에선 추가 설정이 필요하므로 주의에 요한다.
 ```
 npm i open-graph
 ```
 
 
 ## Usage
-```
+``` javascript
 const og = require('open-graph');
 const url = 'http://github.com/samholmes/node-open-graph/raw/master/test.html';
 
