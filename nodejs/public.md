@@ -9,7 +9,7 @@ app.use(express.static("public"));
 ```
 
 ## usage
-+ 디렉토리가 다음과 같이 구성했을 때
+> directory setting
 ```
 └ /public
   └ /css
