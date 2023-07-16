@@ -23,7 +23,7 @@ app.use(express.static("public"));
 
 > index.ejs
 ``` html
-// 다음과 같이 정적인 파일을 사용하면 된다.
+<!-- 다음과 같이 정적인 파일을 사용하면 된다. -->
 <head>
     <link rel="stylesheet" href="/css/index.css">
 </head>
