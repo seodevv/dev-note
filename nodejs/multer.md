@@ -20,12 +20,12 @@ const multer = require('multer');
 #### 2) storage setting
 ``` javascript
 const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
+  destination: (req, file, cb) => {
     const upload_path = path.join(__dirname, process.env.PUBLIC_URL, req.body.category);
-    callback(null, upload_path);
+    cb(null, upload_path);
   },
   filename: (req, file, callback) => {
-    callback(null, file.originalname + "_" + Data.now());
+    cb(null, file.originalname + "_" + Data.now());
 });
 ```
 + multer.diskStorage 를 사용해 파일이 저장될 곳을 지정한다.
@@ -38,7 +38,7 @@ const storage = multer.diskStorage({
 ``` javascript
 const upload = multer({
   storage: storage,
-  fileFilter: (req, file, callback) => {
+  fileFilter: (req, file, cb) => {
     const ext = path.extname(file.originalname);
     const accessExt = [".png", ".jpg", ".jpeg", "gif"];
     if (!accessExt.includes(ext)) {
