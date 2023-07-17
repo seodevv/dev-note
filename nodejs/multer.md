@@ -39,10 +39,12 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, callback) => {
-    if(!['.png','.jpg','.jpeg'].includes(ext)){
-      callback(new Error("Please upload image file(png, jpg, jpeg)"), false);
+    const ext = path.extname(file.originalname);
+    const accessExt = [".png", ".jpg", ".jpeg", "gif"];
+    if (!accessExt.includes(ext)) {
+      cb(new Error("Please upload image file"), false);
     }
-  callback(null, true);
+    cb(null, true);
   },
   limits: {
     fileSize: 1024 * 1024 * 10,
