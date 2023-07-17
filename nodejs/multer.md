@@ -11,7 +11,6 @@ npm i -D multer
 ``` javascript
 const express = require('express');
 const app = express();
-
 const multer = require('multer');
 ```
 + multer 패키지를 import 한다.
