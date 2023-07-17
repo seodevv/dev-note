@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     const upload_path = path.join(__dirname, process.env.PUBLIC_URL, req.body.category);
     cb(null, upload_path);
   },
-  filename: (req, file, callback) => {
+  filename: (req, file, cb) => {
     cb(null, file.originalname + "_" + Data.now());
 });
 ```
@@ -53,9 +53,9 @@ const upload = multer({
 + multer 를 사용해 file 을 저장할 위치와 파일 필터링, 용량 제한 등을 설정한다.
 + dest or storage : 파일이 저장될 위치
 + fileFilter : 어떤 파일을 허용할 것인지 제어하는 함수
-  + callback(null, false) : 파일을 거부하려면 false 를 전달
-  + callback(null, true) : 파일을 허용하려면 true 를 전달
-  + callback(new Error('I don\'t have a clue!') : 문제가 생겼다면 에러를 전달할 수 있다.
+  + cb(null, false) : 파일을 거부하려면 false 를 전달
+  + cb(null, true) : 파일을 허용하려면 true 를 전달
+  + cb(new Error('I don\'t have a clue!') : 문제가 생겼다면 에러를 전달할 수 있다.
 + limits : 업로드 된 데이터의 한도
   + fieldNameSize : 필드명 사이즈 최대값 (기본값 100bytes)
   + fieldSize : 필드값 사이즈 최대값 (기본값 1MB)
