@@ -86,8 +86,17 @@ const upload = multer({
 + 단일 파일을 업로드하는 form 을 만든다.
 + 이 때, form 의 encType은 multipart/form-data 로 설정해준다.
 
-* 만약 form 없이 요청하고 싶은 경우
-* 
+
+> 만약 form 없이 요청하고 싶은 경우
++ FormData() 객체를 사용하여 axios, fetch 등을 통해 formdata 를 보낼 수 있음.
++ file 이 맨 마지막에 append 되도록 해야함 (주의)
+``` javascript
+const formData = new FormData();
+formData.append("text", text); 
+formData.append("profile", profile);
+const response = await axios.post(requestUrl, formData);
+...
+```
 
 
 ``` javascript
