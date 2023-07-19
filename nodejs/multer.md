@@ -95,7 +95,6 @@ const formData = new FormData();
 formData.append("text", text); 
 formData.append("profile", profile);
 const response = await axios.post(requestUrl, formData);
-...
 ```
 
 
