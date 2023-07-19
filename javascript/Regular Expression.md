@@ -86,15 +86,17 @@ const regex = /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b
 ``` javascript
 // Youtube Video ID 추출
 const regex = /(?:http:|https:)?(?:\/\/)?(?:www\.)?(?:youtube.com|youtu.be)\/(?:watch|embed)?(?:\?v=|\/)?(\S+)?/;
-'https://www.youtube.com/watch?v=aNmPFdXf7is&ab_channel=MBCNEWS'.match(regex)
+const result = 'https://www.youtube.com/watch?v=aNmPFdXf7is&ab_channel=MBCNEWS'.match(regex)
 ```
 > result
-```
-['https://www.youtube.com/watch?v=aNmPFdXf7is&ab_channel=MBCNEWS',
+``` javascript
+result = [
+ 'https://www.youtube.com/watch?v=aNmPFdXf7is&ab_channel=MBCNEWS',
  'aNmPFdXf7is&ab_channel=MBCNEWS',
  index: 0,
  input: 'https://www.youtube.com/watch?v=aNmPFdXf7is&ab_channel=MBCNEWS',
- groups: undefined]
+ groups: undefined
+]
 ```
 
 
