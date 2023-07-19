@@ -20,11 +20,16 @@ const multer = require('multer');
 ``` javascript
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const upload_path = path.join(__dirname, process.env.PUBLIC_URL, req.body.category);
-    cb(null, upload_path);
+    const dir = path.join(__dirname, `../../public/img/chat/${chatId}/`);
+    const exist = fs.existsSync(dir);
+    if (!exist) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    cb(null, dir);
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname + "_" + Data.now());
+    const newFileName = new Date().valueOf() + "_" + path.basename(file.originalname);
+    cb(null, newFileName);
 });
 ```
 + multer.diskStorage 를 사용해 파일이 저장될 곳을 지정한다.
