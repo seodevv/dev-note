@@ -86,6 +86,9 @@ const upload = multer({
 + 단일 파일을 업로드하는 form 을 만든다.
 + 이 때, form 의 encType은 multipart/form-data 로 설정해준다.
 
+* 만약 form 없이 요청하고 싶은 경우
+* 
+
 
 ``` javascript
 app.post('/upload', upload.single('profile'), (req, res, next) => {
