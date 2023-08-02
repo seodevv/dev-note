@@ -100,6 +100,16 @@ result = [
 ]
 ```
 
+### id 생성 규칙
+``` javascript
+// 영어 소문자, 대문자, 한글, 숫자 허용
+// 띄어쓰기 1칸 허용
+// 특수문자 -, _, . 허용
+// \ (백틱) 처리는 따로 처리 해야함
+// 길이 제한도 따로 처리 해야함
+const regex = /^(?:[a-zA-Z가-힣1-9\-_\.]+)(?:\s[a-zA-Z가-힣1-9\-_\.]+)?$/;
+```
+
 
 #### source
 + https://digitalfortress.tech/tips/top-15-commonly-used-regex/
