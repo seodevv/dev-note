@@ -25,4 +25,10 @@ npm install @react-oauth/google@latest
 <img src="./img/3_agree_oauth.JPG" alt="oauth-google" width="500px">
 
 > 사용자로부터 제공받을 정보의 범위를 설정한다.
-<img src="./img/4_range.JPG" alt="oauth-google" width="500px">
+<img src="./img/4_range.JPG" alt="oauth-google" width="1000px">
+
+> 테스트 사용자를 등록해준다. 본인은 설정하지 않았다.
+<img src="./img/5_test.JPG" alt="oauth-google" width="500px">
+
+> 요약 정보 확인
+<img src="./img/6_summary.JPG" alt="oauth-google" width="500px">
