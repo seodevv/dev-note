@@ -40,7 +40,7 @@ npm install @react-oauth/google@latest
 <img src="./img/7_client_id.JPG" alt="oauth-google">
 
 > 본인은 웹에서 사용하므로 웹 애플리케이션을 선택해주고, 요청할 host uri 와 callback 받을 uri 를 기입해준다.
-<img src="./img/8_uri.JPG" alt="oauth-google">
+<img src="./img/8_URI.JPG" alt="oauth-google">
 
 > 그럼 이제 client_id 와 client_secret 가 발급된다.
 <img src="./img/9_client_secret.JPG" alt="oauth-google">
