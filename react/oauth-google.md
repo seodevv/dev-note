@@ -32,3 +32,15 @@ npm install @react-oauth/google@latest
 
 > 요약 정보 확인
 <img src="./img/6_summary.JPG" alt="oauth-google" width="500px">
+
+2. create client_id / client_secret
++ oauth2.0 사용할 때 필요한 client_id 와 client_secret 을 생성한다.
+
+> 사용자 인증 정보 - 사용자 인증 정보 만들기 - Oauth 클라이언트 ID 를 클릭한다.
+<img src="./img/7_client_id.JPG" alt="oauth-google" width="500px">
+
+> 본인은 웹에서 사용하므로 웹 애플리케이션을 선택해주고, 요청할 host uri 와 callback 받을 uri 를 기입해준다.
+<img src="./img/8_uri.JPG" alt="oauth-google" width="500px">
+
+> 그럼 이제 client_id 와 client_secret 가 발급된다.
+<img src="./img/9_client_secret.JPG" alt="oauth-google" width="500px">
