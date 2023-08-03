@@ -15,7 +15,6 @@ npm install @react-oauth/google@latest
 1. create project (google cloud)
 + https://console.cloud.google.com/projectcreate
 + google oauth2.0 를 응답할 프로젝트(어플리케이션)를 생성한다.
-
 <img src="./img/1_create_project.JPG" alt="oauth-google" width="500px">
 
-2. 
+2. my project - API & Service - Oauth 
