@@ -43,4 +43,4 @@ npm install @react-oauth/google@latest
 <img src="./img/8_uri.JPG" alt="oauth-google" width="500px">
 
 > 그럼 이제 client_id 와 client_secret 가 발급된다.
-<img src="./img/9_client_secret.JPG" alt="oauth-google" width="500px">
+<img src="./img/9_client_secret.JPG" alt="oauth-google">
