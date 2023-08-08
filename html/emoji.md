@@ -1,4 +1,5 @@
-|:type:|:Native [1]:|:Unicode:|:Bytes (UTF-8):|:Description:|
+|type|Native [1]|Unicode|Bytes (UTF-8)|Description|
+|----|----------|-------|-------------|-----------|
 |emoticons|😁|U+1F601|\xF0\x9F\x98\x81|grinning face with smiling eyes
 |emoticons|😂|U+1F602|\xF0\x9F\x98\x82|face with tears of joy
 |emoticons|😃|U+1F603|\xF0\x9F\x98\x83|smiling face with open mouth
