@@ -1,7 +1,7 @@
 # emoji
 + emoji 유니코드 정리
 
-#reference
+# reference
 + https://apps.timwhitlock.info/emoji/tables/unicode
 
 |type|Native [1]|Unicode|Bytes (UTF-8)|Description|
