@@ -1,3 +1,9 @@
+# emoji
++ emoji 유니코드 정리
+
+#reference
++ https://apps.timwhitlock.info/emoji/tables/unicode
+
 |type|Native [1]|Unicode|Bytes (UTF-8)|Description|
 |----|----------|-------|-------------|-----------|
 |emoticons|😁|U+1F601|\xF0\x9F\x98\x81|grinning face with smiling eyes
@@ -1688,5 +1694,3 @@
 |Other additional symbols|🕥|U+1F565|\xF0\x9F\x95\xA5|clock face ten-thirty
 |Other additional symbols|🕦|U+1F566|\xF0\x9F\x95\xA6|clock face eleven-thirty
 |Other additional symbols|🕧|U+1F567|\xF0\x9F\x95\xA7|clock face twelve-thirty
-|![image](https://github.com/seodevv/dev-note/assets/104405313/fa4a1278-ea61-48bc-93ba-cf23a925ebfb)||||
-|
