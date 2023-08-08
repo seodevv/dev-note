@@ -231,233 +231,233 @@ const content = emojis.map(emoji => {
 |enclosed|🈺|U+1F23A|\xF0\x9F\x88\xBA|squared cjk unified ideograph-55b6
 |enclosed|🉐|U+1F250|\xF0\x9F\x89\x90|circled ideograph advantage
 |enclosed|🉑|U+1F251|\xF0\x9F\x89\x91|circled ideograph accept
-|Uncategorized|©|U+00A9|\xC2\xA9|copyright sign
-|Uncategorized|®|U+00AE|\xC2\xAE|registered sign
-|Uncategorized|‼|U+203C|\xE2\x80\xBC|double exclamation mark
-|Uncategorized|⁉|U+2049|\xE2\x81\x89|exclamation question mark
-|Uncategorized|#⃣|U+0023 U+20E3|\x23\xE2\x83\xA3|number sign + combining enclosing keycap
-|Uncategorized|8⃣|U+0038 U+20E3|\x38\xE2\x83\xA3|digit eight + combining enclosing keycap
-|Uncategorized|9⃣|U+0039 U+20E3|\x39\xE2\x83\xA3|digit nine + combining enclosing keycap
-|Uncategorized|7⃣|U+0037 U+20E3|\x37\xE2\x83\xA3|digit seven + combining enclosing keycap
-|Uncategorized|0⃣|U+0030 U+20E3|\x30\xE2\x83\xA3|digit zero + combining enclosing keycap
-|Uncategorized|6⃣|U+0036 U+20E3|\x36\xE2\x83\xA3|digit six + combining enclosing keycap
-|Uncategorized|5⃣|U+0035 U+20E3|\x35\xE2\x83\xA3|digit five + combining enclosing keycap
-|Uncategorized|4⃣|U+0034 U+20E3|\x34\xE2\x83\xA3|digit four + combining enclosing keycap
-|Uncategorized|3⃣|U+0033 U+20E3|\x33\xE2\x83\xA3|digit three + combining enclosing keycap
-|Uncategorized|2⃣|U+0032 U+20E3|\x32\xE2\x83\xA3|digit two + combining enclosing keycap
-|Uncategorized|1⃣|U+0031 U+20E3|\x31\xE2\x83\xA3|digit one + combining enclosing keycap
-|Uncategorized|™|U+2122|\xE2\x84\xA2|trade mark sign
-|Uncategorized|ℹ|U+2139|\xE2\x84\xB9|information source
-|Uncategorized|↔|U+2194|\xE2\x86\x94|left right arrow
-|Uncategorized|↕|U+2195|\xE2\x86\x95|up down arrow
-|Uncategorized|↖|U+2196|\xE2\x86\x96|north west arrow
-|Uncategorized|↗|U+2197|\xE2\x86\x97|north east arrow
-|Uncategorized|↘|U+2198|\xE2\x86\x98|south east arrow
-|Uncategorized|↙|U+2199|\xE2\x86\x99|south west arrow
-|Uncategorized|↩|U+21A9|\xE2\x86\xA9|leftwards arrow with hook
-|Uncategorized|↪|U+21AA|\xE2\x86\xAA|rightwards arrow with hook
-|Uncategorized|⌚|U+231A|\xE2\x8C\x9A|watch
-|Uncategorized|⌛|U+231B|\xE2\x8C\x9B|hourglass
-|Uncategorized|⏩|U+23E9|\xE2\x8F\xA9|black right-pointing double triangle
-|Uncategorized|⏪|U+23EA|\xE2\x8F\xAA|black left-pointing double triangle
-|Uncategorized|⏫|U+23EB|\xE2\x8F\xAB|black up-pointing double triangle
-|Uncategorized|⏬|U+23EC|\xE2\x8F\xAC|black down-pointing double triangle
-|Uncategorized|⏰|U+23F0|\xE2\x8F\xB0|alarm clock
-|Uncategorized|⏳|U+23F3|\xE2\x8F\xB3|hourglass with flowing sand
-|Uncategorized|▪|U+25AA|\xE2\x96\xAA|black small square
-|Uncategorized|▫|U+25AB|\xE2\x96\xAB|white small square
-|Uncategorized|▶|U+25B6|\xE2\x96\xB6|black right-pointing triangle
-|Uncategorized|◀|U+25C0|\xE2\x97\x80|black left-pointing triangle
-|Uncategorized|◻|U+25FB|\xE2\x97\xBB|white medium square
-|Uncategorized|◼|U+25FC|\xE2\x97\xBC|black medium square
-|Uncategorized|◽|U+25FD|\xE2\x97\xBD|white medium small square
-|Uncategorized|◾|U+25FE|\xE2\x97\xBE|black medium small square
-|Uncategorized|☀|U+2600|\xE2\x98\x80|black sun with rays
-|Uncategorized|☁|U+2601|\xE2\x98\x81|cloud
-|Uncategorized|☎|U+260E|\xE2\x98\x8E|black telephone
-|Uncategorized|☑|U+2611|\xE2\x98\x91|ballot box with check
-|Uncategorized|☔|U+2614|\xE2\x98\x94|umbrella with rain drops
-|Uncategorized|☕|U+2615|\xE2\x98\x95|hot beverage
-|Uncategorized|☝|U+261D|\xE2\x98\x9D|white up pointing index
-|Uncategorized|☺|U+263A|\xE2\x98\xBA|white smiling face
-|Uncategorized|♈|U+2648|\xE2\x99\x88|aries
-|Uncategorized|♉|U+2649|\xE2\x99\x89|taurus
-|Uncategorized|♊|U+264A|\xE2\x99\x8A|gemini
-|Uncategorized|♋|U+264B|\xE2\x99\x8B|cancer
-|Uncategorized|♌|U+264C|\xE2\x99\x8C|leo
-|Uncategorized|♍|U+264D|\xE2\x99\x8D|virgo
-|Uncategorized|♎|U+264E|\xE2\x99\x8E|libra
-|Uncategorized|♏|U+264F|\xE2\x99\x8F|scorpius
-|Uncategorized|♐|U+2650|\xE2\x99\x90|sagittarius
-|Uncategorized|♑|U+2651|\xE2\x99\x91|capricorn
-|Uncategorized|♒|U+2652|\xE2\x99\x92|aquarius
-|Uncategorized|♓|U+2653|\xE2\x99\x93|pisces
-|Uncategorized|♠|U+2660|\xE2\x99\xA0|black spade suit
-|Uncategorized|♣|U+2663|\xE2\x99\xA3|black club suit
-|Uncategorized|♥|U+2665|\xE2\x99\xA5|black heart suit
-|Uncategorized|♦|U+2666|\xE2\x99\xA6|black diamond suit
-|Uncategorized|♨|U+2668|\xE2\x99\xA8|hot springs
-|Uncategorized|♻|U+267B|\xE2\x99\xBB|black universal recycling symbol
-|Uncategorized|♿|U+267F|\xE2\x99\xBF|wheelchair symbol
-|Uncategorized|⚓|U+2693|\xE2\x9A\x93|anchor
-|Uncategorized|⚠|U+26A0|\xE2\x9A\xA0|warning sign
-|Uncategorized|⚡|U+26A1|\xE2\x9A\xA1|high voltage sign
-|Uncategorized|⚪|U+26AA|\xE2\x9A\xAA|medium white circle
-|Uncategorized|⚫|U+26AB|\xE2\x9A\xAB|medium black circle
-|Uncategorized|⚽|U+26BD|\xE2\x9A\xBD|soccer ball
-|Uncategorized|⚾|U+26BE|\xE2\x9A\xBE|baseball
-|Uncategorized|⛄|U+26C4|\xE2\x9B\x84|snowman without snow
-|Uncategorized|⛅|U+26C5|\xE2\x9B\x85|sun behind cloud
-|Uncategorized|⛎|U+26CE|\xE2\x9B\x8E|ophiuchus
-|Uncategorized|⛔|U+26D4|\xE2\x9B\x94|no entry
-|Uncategorized|⛪|U+26EA|\xE2\x9B\xAA|church
-|Uncategorized|⛲|U+26F2|\xE2\x9B\xB2|fountain
-|Uncategorized|⛳|U+26F3|\xE2\x9B\xB3|flag in hole
-|Uncategorized|⛵|U+26F5|\xE2\x9B\xB5|sailboat
-|Uncategorized|⛺|U+26FA|\xE2\x9B\xBA|tent
-|Uncategorized|⛽|U+26FD|\xE2\x9B\xBD|fuel pump
-|Uncategorized|⤴|U+2934|\xE2\xA4\xB4|arrow pointing rightwards then curving upwards
-|Uncategorized|⤵|U+2935|\xE2\xA4\xB5|arrow pointing rightwards then curving downwards
-|Uncategorized|⬅|U+2B05|\xE2\xAC\x85|leftwards black arrow
-|Uncategorized|⬆|U+2B06|\xE2\xAC\x86|upwards black arrow
-|Uncategorized|⬇|U+2B07|\xE2\xAC\x87|downwards black arrow
-|Uncategorized|⬛|U+2B1B|\xE2\xAC\x9B|black large square
-|Uncategorized|⬜|U+2B1C|\xE2\xAC\x9C|white large square
-|Uncategorized|⭐|U+2B50|\xE2\xAD\x90|white medium star
-|Uncategorized|⭕|U+2B55|\xE2\xAD\x95|heavy large circle
-|Uncategorized|〰|U+3030|\xE3\x80\xB0|wavy dash
-|Uncategorized|〽|U+303D|\xE3\x80\xBD|part alternation mark
-|Uncategorized|㊗|U+3297|\xE3\x8A\x97|circled ideograph congratulation
-|Uncategorized|㊙|U+3299|\xE3\x8A\x99|circled ideograph secret
-|Uncategorized|🀄|U+1F004|\xF0\x9F\x80\x84|mahjong tile red dragon
-|Uncategorized|🃏|U+1F0CF|\xF0\x9F\x83\x8F|playing card black joker
-|Uncategorized|🌀|U+1F300|\xF0\x9F\x8C\x80|cyclone
-|Uncategorized|🌁|U+1F301|\xF0\x9F\x8C\x81|foggy
-|Uncategorized|🌂|U+1F302|\xF0\x9F\x8C\x82|closed umbrella
-|Uncategorized|🌃|U+1F303|\xF0\x9F\x8C\x83|night with stars
-|Uncategorized|🌄|U+1F304|\xF0\x9F\x8C\x84|sunrise over mountains
-|Uncategorized|🌅|U+1F305|\xF0\x9F\x8C\x85|sunrise
-|Uncategorized|🌆|U+1F306|\xF0\x9F\x8C\x86|cityscape at dusk
-|Uncategorized|🌇|U+1F307|\xF0\x9F\x8C\x87|sunset over buildings
-|Uncategorized|🌈|U+1F308|\xF0\x9F\x8C\x88|rainbow
-|Uncategorized|🌉|U+1F309|\xF0\x9F\x8C\x89|bridge at night
-|Uncategorized|🌊|U+1F30A|\xF0\x9F\x8C\x8A|water wave
-|Uncategorized|🌋|U+1F30B|\xF0\x9F\x8C\x8B|volcano
-|Uncategorized|🌌|U+1F30C|\xF0\x9F\x8C\x8C|milky way
-|Uncategorized|🌏|U+1F30F|\xF0\x9F\x8C\x8F|earth globe asia-australia
-|Uncategorized|🌑|U+1F311|\xF0\x9F\x8C\x91|new moon symbol
-|Uncategorized|🌓|U+1F313|\xF0\x9F\x8C\x93|first quarter moon symbol
-|Uncategorized|🌔|U+1F314|\xF0\x9F\x8C\x94|waxing gibbous moon symbol
-|Uncategorized|🌕|U+1F315|\xF0\x9F\x8C\x95|full moon symbol
-|Uncategorized|🌙|U+1F319|\xF0\x9F\x8C\x99|crescent moon
-|Uncategorized|🌛|U+1F31B|\xF0\x9F\x8C\x9B|first quarter moon with face
-|Uncategorized|🌟|U+1F31F|\xF0\x9F\x8C\x9F|glowing star
-|Uncategorized|🌠|U+1F320|\xF0\x9F\x8C\xA0|shooting star
-|Uncategorized|🌰|U+1F330|\xF0\x9F\x8C\xB0|chestnut
-|Uncategorized|🌱|U+1F331|\xF0\x9F\x8C\xB1|seedling
-|Uncategorized|🌴|U+1F334|\xF0\x9F\x8C\xB4|palm tree
-|Uncategorized|🌵|U+1F335|\xF0\x9F\x8C\xB5|cactus
-|Uncategorized|🌷|U+1F337|\xF0\x9F\x8C\xB7|tulip
-|Uncategorized|🌸|U+1F338|\xF0\x9F\x8C\xB8|cherry blossom
-|Uncategorized|🌹|U+1F339|\xF0\x9F\x8C\xB9|rose
-|Uncategorized|🌺|U+1F33A|\xF0\x9F\x8C\xBA|hibiscus
-|Uncategorized|🌻|U+1F33B|\xF0\x9F\x8C\xBB|sunflower
-|Uncategorized|🌼|U+1F33C|\xF0\x9F\x8C\xBC|blossom
-|Uncategorized|🌽|U+1F33D|\xF0\x9F\x8C\xBD|ear of maize
-|Uncategorized|🌾|U+1F33E|\xF0\x9F\x8C\xBE|ear of rice
-|Uncategorized|🌿|U+1F33F|\xF0\x9F\x8C\xBF|herb
-|Uncategorized|🍀|U+1F340|\xF0\x9F\x8D\x80|four leaf clover
-|Uncategorized|🍁|U+1F341|\xF0\x9F\x8D\x81|maple leaf
-|Uncategorized|🍂|U+1F342|\xF0\x9F\x8D\x82|fallen leaf
-|Uncategorized|🍃|U+1F343|\xF0\x9F\x8D\x83|leaf fluttering in wind
-|Uncategorized|🍄|U+1F344|\xF0\x9F\x8D\x84|mushroom
-|Uncategorized|🍅|U+1F345|\xF0\x9F\x8D\x85|tomato
-|Uncategorized|🍆|U+1F346|\xF0\x9F\x8D\x86|aubergine
-|Uncategorized|🍇|U+1F347|\xF0\x9F\x8D\x87|grapes
-|Uncategorized|🍈|U+1F348|\xF0\x9F\x8D\x88|melon
-|Uncategorized|🍉|U+1F349|\xF0\x9F\x8D\x89|watermelon
-|Uncategorized|🍊|U+1F34A|\xF0\x9F\x8D\x8A|tangerine
-|Uncategorized|🍌|U+1F34C|\xF0\x9F\x8D\x8C|banana
-|Uncategorized|🍍|U+1F34D|\xF0\x9F\x8D\x8D|pineapple
-|Uncategorized|🍎|U+1F34E|\xF0\x9F\x8D\x8E|red apple
-|Uncategorized|🍏|U+1F34F|\xF0\x9F\x8D\x8F|green apple
-|Uncategorized|🍑|U+1F351|\xF0\x9F\x8D\x91|peach
-|Uncategorized|🍒|U+1F352|\xF0\x9F\x8D\x92|cherries
-|Uncategorized|🍓|U+1F353|\xF0\x9F\x8D\x93|strawberry
-|Uncategorized|🍔|U+1F354|\xF0\x9F\x8D\x94|hamburger
-|Uncategorized|🍕|U+1F355|\xF0\x9F\x8D\x95|slice of pizza
-|Uncategorized|🍖|U+1F356|\xF0\x9F\x8D\x96|meat on bone
-|Uncategorized|🍗|U+1F357|\xF0\x9F\x8D\x97|poultry leg
-|Uncategorized|🍘|U+1F358|\xF0\x9F\x8D\x98|rice cracker
-|Uncategorized|🍙|U+1F359|\xF0\x9F\x8D\x99|rice ball
-|Uncategorized|🍚|U+1F35A|\xF0\x9F\x8D\x9A|cooked rice
-|Uncategorized|🍛|U+1F35B|\xF0\x9F\x8D\x9B|curry and rice
-|Uncategorized|🍜|U+1F35C|\xF0\x9F\x8D\x9C|steaming bowl
-|Uncategorized|🍝|U+1F35D|\xF0\x9F\x8D\x9D|spaghetti
-|Uncategorized|🍞|U+1F35E|\xF0\x9F\x8D\x9E|bread
-|Uncategorized|🍟|U+1F35F|\xF0\x9F\x8D\x9F|french fries
-|Uncategorized|🍠|U+1F360|\xF0\x9F\x8D\xA0|roasted sweet potato
-|Uncategorized|🍡|U+1F361|\xF0\x9F\x8D\xA1|dango
-|Uncategorized|🍢|U+1F362|\xF0\x9F\x8D\xA2|oden
-|Uncategorized|🍣|U+1F363|\xF0\x9F\x8D\xA3|sushi
-|Uncategorized|🍤|U+1F364|\xF0\x9F\x8D\xA4|fried shrimp
-|Uncategorized|🍥|U+1F365|\xF0\x9F\x8D\xA5|fish cake with swirl design
-|Uncategorized|🍦|U+1F366|\xF0\x9F\x8D\xA6|soft ice cream
-|Uncategorized|🍧|U+1F367|\xF0\x9F\x8D\xA7|shaved ice
-|Uncategorized|🍨|U+1F368|\xF0\x9F\x8D\xA8|ice cream
-|Uncategorized|🍩|U+1F369|\xF0\x9F\x8D\xA9|doughnut
-|Uncategorized|🍪|U+1F36A|\xF0\x9F\x8D\xAA|cookie
-|Uncategorized|🍫|U+1F36B|\xF0\x9F\x8D\xAB|chocolate bar
-|Uncategorized|🍬|U+1F36C|\xF0\x9F\x8D\xAC|candy
-|Uncategorized|🍭|U+1F36D|\xF0\x9F\x8D\xAD|lollipop
-|Uncategorized|🍮|U+1F36E|\xF0\x9F\x8D\xAE|custard
-|Uncategorized|🍯|U+1F36F|\xF0\x9F\x8D\xAF|honey pot
-|Uncategorized|🍰|U+1F370|\xF0\x9F\x8D\xB0|shortcake
-|Uncategorized|🍱|U+1F371|\xF0\x9F\x8D\xB1|bento box
-|Uncategorized|🍲|U+1F372|\xF0\x9F\x8D\xB2|pot of food
-|Uncategorized|🍳|U+1F373|\xF0\x9F\x8D\xB3|cooking
-|Uncategorized|🍴|U+1F374|\xF0\x9F\x8D\xB4|fork and knife
-|Uncategorized|🍵|U+1F375|\xF0\x9F\x8D\xB5|teacup without handle
-|Uncategorized|🍶|U+1F376|\xF0\x9F\x8D\xB6|sake bottle and cup
-|Uncategorized|🍷|U+1F377|\xF0\x9F\x8D\xB7|wine glass
-|Uncategorized|🍸|U+1F378|\xF0\x9F\x8D\xB8|cocktail glass
-|Uncategorized|🍹|U+1F379|\xF0\x9F\x8D\xB9|tropical drink
-|Uncategorized|🍺|U+1F37A|\xF0\x9F\x8D\xBA|beer mug
-|Uncategorized|🍻|U+1F37B|\xF0\x9F\x8D\xBB|clinking beer mugs
-|Uncategorized|🎀|U+1F380|\xF0\x9F\x8E\x80|ribbon
-|Uncategorized|🎁|U+1F381|\xF0\x9F\x8E\x81|wrapped present
-|Uncategorized|🎂|U+1F382|\xF0\x9F\x8E\x82|birthday cake
-|Uncategorized|🎃|U+1F383|\xF0\x9F\x8E\x83|jack-o-lantern
-|Uncategorized|🎄|U+1F384|\xF0\x9F\x8E\x84|christmas tree
-|Uncategorized|🎅|U+1F385|\xF0\x9F\x8E\x85|father christmas
-|Uncategorized|🎆|U+1F386|\xF0\x9F\x8E\x86|fireworks
-|Uncategorized|🎇|U+1F387|\xF0\x9F\x8E\x87|firework sparkler
-|Uncategorized|🎈|U+1F388|\xF0\x9F\x8E\x88|balloon
-|Uncategorized|🎉|U+1F389|\xF0\x9F\x8E\x89|party popper
-|Uncategorized|🎊|U+1F38A|\xF0\x9F\x8E\x8A|confetti ball
-|Uncategorized|🎋|U+1F38B|\xF0\x9F\x8E\x8B|tanabata tree
-|Uncategorized|🎌|U+1F38C|\xF0\x9F\x8E\x8C|crossed flags
-|Uncategorized|🎍|U+1F38D|\xF0\x9F\x8E\x8D|pine decoration
-|Uncategorized|🎎|U+1F38E|\xF0\x9F\x8E\x8E|japanese dolls
-|Uncategorized|🎏|U+1F38F|\xF0\x9F\x8E\x8F|carp streamer
-|Uncategorized|🎐|U+1F390|\xF0\x9F\x8E\x90|wind chime
-|Uncategorized|🎑|U+1F391|\xF0\x9F\x8E\x91|moon viewing ceremony
-|Uncategorized|🎒|U+1F392|\xF0\x9F\x8E\x92|school satchel
-|Uncategorized|🎓|U+1F393|\xF0\x9F\x8E\x93|graduation cap
-|Uncategorized|🎠|U+1F3A0|\xF0\x9F\x8E\xA0|carousel horse
-|Uncategorized|🎡|U+1F3A1|\xF0\x9F\x8E\xA1|ferris wheel
-|Uncategorized|🎢|U+1F3A2|\xF0\x9F\x8E\xA2|roller coaster
-|Uncategorized|🎣|U+1F3A3|\xF0\x9F\x8E\xA3|fishing pole and fish
-|Uncategorized|🎤|U+1F3A4|\xF0\x9F\x8E\xA4|microphone
-|Uncategorized|🎥|U+1F3A5|\xF0\x9F\x8E\xA5|movie camera
-|Uncategorized|🎦|U+1F3A6|\xF0\x9F\x8E\xA6|cinema
-|Uncategorized|🎧|U+1F3A7|\xF0\x9F\x8E\xA7|headphone
-|Uncategorized|🎨|U+1F3A8|\xF0\x9F\x8E\xA8|artist palette
-|Uncategorized|🎩|U+1F3A9|\xF0\x9F\x8E\xA9|top hat
-|Uncategorized|🎪|U+1F3AA|\xF0\x9F\x8E\xAA|circus tent
-|Uncategorized|🎫|U+1F3AB|\xF0\x9F\x8E\xAB|ticket
-|Uncategorized|🎬|U+1F3AC|\xF0\x9F\x8E\xAC|clapper board
-|Uncategorized|🎭|U+1F3AD|\xF0\x9F\x8E\xAD|performing arts
+|objects|©|U+00A9|\xC2\xA9|copyright sign
+|objects|®|U+00AE|\xC2\xAE|registered sign
+|marks|‼|U+203C|\xE2\x80\xBC|double exclamation mark
+|marks|⁉|U+2049|\xE2\x81\x89|exclamation question mark
+|marks|#⃣|U+0023 U+20E3|\x23\xE2\x83\xA3|number sign + combining enclosing keycap
+|marks|8⃣|U+0038 U+20E3|\x38\xE2\x83\xA3|digit eight + combining enclosing keycap
+|marks|9⃣|U+0039 U+20E3|\x39\xE2\x83\xA3|digit nine + combining enclosing keycap
+|marks|7⃣|U+0037 U+20E3|\x37\xE2\x83\xA3|digit seven + combining enclosing keycap
+|marks|0⃣|U+0030 U+20E3|\x30\xE2\x83\xA3|digit zero + combining enclosing keycap
+|marks|6⃣|U+0036 U+20E3|\x36\xE2\x83\xA3|digit six + combining enclosing keycap
+|marks|5⃣|U+0035 U+20E3|\x35\xE2\x83\xA3|digit five + combining enclosing keycap
+|marks|4⃣|U+0034 U+20E3|\x34\xE2\x83\xA3|digit four + combining enclosing keycap
+|marks|3⃣|U+0033 U+20E3|\x33\xE2\x83\xA3|digit three + combining enclosing keycap
+|marks|2⃣|U+0032 U+20E3|\x32\xE2\x83\xA3|digit two + combining enclosing keycap
+|marks|1⃣|U+0031 U+20E3|\x31\xE2\x83\xA3|digit one + combining enclosing keycap
+|marks|™|U+2122|\xE2\x84\xA2|trade mark sign
+|marks|ℹ|U+2139|\xE2\x84\xB9|information source
+|marks|↔|U+2194|\xE2\x86\x94|left right arrow
+|marks|↕|U+2195|\xE2\x86\x95|up down arrow
+|marks|↖|U+2196|\xE2\x86\x96|north west arrow
+|marks|↗|U+2197|\xE2\x86\x97|north east arrow
+|marks|↘|U+2198|\xE2\x86\x98|south east arrow
+|marks|↙|U+2199|\xE2\x86\x99|south west arrow
+|marks|↩|U+21A9|\xE2\x86\xA9|leftwards arrow with hook
+|marks|↪|U+21AA|\xE2\x86\xAA|rightwards arrow with hook
+|objects|⌚|U+231A|\xE2\x8C\x9A|watch
+|marks|⏰|U+23F0|\xE2\x8F\xB0|alarm clock
+|marks|⌛|U+231B|\xE2\x8C\x9B|hourglass
+|marks|⏳|U+23F3|\xE2\x8F\xB3|hourglass with flowing sand
+|marks|⏩|U+23E9|\xE2\x8F\xA9|black right-pointing double triangle
+|marks|⏪|U+23EA|\xE2\x8F\xAA|black left-pointing double triangle
+|marks|⏫|U+23EB|\xE2\x8F\xAB|black up-pointing double triangle
+|marks|⏬|U+23EC|\xE2\x8F\xAC|black down-pointing double triangle
+|marks|▪|U+25AA|\xE2\x96\xAA|black small square
+|marks|▫|U+25AB|\xE2\x96\xAB|white small square
+|marks|▶|U+25B6|\xE2\x96\xB6|black right-pointing triangle
+|marks|◀|U+25C0|\xE2\x97\x80|black left-pointing triangle
+|marks|◻|U+25FB|\xE2\x97\xBB|white medium square
+|marks|◼|U+25FC|\xE2\x97\xBC|black medium square
+|marks|◽|U+25FD|\xE2\x97\xBD|white medium small square
+|marks|◾|U+25FE|\xE2\x97\xBE|black medium small square
+|earth|☀|U+2600|\xE2\x98\x80|black sun with rays
+|earth|☁|U+2601|\xE2\x98\x81|cloud
+|marks|☎|U+260E|\xE2\x98\x8E|black telephone
+|marks|☑|U+2611|\xE2\x98\x91|ballot box with check
+|earth|☔|U+2614|\xE2\x98\x94|umbrella with rain drops
+|objects|☕|U+2615|\xE2\x98\x95|hot beverage
+|emotions|☝|U+261D|\xE2\x98\x9D|white up pointing index
+|emoticons|☺|U+263A|\xE2\x98\xBA|white smiling face
+|earth|♈|U+2648|\xE2\x99\x88|aries
+|earth|♉|U+2649|\xE2\x99\x89|taurus
+|earth|♊|U+264A|\xE2\x99\x8A|gemini
+|earth|♋|U+264B|\xE2\x99\x8B|cancer
+|earth|♌|U+264C|\xE2\x99\x8C|leo
+|earth|♍|U+264D|\xE2\x99\x8D|virgo
+|earth|♎|U+264E|\xE2\x99\x8E|libra
+|earth|♏|U+264F|\xE2\x99\x8F|scorpius
+|earth|♐|U+2650|\xE2\x99\x90|sagittarius
+|earth|♑|U+2651|\xE2\x99\x91|capricorn
+|earth|♒|U+2652|\xE2\x99\x92|aquarius
+|earth|♓|U+2653|\xE2\x99\x93|pisces
+|marks|♠|U+2660|\xE2\x99\xA0|black spade suit
+|marks|♣|U+2663|\xE2\x99\xA3|black club suit
+|marks|♥|U+2665|\xE2\x99\xA5|black heart suit
+|marks|♦|U+2666|\xE2\x99\xA6|black diamond suit
+|marks|♨|U+2668|\xE2\x99\xA8|hot springs
+|marks|♻|U+267B|\xE2\x99\xBB|black universal recycling symbol
+|marks|♿|U+267F|\xE2\x99\xBF|wheelchair symbol
+|marks|⚓|U+2693|\xE2\x9A\x93|anchor
+|marks|⚠|U+26A0|\xE2\x9A\xA0|warning sign
+|marks|⚡|U+26A1|\xE2\x9A\xA1|high voltage sign
+|marks|⚪|U+26AA|\xE2\x9A\xAA|medium white circle
+|marks|⚫|U+26AB|\xE2\x9A\xAB|medium black circle
+|symbols|⚽|U+26BD|\xE2\x9A\xBD|soccer ball
+|symbols|⚾|U+26BE|\xE2\x9A\xBE|baseball
+|symbols|⛄|U+26C4|\xE2\x9B\x84|snowman without snow
+|symbols|⛅|U+26C5|\xE2\x9B\x85|sun behind cloud
+|earth|⛎|U+26CE|\xE2\x9B\x8E|ophiuchus
+|marks|⛔|U+26D4|\xE2\x9B\x94|no entry
+|symbols|⛪|U+26EA|\xE2\x9B\xAA|church
+|symbols|⛲|U+26F2|\xE2\x9B\xB2|fountain
+|symbols|⛳|U+26F3|\xE2\x9B\xB3|flag in hole
+|symbols|⛵|U+26F5|\xE2\x9B\xB5|sailboat
+|symbols|⛺|U+26FA|\xE2\x9B\xBA|tent
+|symbols|⛽|U+26FD|\xE2\x9B\xBD|fuel pump
+|marks|⤴|U+2934|\xE2\xA4\xB4|arrow pointing rightwards then curving upwards
+|marks|⤵|U+2935|\xE2\xA4\xB5|arrow pointing rightwards then curving downwards
+|marks|⬅|U+2B05|\xE2\xAC\x85|leftwards black arrow
+|marks|⬆|U+2B06|\xE2\xAC\x86|upwards black arrow
+|marks|⬇|U+2B07|\xE2\xAC\x87|downwards black arrow
+|marks|⬛|U+2B1B|\xE2\xAC\x9B|black large square
+|marks|⬜|U+2B1C|\xE2\xAC\x9C|white large square
+|marks|⭐|U+2B50|\xE2\xAD\x90|white medium star
+|marks|⭕|U+2B55|\xE2\xAD\x95|heavy large circle
+|marks|〰|U+3030|\xE3\x80\xB0|wavy dash
+|marks|〽|U+303D|\xE3\x80\xBD|part alternation mark
+|symbols|㊗|U+3297|\xE3\x8A\x97|circled ideograph congratulation
+|symbols|㊙|U+3299|\xE3\x8A\x99|circled ideograph secret
+|symbols|🀄|U+1F004|\xF0\x9F\x80\x84|mahjong tile red dragon
+|symbols|🃏|U+1F0CF|\xF0\x9F\x83\x8F|playing card black joker
+|symbols|🌀|U+1F300|\xF0\x9F\x8C\x80|cyclone
+|symbols|🌁|U+1F301|\xF0\x9F\x8C\x81|foggy
+|symbols|🌂|U+1F302|\xF0\x9F\x8C\x82|closed umbrella
+|symbols|🌃|U+1F303|\xF0\x9F\x8C\x83|night with stars
+|symbols|🌄|U+1F304|\xF0\x9F\x8C\x84|sunrise over mountains
+|symbols|🌅|U+1F305|\xF0\x9F\x8C\x85|sunrise
+|symbols|🌆|U+1F306|\xF0\x9F\x8C\x86|cityscape at dusk
+|symbols|🌇|U+1F307|\xF0\x9F\x8C\x87|sunset over buildings
+|symbols|🌈|U+1F308|\xF0\x9F\x8C\x88|rainbow
+|symbols|🌉|U+1F309|\xF0\x9F\x8C\x89|bridge at night
+|symbols|🌊|U+1F30A|\xF0\x9F\x8C\x8A|water wave
+|symbols|🌋|U+1F30B|\xF0\x9F\x8C\x8B|volcano
+|earth|🌌|U+1F30C|\xF0\x9F\x8C\x8C|milky way
+|earth|🌏|U+1F30F|\xF0\x9F\x8C\x8F|earth globe asia-australia
+|earth|🌑|U+1F311|\xF0\x9F\x8C\x91|new moon symbol
+|earth|🌓|U+1F313|\xF0\x9F\x8C\x93|first quarter moon symbol
+|earth|🌔|U+1F314|\xF0\x9F\x8C\x94|waxing gibbous moon symbol
+|earth|🌕|U+1F315|\xF0\x9F\x8C\x95|full moon symbol
+|earth|🌙|U+1F319|\xF0\x9F\x8C\x99|crescent moon
+|earth|🌛|U+1F31B|\xF0\x9F\x8C\x9B|first quarter moon with face
+|earth|🌟|U+1F31F|\xF0\x9F\x8C\x9F|glowing star
+|earth|🌠|U+1F320|\xF0\x9F\x8C\xA0|shooting star
+|earth|🌰|U+1F330|\xF0\x9F\x8C\xB0|chestnut
+|earth|🌱|U+1F331|\xF0\x9F\x8C\xB1|seedling
+|earth|🌴|U+1F334|\xF0\x9F\x8C\xB4|palm tree
+|earth|🌵|U+1F335|\xF0\x9F\x8C\xB5|cactus
+|earth|🌷|U+1F337|\xF0\x9F\x8C\xB7|tulip
+|earth|🌸|U+1F338|\xF0\x9F\x8C\xB8|cherry blossom
+|earth|🌹|U+1F339|\xF0\x9F\x8C\xB9|rose
+|earth|🌺|U+1F33A|\xF0\x9F\x8C\xBA|hibiscus
+|earth|🌻|U+1F33B|\xF0\x9F\x8C\xBB|sunflower
+|earth|🌼|U+1F33C|\xF0\x9F\x8C\xBC|blossom
+|earth|🌽|U+1F33D|\xF0\x9F\x8C\xBD|ear of maize
+|earth|🌾|U+1F33E|\xF0\x9F\x8C\xBE|ear of rice
+|earth|🌿|U+1F33F|\xF0\x9F\x8C\xBF|herb
+|earth|🍀|U+1F340|\xF0\x9F\x8D\x80|four leaf clover
+|earth|🍁|U+1F341|\xF0\x9F\x8D\x81|maple leaf
+|earth|🍂|U+1F342|\xF0\x9F\x8D\x82|fallen leaf
+|earth|🍃|U+1F343|\xF0\x9F\x8D\x83|leaf fluttering in wind
+|earth|🍄|U+1F344|\xF0\x9F\x8D\x84|mushroom
+|fruits|🍅|U+1F345|\xF0\x9F\x8D\x85|tomato
+|fruits|🍆|U+1F346|\xF0\x9F\x8D\x86|aubergine
+|fruits|🍇|U+1F347|\xF0\x9F\x8D\x87|grapes
+|fruits|🍈|U+1F348|\xF0\x9F\x8D\x88|melon
+|fruits|🍉|U+1F349|\xF0\x9F\x8D\x89|watermelon
+|fruits|🍊|U+1F34A|\xF0\x9F\x8D\x8A|tangerine
+|fruits|🍌|U+1F34C|\xF0\x9F\x8D\x8C|banana
+|fruits|🍍|U+1F34D|\xF0\x9F\x8D\x8D|pineapple
+|fruits|🍎|U+1F34E|\xF0\x9F\x8D\x8E|red apple
+|fruits|🍏|U+1F34F|\xF0\x9F\x8D\x8F|green apple
+|fruits|🍑|U+1F351|\xF0\x9F\x8D\x91|peach
+|fruits|🍒|U+1F352|\xF0\x9F\x8D\x92|cherries
+|fruits|🍓|U+1F353|\xF0\x9F\x8D\x93|strawberry
+|fruits|🍔|U+1F354|\xF0\x9F\x8D\x94|hamburger
+|fruits|🍕|U+1F355|\xF0\x9F\x8D\x95|slice of pizza
+|fruits|🍖|U+1F356|\xF0\x9F\x8D\x96|meat on bone
+|fruits|🍗|U+1F357|\xF0\x9F\x8D\x97|poultry leg
+|fruits|🍘|U+1F358|\xF0\x9F\x8D\x98|rice cracker
+|fruits|🍙|U+1F359|\xF0\x9F\x8D\x99|rice ball
+|fruits|🍚|U+1F35A|\xF0\x9F\x8D\x9A|cooked rice
+|fruits|🍛|U+1F35B|\xF0\x9F\x8D\x9B|curry and rice
+|fruits|🍜|U+1F35C|\xF0\x9F\x8D\x9C|steaming bowl
+|fruits|🍝|U+1F35D|\xF0\x9F\x8D\x9D|spaghetti
+|fruits|🍞|U+1F35E|\xF0\x9F\x8D\x9E|bread
+|fruits|🍟|U+1F35F|\xF0\x9F\x8D\x9F|french fries
+|fruits|🍠|U+1F360|\xF0\x9F\x8D\xA0|roasted sweet potato
+|fruits|🍡|U+1F361|\xF0\x9F\x8D\xA1|dango
+|fruits|🍢|U+1F362|\xF0\x9F\x8D\xA2|oden
+|fruits|🍣|U+1F363|\xF0\x9F\x8D\xA3|sushi
+|fruits|🍤|U+1F364|\xF0\x9F\x8D\xA4|fried shrimp
+|fruits|🍥|U+1F365|\xF0\x9F\x8D\xA5|fish cake with swirl design
+|fruits|🍦|U+1F366|\xF0\x9F\x8D\xA6|soft ice cream
+|fruits|🍧|U+1F367|\xF0\x9F\x8D\xA7|shaved ice
+|fruits|🍨|U+1F368|\xF0\x9F\x8D\xA8|ice cream
+|fruits|🍩|U+1F369|\xF0\x9F\x8D\xA9|doughnut
+|fruits|🍪|U+1F36A|\xF0\x9F\x8D\xAA|cookie
+|fruits|🍫|U+1F36B|\xF0\x9F\x8D\xAB|chocolate bar
+|fruits|🍬|U+1F36C|\xF0\x9F\x8D\xAC|candy
+|fruits|🍭|U+1F36D|\xF0\x9F\x8D\xAD|lollipop
+|fruits|🍮|U+1F36E|\xF0\x9F\x8D\xAE|custard
+|fruits|🍯|U+1F36F|\xF0\x9F\x8D\xAF|honey pot
+|fruits|🍰|U+1F370|\xF0\x9F\x8D\xB0|shortcake
+|fruits|🍱|U+1F371|\xF0\x9F\x8D\xB1|bento box
+|fruits|🍲|U+1F372|\xF0\x9F\x8D\xB2|pot of food
+|fruits|🍳|U+1F373|\xF0\x9F\x8D\xB3|cooking
+|fruits|🍴|U+1F374|\xF0\x9F\x8D\xB4|fork and knife
+|fruits|🍵|U+1F375|\xF0\x9F\x8D\xB5|teacup without handle
+|fruits|🍶|U+1F376|\xF0\x9F\x8D\xB6|sake bottle and cup
+|fruits|🍷|U+1F377|\xF0\x9F\x8D\xB7|wine glass
+|fruits|🍸|U+1F378|\xF0\x9F\x8D\xB8|cocktail glass
+|fruits|🍹|U+1F379|\xF0\x9F\x8D\xB9|tropical drink
+|fruits|🍺|U+1F37A|\xF0\x9F\x8D\xBA|beer mug
+|fruits|🍻|U+1F37B|\xF0\x9F\x8D\xBB|clinking beer mugs
+|fruits|🎀|U+1F380|\xF0\x9F\x8E\x80|ribbon
+|fruits|🎁|U+1F381|\xF0\x9F\x8E\x81|wrapped present
+|fruits|🎂|U+1F382|\xF0\x9F\x8E\x82|birthday cake
+|fruits|🎃|U+1F383|\xF0\x9F\x8E\x83|jack-o-lantern
+|symbols|🎄|U+1F384|\xF0\x9F\x8E\x84|christmas tree
+|symbols|🎅|U+1F385|\xF0\x9F\x8E\x85|father christmas
+|symbols|🎆|U+1F386|\xF0\x9F\x8E\x86|fireworks
+|symbols|🎇|U+1F387|\xF0\x9F\x8E\x87|firework sparkler
+|symbols|🎈|U+1F388|\xF0\x9F\x8E\x88|balloon
+|emotions|🎉|U+1F389|\xF0\x9F\x8E\x89|party popper
+|emotions|🎊|U+1F38A|\xF0\x9F\x8E\x8A|confetti ball
+|symbols|🎋|U+1F38B|\xF0\x9F\x8E\x8B|tanabata tree
+|symbols|🎌|U+1F38C|\xF0\x9F\x8E\x8C|crossed flags
+|symbols|🎍|U+1F38D|\xF0\x9F\x8E\x8D|pine decoration
+|symbols|🎎|U+1F38E|\xF0\x9F\x8E\x8E|japanese dolls
+|symbols|🎏|U+1F38F|\xF0\x9F\x8E\x8F|carp streamer
+|symbols|🎐|U+1F390|\xF0\x9F\x8E\x90|wind chime
+|symbols|🎑|U+1F391|\xF0\x9F\x8E\x91|moon viewing ceremony
+|symbols|🎒|U+1F392|\xF0\x9F\x8E\x92|school satchel
+|symbols|🎓|U+1F393|\xF0\x9F\x8E\x93|graduation cap
+|symbols|🎠|U+1F3A0|\xF0\x9F\x8E\xA0|carousel horse
+|symbols|🎡|U+1F3A1|\xF0\x9F\x8E\xA1|ferris wheel
+|symbols|🎢|U+1F3A2|\xF0\x9F\x8E\xA2|roller coaster
+|symbols|🎣|U+1F3A3|\xF0\x9F\x8E\xA3|fishing pole and fish
+|symbols|🎤|U+1F3A4|\xF0\x9F\x8E\xA4|microphone
+|symbols|🎥|U+1F3A5|\xF0\x9F\x8E\xA5|movie camera
+|symbols|🎦|U+1F3A6|\xF0\x9F\x8E\xA6|cinema
+|symbols|🎧|U+1F3A7|\xF0\x9F\x8E\xA7|headphone
+|symbols|🎨|U+1F3A8|\xF0\x9F\x8E\xA8|artist palette
+|symbols|🎩|U+1F3A9|\xF0\x9F\x8E\xA9|top hat
+|symbols|🎪|U+1F3AA|\xF0\x9F\x8E\xAA|circus tent
+|symbols|🎫|U+1F3AB|\xF0\x9F\x8E\xAB|ticket
+|symbols|🎬|U+1F3AC|\xF0\x9F\x8E\xAC|clapper board
+|symbols|🎭|U+1F3AD|\xF0\x9F\x8E\xAD|performing arts
 |Uncategorized|🎮|U+1F3AE|\xF0\x9F\x8E\xAE|video game
 |Uncategorized|🎯|U+1F3AF|\xF0\x9F\x8E\xAF|direct hit
 |Uncategorized|🎰|U+1F3B0|\xF0\x9F\x8E\xB0|slot machine
