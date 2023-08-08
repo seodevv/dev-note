@@ -190,47 +190,47 @@ const content = emojis.map(emoji => {
 |symbols|🛃|U+1F6C3|\xF0\x9F\x9B\x83|customs
 |symbols|🛄|U+1F6C4|\xF0\x9F\x9B\x84|baggage claim
 |symbols|🛅|U+1F6C5|\xF0\x9F\x9B\x85|left luggage
-|Enclosed characters|Ⓜ|U+24C2|\xE2\x93\x82|circled latin capital letter m
-|Enclosed characters|🅰|U+1F170|\xF0\x9F\x85\xB0|negative squared latin capital letter a
-|Enclosed characters|🅱|U+1F171|\xF0\x9F\x85\xB1|negative squared latin capital letter b
-|Enclosed characters|🅾|U+1F17E|\xF0\x9F\x85\xBE|negative squared latin capital letter o
-|Enclosed characters|🅿|U+1F17F|\xF0\x9F\x85\xBF|negative squared latin capital letter p
-|Enclosed characters|🆎|U+1F18E|\xF0\x9F\x86\x8E|negative squared ab
-|Enclosed characters|🆑|U+1F191|\xF0\x9F\x86\x91|squared cl
-|Enclosed characters|🆒|U+1F192|\xF0\x9F\x86\x92|squared cool
-|Enclosed characters|🆓|U+1F193|\xF0\x9F\x86\x93|squared free
-|Enclosed characters|🆔|U+1F194|\xF0\x9F\x86\x94|squared id
-|Enclosed characters|🆕|U+1F195|\xF0\x9F\x86\x95|squared new
-|Enclosed characters|🆖|U+1F196|\xF0\x9F\x86\x96|squared ng
-|Enclosed characters|🆗|U+1F197|\xF0\x9F\x86\x97|squared ok
-|Enclosed characters|🆘|U+1F198|\xF0\x9F\x86\x98|squared sos
-|Enclosed characters|🆙|U+1F199|\xF0\x9F\x86\x99|squared up with exclamation mark
-|Enclosed characters|🆚|U+1F19A|\xF0\x9F\x86\x9A|squared vs
-|Enclosed characters|🇩🇪|U+1F1E9 U+1F1EA|\xF0\x9F\x87\xA9\xF0\x9F\x87\xAA|regional indicator symbol letter d + regional indicator symbol letter e
-|Enclosed characters|🇬🇧|U+1F1EC U+1F1E7|\xF0\x9F\x87\xAC\xF0\x9F\x87\xA7|regional indicator symbol letter g + regional indicator symbol letter b
-|Enclosed characters|🇨🇳|U+1F1E8 U+1F1F3|\xF0\x9F\x87\xA8\xF0\x9F\x87\xB3|regional indicator symbol letter c + regional indicator symbol letter n
-|Enclosed characters|🇯🇵|U+1F1EF U+1F1F5|\xF0\x9F\x87\xAF\xF0\x9F\x87\xB5|regional indicator symbol letter j + regional indicator symbol letter p
-|Enclosed characters|🇫🇷|U+1F1EB U+1F1F7|\xF0\x9F\x87\xAB\xF0\x9F\x87\xB7|regional indicator symbol letter f + regional indicator symbol letter r
-|Enclosed characters|🇰🇷|U+1F1F0 U+1F1F7|\xF0\x9F\x87\xB0\xF0\x9F\x87\xB7|regional indicator symbol letter k + regional indicator symbol letter r
-|Enclosed characters|🇪🇸|U+1F1EA U+1F1F8|\xF0\x9F\x87\xAA\xF0\x9F\x87\xB8|regional indicator symbol letter e + regional indicator symbol letter s
-|Enclosed characters|🇮🇹|U+1F1EE U+1F1F9|\xF0\x9F\x87\xAE\xF0\x9F\x87\xB9|regional indicator symbol letter i + regional indicator symbol letter t
-|Enclosed characters|🇷🇺|U+1F1F7 U+1F1FA|\xF0\x9F\x87\xB7\xF0\x9F\x87\xBA|regional indicator symbol letter r + regional indicator symbol letter u
-|Enclosed characters|🇺🇸|U+1F1FA U+1F1F8|\xF0\x9F\x87\xBA\xF0\x9F\x87\xB8|regional indicator symbol letter u + regional indicator symbol letter s
-|Enclosed characters|🈁|U+1F201|\xF0\x9F\x88\x81|squared katakana koko
-|Enclosed characters|🈂|U+1F202|\xF0\x9F\x88\x82|squared katakana sa
-|Enclosed characters|🈚|U+1F21A|\xF0\x9F\x88\x9A|squared cjk unified ideograph-7121
-|Enclosed characters|🈯|U+1F22F|\xF0\x9F\x88\xAF|squared cjk unified ideograph-6307
-|Enclosed characters|🈲|U+1F232|\xF0\x9F\x88\xB2|squared cjk unified ideograph-7981
-|Enclosed characters|🈳|U+1F233|\xF0\x9F\x88\xB3|squared cjk unified ideograph-7a7a
-|Enclosed characters|🈴|U+1F234|\xF0\x9F\x88\xB4|squared cjk unified ideograph-5408
-|Enclosed characters|🈵|U+1F235|\xF0\x9F\x88\xB5|squared cjk unified ideograph-6e80
-|Enclosed characters|🈶|U+1F236|\xF0\x9F\x88\xB6|squared cjk unified ideograph-6709
-|Enclosed characters|🈷|U+1F237|\xF0\x9F\x88\xB7|squared cjk unified ideograph-6708
-|Enclosed characters|🈸|U+1F238|\xF0\x9F\x88\xB8|squared cjk unified ideograph-7533
-|Enclosed characters|🈹|U+1F239|\xF0\x9F\x88\xB9|squared cjk unified ideograph-5272
-|Enclosed characters|🈺|U+1F23A|\xF0\x9F\x88\xBA|squared cjk unified ideograph-55b6
-|Enclosed characters|🉐|U+1F250|\xF0\x9F\x89\x90|circled ideograph advantage
-|Enclosed characters|🉑|U+1F251|\xF0\x9F\x89\x91|circled ideograph accept
+|enclosed|Ⓜ|U+24C2|\xE2\x93\x82|circled latin capital letter m
+|enclosed|🅰|U+1F170|\xF0\x9F\x85\xB0|negative squared latin capital letter a
+|enclosed|🅱|U+1F171|\xF0\x9F\x85\xB1|negative squared latin capital letter b
+|enclosed|🅾|U+1F17E|\xF0\x9F\x85\xBE|negative squared latin capital letter o
+|enclosed|🅿|U+1F17F|\xF0\x9F\x85\xBF|negative squared latin capital letter p
+|enclosed|🆎|U+1F18E|\xF0\x9F\x86\x8E|negative squared ab
+|enclosed|🆑|U+1F191|\xF0\x9F\x86\x91|squared cl
+|enclosed|🆒|U+1F192|\xF0\x9F\x86\x92|squared cool
+|enclosed|🆓|U+1F193|\xF0\x9F\x86\x93|squared free
+|enclosed|🆔|U+1F194|\xF0\x9F\x86\x94|squared id
+|enclosed|🆕|U+1F195|\xF0\x9F\x86\x95|squared new
+|enclosed|🆖|U+1F196|\xF0\x9F\x86\x96|squared ng
+|enclosed|🆗|U+1F197|\xF0\x9F\x86\x97|squared ok
+|enclosed|🆘|U+1F198|\xF0\x9F\x86\x98|squared sos
+|enclosed|🆙|U+1F199|\xF0\x9F\x86\x99|squared up with exclamation mark
+|enclosed|🆚|U+1F19A|\xF0\x9F\x86\x9A|squared vs
+|enclosed|🇩🇪|U+1F1E9 U+1F1EA|\xF0\x9F\x87\xA9\xF0\x9F\x87\xAA|regional indicator symbol letter d + regional indicator symbol letter e
+|enclosed|🇬🇧|U+1F1EC U+1F1E7|\xF0\x9F\x87\xAC\xF0\x9F\x87\xA7|regional indicator symbol letter g + regional indicator symbol letter b
+|enclosed|🇨🇳|U+1F1E8 U+1F1F3|\xF0\x9F\x87\xA8\xF0\x9F\x87\xB3|regional indicator symbol letter c + regional indicator symbol letter n
+|enclosed|🇯🇵|U+1F1EF U+1F1F5|\xF0\x9F\x87\xAF\xF0\x9F\x87\xB5|regional indicator symbol letter j + regional indicator symbol letter p
+|enclosed|🇫🇷|U+1F1EB U+1F1F7|\xF0\x9F\x87\xAB\xF0\x9F\x87\xB7|regional indicator symbol letter f + regional indicator symbol letter r
+|enclosed|🇰🇷|U+1F1F0 U+1F1F7|\xF0\x9F\x87\xB0\xF0\x9F\x87\xB7|regional indicator symbol letter k + regional indicator symbol letter r
+|enclosed|🇪🇸|U+1F1EA U+1F1F8|\xF0\x9F\x87\xAA\xF0\x9F\x87\xB8|regional indicator symbol letter e + regional indicator symbol letter s
+|enclosed|🇮🇹|U+1F1EE U+1F1F9|\xF0\x9F\x87\xAE\xF0\x9F\x87\xB9|regional indicator symbol letter i + regional indicator symbol letter t
+|enclosed|🇷🇺|U+1F1F7 U+1F1FA|\xF0\x9F\x87\xB7\xF0\x9F\x87\xBA|regional indicator symbol letter r + regional indicator symbol letter u
+|enclosed|🇺🇸|U+1F1FA U+1F1F8|\xF0\x9F\x87\xBA\xF0\x9F\x87\xB8|regional indicator symbol letter u + regional indicator symbol letter s
+|enclosed|🈁|U+1F201|\xF0\x9F\x88\x81|squared katakana koko
+|enclosed|🈂|U+1F202|\xF0\x9F\x88\x82|squared katakana sa
+|enclosed|🈚|U+1F21A|\xF0\x9F\x88\x9A|squared cjk unified ideograph-7121
+|enclosed|🈯|U+1F22F|\xF0\x9F\x88\xAF|squared cjk unified ideograph-6307
+|enclosed|🈲|U+1F232|\xF0\x9F\x88\xB2|squared cjk unified ideograph-7981
+|enclosed|🈳|U+1F233|\xF0\x9F\x88\xB3|squared cjk unified ideograph-7a7a
+|enclosed|🈴|U+1F234|\xF0\x9F\x88\xB4|squared cjk unified ideograph-5408
+|enclosed|🈵|U+1F235|\xF0\x9F\x88\xB5|squared cjk unified ideograph-6e80
+|enclosed|🈶|U+1F236|\xF0\x9F\x88\xB6|squared cjk unified ideograph-6709
+|enclosed|🈷|U+1F237|\xF0\x9F\x88\xB7|squared cjk unified ideograph-6708
+|enclosed|🈸|U+1F238|\xF0\x9F\x88\xB8|squared cjk unified ideograph-7533
+|enclosed|🈹|U+1F239|\xF0\x9F\x88\xB9|squared cjk unified ideograph-5272
+|enclosed|🈺|U+1F23A|\xF0\x9F\x88\xBA|squared cjk unified ideograph-55b6
+|enclosed|🉐|U+1F250|\xF0\x9F\x89\x90|circled ideograph advantage
+|enclosed|🉑|U+1F251|\xF0\x9F\x89\x91|circled ideograph accept
 |Uncategorized|©|U+00A9|\xC2\xA9|copyright sign
 |Uncategorized|®|U+00AE|\xC2\xAE|registered sign
 |Uncategorized|‼|U+203C|\xE2\x80\xBC|double exclamation mark
