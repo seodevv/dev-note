@@ -93,40 +93,40 @@ const content = emojis.map(emoji => {
 |emoticons|😯|U+1F62F|\xF0\x9F\x98\xAF|hushed face
 |emoticons|😴|U+1F634|\xF0\x9F\x98\xB4|sleeping face
 |emoticons|😶|U+1F636|\xF0\x9F\x98\xB6|face without mouth
-|dingbats|✂|U+2702|\xE2\x9C\x82|black scissors
-|dingbats|✅|U+2705|\xE2\x9C\x85|white heavy check mark
-|dingbats|✈|U+2708|\xE2\x9C\x88|airplane
-|dingbats|✉|U+2709|\xE2\x9C\x89|envelope
-|dingbats|✊|U+270A|\xE2\x9C\x8A|raised fist
-|dingbats|✋|U+270B|\xE2\x9C\x8B|raised hand
-|dingbats|✌|U+270C|\xE2\x9C\x8C|victory hand
-|dingbats|✏|U+270F|\xE2\x9C\x8F|pencil
-|dingbats|✒|U+2712|\xE2\x9C\x92|black nib
-|dingbats|✔|U+2714|\xE2\x9C\x94|heavy check mark
-|dingbats|✖|U+2716|\xE2\x9C\x96|heavy multiplication x
-|dingbats|✨|U+2728|\xE2\x9C\xA8|sparkles
-|dingbats|✳|U+2733|\xE2\x9C\xB3|eight spoked asterisk
-|dingbats|✴|U+2734|\xE2\x9C\xB4|eight pointed black star
-|dingbats|❄|U+2744|\xE2\x9D\x84|snowflake
-|dingbats|❇|U+2747|\xE2\x9D\x87|sparkle
-|dingbats|❌|U+274C|\xE2\x9D\x8C|cross mark
-|dingbats|❎|U+274E|\xE2\x9D\x8E|negative squared cross mark
-|dingbats|❓|U+2753|\xE2\x9D\x93|black question mark ornament
-|dingbats|❔|U+2754|\xE2\x9D\x94|white question mark ornament
-|dingbats|❕|U+2755|\xE2\x9D\x95|white exclamation mark ornament
-|dingbats|❗|U+2757|\xE2\x9D\x97|heavy exclamation mark symbol
-|dingbats|❤|U+2764|\xE2\x9D\xA4|heavy black heart
-|dingbats|➕|U+2795|\xE2\x9E\x95|heavy plus sign
-|dingbats|➖|U+2796|\xE2\x9E\x96|heavy minus sign
-|dingbats|➗|U+2797|\xE2\x9E\x97|heavy division sign
-|dingbats|➡|U+27A1|\xE2\x9E\xA1|black rightwards arrow
-|dingbats|➰|U+27B0|\xE2\x9E\xB0|curly loop
-|Transport and map symbols|🚀|U+1F680|\xF0\x9F\x9A\x80|rocket
-|Transport and map symbols|🚃|U+1F683|\xF0\x9F\x9A\x83|railway car
-|Transport and map symbols|🚄|U+1F684|\xF0\x9F\x9A\x84|high-speed train
-|Transport and map symbols|🚅|U+1F685|\xF0\x9F\x9A\x85|high-speed train with bullet nose
-|Transport and map symbols|🚇|U+1F687|\xF0\x9F\x9A\x87|metro
-|Transport and map symbols|🚉|U+1F689|\xF0\x9F\x9A\x89|station
+|objects|✂|U+2702|\xE2\x9C\x82|black scissors
+|marks|✅|U+2705|\xE2\x9C\x85|white heavy check mark
+|transport|✈|U+2708|\xE2\x9C\x88|airplane
+|objects|✉|U+2709|\xE2\x9C\x89|envelope
+|emotions|✊|U+270A|\xE2\x9C\x8A|raised fist
+|emotions|✋|U+270B|\xE2\x9C\x8B|raised hand
+|emotions|✌|U+270C|\xE2\x9C\x8C|victory hand
+|objects|✏|U+270F|\xE2\x9C\x8F|pencil
+|objects|✒|U+2712|\xE2\x9C\x92|black nib
+|marks|✔|U+2714|\xE2\x9C\x94|heavy check mark
+|marks|✖|U+2716|\xE2\x9C\x96|heavy multiplication x
+|emotions|✨|U+2728|\xE2\x9C\xA8|sparkles
+|earth|✳|U+2733|\xE2\x9C\xB3|eight spoked asterisk
+|earth|✴|U+2734|\xE2\x9C\xB4|eight pointed black star
+|earth|❄|U+2744|\xE2\x9D\x84|snowflake
+|earth|❇|U+2747|\xE2\x9D\x87|sparkle
+|marks|❌|U+274C|\xE2\x9D\x8C|cross mark
+|marks|❎|U+274E|\xE2\x9D\x8E|negative squared cross mark
+|marks|❓|U+2753|\xE2\x9D\x93|black question mark ornament
+|marks|❔|U+2754|\xE2\x9D\x94|white question mark ornament
+|marks|❕|U+2755|\xE2\x9D\x95|white exclamation mark ornament
+|marks|❗|U+2757|\xE2\x9D\x97|heavy exclamation mark symbol
+|emotions|❤|U+2764|\xE2\x9D\xA4|heavy black heart
+|marks|➕|U+2795|\xE2\x9E\x95|heavy plus sign
+|marks|➖|U+2796|\xE2\x9E\x96|heavy minus sign
+|marks|➗|U+2797|\xE2\x9E\x97|heavy division sign
+|marks|➡|U+27A1|\xE2\x9E\xA1|black rightwards arrow
+|marks|➰|U+27B0|\xE2\x9E\xB0|curly loop
+|transport|🚀|U+1F680|\xF0\x9F\x9A\x80|rocket
+|transport|🚃|U+1F683|\xF0\x9F\x9A\x83|railway car
+|transport|🚄|U+1F684|\xF0\x9F\x9A\x84|high-speed train
+|transport|🚅|U+1F685|\xF0\x9F\x9A\x85|high-speed train with bullet nose
+|Transport|🚇|U+1F687|\xF0\x9F\x9A\x87|metro
+|Transport|🚉|U+1F689|\xF0\x9F\x9A\x89|station
 |Transport and map symbols|🚌|U+1F68C|\xF0\x9F\x9A\x8C|bus
 |Transport and map symbols|🚏|U+1F68F|\xF0\x9F\x9A\x8F|bus stop
 |Transport and map symbols|🚑|U+1F691|\xF0\x9F\x9A\x91|ambulance
