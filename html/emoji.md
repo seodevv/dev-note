@@ -4,6 +4,16 @@
 # reference
 + https://apps.timwhitlock.info/emoji/tables/unicode
 
+# covert unicode to string(emoji)
+> in js
+``` javascript
+const emojis = ['1F601','1F602'];
+const content = emojis.map(emoji => {
+  const convert = String.fromCodePoint( parseInt(emoji, 16) );
+  return <div>{convert}</div>
+});
+```
+
 |type|Native [1]|Unicode|Bytes (UTF-8)|Description|
 |----|----------|-------|-------------|-----------|
 |emoticons|😁|U+1F601|\xF0\x9F\x98\x81|grinning face with smiling eyes
