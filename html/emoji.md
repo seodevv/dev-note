@@ -125,71 +125,71 @@ const content = emojis.map(emoji => {
 |transport|🚃|U+1F683|\xF0\x9F\x9A\x83|railway car
 |transport|🚄|U+1F684|\xF0\x9F\x9A\x84|high-speed train
 |transport|🚅|U+1F685|\xF0\x9F\x9A\x85|high-speed train with bullet nose
-|Transport|🚇|U+1F687|\xF0\x9F\x9A\x87|metro
-|Transport|🚉|U+1F689|\xF0\x9F\x9A\x89|station
-|Transport and map symbols|🚌|U+1F68C|\xF0\x9F\x9A\x8C|bus
-|Transport and map symbols|🚏|U+1F68F|\xF0\x9F\x9A\x8F|bus stop
-|Transport and map symbols|🚑|U+1F691|\xF0\x9F\x9A\x91|ambulance
-|Transport and map symbols|🚒|U+1F692|\xF0\x9F\x9A\x92|fire engine
-|Transport and map symbols|🚓|U+1F693|\xF0\x9F\x9A\x93|police car
-|Transport and map symbols|🚕|U+1F695|\xF0\x9F\x9A\x95|taxi
-|Transport and map symbols|🚗|U+1F697|\xF0\x9F\x9A\x97|automobile
-|Transport and map symbols|🚙|U+1F699|\xF0\x9F\x9A\x99|recreational vehicle
-|Transport and map symbols|🚚|U+1F69A|\xF0\x9F\x9A\x9A|delivery truck
-|Transport and map symbols|🚢|U+1F6A2|\xF0\x9F\x9A\xA2|ship
-|Transport and map symbols|🚤|U+1F6A4|\xF0\x9F\x9A\xA4|speedboat
-|Transport and map symbols|🚥|U+1F6A5|\xF0\x9F\x9A\xA5|horizontal traffic light
-|Transport and map symbols|🚧|U+1F6A7|\xF0\x9F\x9A\xA7|construction sign
-|Transport and map symbols|🚨|U+1F6A8|\xF0\x9F\x9A\xA8|police cars revolving light
-|Transport and map symbols|🚩|U+1F6A9|\xF0\x9F\x9A\xA9|triangular flag on post
-|Transport and map symbols|🚪|U+1F6AA|\xF0\x9F\x9A\xAA|door
-|Transport and map symbols|🚫|U+1F6AB|\xF0\x9F\x9A\xAB|no entry sign
-|Transport and map symbols|🚬|U+1F6AC|\xF0\x9F\x9A\xAC|smoking symbol
-|Transport and map symbols|🚭|U+1F6AD|\xF0\x9F\x9A\xAD|no smoking symbol
-|Transport and map symbols|🚲|U+1F6B2|\xF0\x9F\x9A\xB2|bicycle
-|Transport and map symbols|🚶|U+1F6B6|\xF0\x9F\x9A\xB6|pedestrian
-|Transport and map symbols|🚹|U+1F6B9|\xF0\x9F\x9A\xB9|mens symbol
-|Transport and map symbols|🚺|U+1F6BA|\xF0\x9F\x9A\xBA|womens symbol
-|Transport and map symbols|🚻|U+1F6BB|\xF0\x9F\x9A\xBB|restroom
-|Transport and map symbols|🚼|U+1F6BC|\xF0\x9F\x9A\xBC|baby symbol
-|Transport and map symbols|🚽|U+1F6BD|\xF0\x9F\x9A\xBD|toilet
-|Transport and map symbols|🚾|U+1F6BE|\xF0\x9F\x9A\xBE|water closet
-|Transport and map symbols|🛀|U+1F6C0|\xF0\x9F\x9B\x80|bath
-|Transport and map symbols|🚁|U+1F681|\xF0\x9F\x9A\x81|helicopter
-|Transport and map symbols|🚂|U+1F682|\xF0\x9F\x9A\x82|steam locomotive
-|Transport and map symbols|🚆|U+1F686|\xF0\x9F\x9A\x86|train
-|Transport and map symbols|🚈|U+1F688|\xF0\x9F\x9A\x88|light rail
-|Transport and map symbols|🚊|U+1F68A|\xF0\x9F\x9A\x8A|tram
-|Transport and map symbols|🚍|U+1F68D|\xF0\x9F\x9A\x8D|oncoming bus
-|Transport and map symbols|🚎|U+1F68E|\xF0\x9F\x9A\x8E|trolleybus
-|Transport and map symbols|🚐|U+1F690|\xF0\x9F\x9A\x90|minibus
-|Transport and map symbols|🚔|U+1F694|\xF0\x9F\x9A\x94|oncoming police car
-|Transport and map symbols|🚖|U+1F696|\xF0\x9F\x9A\x96|oncoming taxi
-|Transport and map symbols|🚘|U+1F698|\xF0\x9F\x9A\x98|oncoming automobile
-|Transport and map symbols|🚛|U+1F69B|\xF0\x9F\x9A\x9B|articulated lorry
-|Transport and map symbols|🚜|U+1F69C|\xF0\x9F\x9A\x9C|tractor
-|Transport and map symbols|🚝|U+1F69D|\xF0\x9F\x9A\x9D|monorail
-|Transport and map symbols|🚞|U+1F69E|\xF0\x9F\x9A\x9E|mountain railway
-|Transport and map symbols|🚟|U+1F69F|\xF0\x9F\x9A\x9F|suspension railway
-|Transport and map symbols|🚠|U+1F6A0|\xF0\x9F\x9A\xA0|mountain cableway
-|Transport and map symbols|🚡|U+1F6A1|\xF0\x9F\x9A\xA1|aerial tramway
-|Transport and map symbols|🚣|U+1F6A3|\xF0\x9F\x9A\xA3|rowboat
-|Transport and map symbols|🚦|U+1F6A6|\xF0\x9F\x9A\xA6|vertical traffic light
-|Transport and map symbols|🚮|U+1F6AE|\xF0\x9F\x9A\xAE|put litter in its place symbol
-|Transport and map symbols|🚯|U+1F6AF|\xF0\x9F\x9A\xAF|do not litter symbol
-|Transport and map symbols|🚰|U+1F6B0|\xF0\x9F\x9A\xB0|potable water symbol
-|Transport and map symbols|🚱|U+1F6B1|\xF0\x9F\x9A\xB1|non-potable water symbol
-|Transport and map symbols|🚳|U+1F6B3|\xF0\x9F\x9A\xB3|no bicycles
-|Transport and map symbols|🚴|U+1F6B4|\xF0\x9F\x9A\xB4|bicyclist
-|Transport and map symbols|🚵|U+1F6B5|\xF0\x9F\x9A\xB5|mountain bicyclist
-|Transport and map symbols|🚷|U+1F6B7|\xF0\x9F\x9A\xB7|no pedestrians
-|Transport and map symbols|🚸|U+1F6B8|\xF0\x9F\x9A\xB8|children crossing
-|Transport and map symbols|🚿|U+1F6BF|\xF0\x9F\x9A\xBF|shower
-|Transport and map symbols|🛁|U+1F6C1|\xF0\x9F\x9B\x81|bathtub
-|Transport and map symbols|🛂|U+1F6C2|\xF0\x9F\x9B\x82|passport control
-|Transport and map symbols|🛃|U+1F6C3|\xF0\x9F\x9B\x83|customs
-|Transport and map symbols|🛄|U+1F6C4|\xF0\x9F\x9B\x84|baggage claim
-|Transport and map symbols|🛅|U+1F6C5|\xF0\x9F\x9B\x85|left luggage
+|transport|🚇|U+1F687|\xF0\x9F\x9A\x87|metro
+|transport|🚉|U+1F689|\xF0\x9F\x9A\x89|station
+|transport|🚌|U+1F68C|\xF0\x9F\x9A\x8C|bus
+|transport|🚏|U+1F68F|\xF0\x9F\x9A\x8F|bus stop
+|transport|🚑|U+1F691|\xF0\x9F\x9A\x91|ambulance
+|transport|🚒|U+1F692|\xF0\x9F\x9A\x92|fire engine
+|transport|🚓|U+1F693|\xF0\x9F\x9A\x93|police car
+|transport|🚕|U+1F695|\xF0\x9F\x9A\x95|taxi
+|transport|🚗|U+1F697|\xF0\x9F\x9A\x97|automobile
+|transport|🚙|U+1F699|\xF0\x9F\x9A\x99|recreational vehicle
+|transport|🚚|U+1F69A|\xF0\x9F\x9A\x9A|delivery truck
+|transport|🚢|U+1F6A2|\xF0\x9F\x9A\xA2|ship
+|transport|🚤|U+1F6A4|\xF0\x9F\x9A\xA4|speedboat
+|symbols|🚥|U+1F6A5|\xF0\x9F\x9A\xA5|horizontal traffic light
+|symbols|🚧|U+1F6A7|\xF0\x9F\x9A\xA7|construction sign
+|symbols|🚨|U+1F6A8|\xF0\x9F\x9A\xA8|police cars revolving light
+|symbols|🚩|U+1F6A9|\xF0\x9F\x9A\xA9|triangular flag on post
+|symbols|🚪|U+1F6AA|\xF0\x9F\x9A\xAA|door
+|symbols|🚫|U+1F6AB|\xF0\x9F\x9A\xAB|no entry sign
+|symbols|🚬|U+1F6AC|\xF0\x9F\x9A\xAC|smoking symbol
+|symbols|🚭|U+1F6AD|\xF0\x9F\x9A\xAD|no smoking symbol
+|transport|🚲|U+1F6B2|\xF0\x9F\x9A\xB2|bicycle
+|transport|🚶|U+1F6B6|\xF0\x9F\x9A\xB6|pedestrian
+|symbols|🚹|U+1F6B9|\xF0\x9F\x9A\xB9|mens symbol
+|symbols|🚺|U+1F6BA|\xF0\x9F\x9A\xBA|womens symbol
+|symbols|🚻|U+1F6BB|\xF0\x9F\x9A\xBB|restroom
+|symbols|🚼|U+1F6BC|\xF0\x9F\x9A\xBC|baby symbol
+|symbols|🚽|U+1F6BD|\xF0\x9F\x9A\xBD|toilet
+|symbols|🚾|U+1F6BE|\xF0\x9F\x9A\xBE|water closet
+|symbols|🛀|U+1F6C0|\xF0\x9F\x9B\x80|bath
+|transport|🚁|U+1F681|\xF0\x9F\x9A\x81|helicopter
+|transport|🚂|U+1F682|\xF0\x9F\x9A\x82|steam locomotive
+|transport|🚆|U+1F686|\xF0\x9F\x9A\x86|train
+|transport|🚈|U+1F688|\xF0\x9F\x9A\x88|light rail
+|transport|🚊|U+1F68A|\xF0\x9F\x9A\x8A|tram
+|transport|🚍|U+1F68D|\xF0\x9F\x9A\x8D|oncoming bus
+|transport|🚎|U+1F68E|\xF0\x9F\x9A\x8E|trolleybus
+|transport|🚐|U+1F690|\xF0\x9F\x9A\x90|minibus
+|transport|🚔|U+1F694|\xF0\x9F\x9A\x94|oncoming police car
+|transport|🚖|U+1F696|\xF0\x9F\x9A\x96|oncoming taxi
+|transport|🚘|U+1F698|\xF0\x9F\x9A\x98|oncoming automobile
+|transport|🚛|U+1F69B|\xF0\x9F\x9A\x9B|articulated lorry
+|transport|🚜|U+1F69C|\xF0\x9F\x9A\x9C|tractor
+|transport|🚝|U+1F69D|\xF0\x9F\x9A\x9D|monorail
+|transport|🚞|U+1F69E|\xF0\x9F\x9A\x9E|mountain railway
+|transport|🚟|U+1F69F|\xF0\x9F\x9A\x9F|suspension railway
+|transport|🚠|U+1F6A0|\xF0\x9F\x9A\xA0|mountain cableway
+|transport|🚡|U+1F6A1|\xF0\x9F\x9A\xA1|aerial tramway
+|transport|🚣|U+1F6A3|\xF0\x9F\x9A\xA3|rowboat
+|symbols|🚦|U+1F6A6|\xF0\x9F\x9A\xA6|vertical traffic light
+|symbols|🚮|U+1F6AE|\xF0\x9F\x9A\xAE|put litter in its place symbol
+|symbols|🚯|U+1F6AF|\xF0\x9F\x9A\xAF|do not litter symbol
+|symbols|🚰|U+1F6B0|\xF0\x9F\x9A\xB0|potable water symbol
+|symbols|🚱|U+1F6B1|\xF0\x9F\x9A\xB1|non-potable water symbol
+|symbols|🚳|U+1F6B3|\xF0\x9F\x9A\xB3|no bicycles
+|transport|🚴|U+1F6B4|\xF0\x9F\x9A\xB4|bicyclist
+|transport|🚵|U+1F6B5|\xF0\x9F\x9A\xB5|mountain bicyclist
+|symbols|🚷|U+1F6B7|\xF0\x9F\x9A\xB7|no pedestrians
+|symbols|🚸|U+1F6B8|\xF0\x9F\x9A\xB8|children crossing
+|symbols|🚿|U+1F6BF|\xF0\x9F\x9A\xBF|shower
+|symbols|🛁|U+1F6C1|\xF0\x9F\x9B\x81|bathtub
+|symbols|🛂|U+1F6C2|\xF0\x9F\x9B\x82|passport control
+|symbols|🛃|U+1F6C3|\xF0\x9F\x9B\x83|customs
+|symbols|🛄|U+1F6C4|\xF0\x9F\x9B\x84|baggage claim
+|symbols|🛅|U+1F6C5|\xF0\x9F\x9B\x85|left luggage
 |Enclosed characters|Ⓜ|U+24C2|\xE2\x93\x82|circled latin capital letter m
 |Enclosed characters|🅰|U+1F170|\xF0\x9F\x85\xB0|negative squared latin capital letter a
 |Enclosed characters|🅱|U+1F171|\xF0\x9F\x85\xB1|negative squared latin capital letter b
