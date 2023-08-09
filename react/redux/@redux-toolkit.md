@@ -1096,14 +1096,17 @@ export const extendedSocialSlice = apiSlice.injectEndpoints({
         method: "post",
         body: { socialId, creator, comment },
       }),
-      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+      onQueryStarted: async (
+        { socialId, creator, comment }, // query 를 요청할 때의 arguments
+        { dispatch, queryFulfilled } // api 을 담은 객체
+      ) => {
         try {
-          const { data } = await queryFulfilled;
+          const { data } = await queryFulfilled; // query 가 fulfilled 됬을 떄의 response 값
           dispatch(
-            apiSlice.util.updateQueryData(
-              "getComment",
-              { socialId: data.socialId },
-              (draft) => {
+            apiSlice.util.updateQueryData( // query data 를 수동으로 업데이트
+              "getComment", // builder.query 의 이름을 명시
+              { socialId: data.socialId }, // builder.query 의 arguments 를 명시
+              (draft) => { // query data 를 조작
                 draft.push(data);
               }
             )
