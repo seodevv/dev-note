@@ -2,6 +2,7 @@
 
 ## references
 + https://developer.mozilla.org/ko/docs/Web/API/Element/getBoundingClientRect
++ https://ko.javascript.info/size-and-scroll
 
 ## getBoundingClientRect()
 + viewport 를 기준으로 해당 element 의 좌표를 구할 수 있음.
