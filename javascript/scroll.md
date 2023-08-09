@@ -4,6 +4,7 @@
 + https://developer.mozilla.org/ko/docs/Web/API/Element/getBoundingClientRect
 
 ## getBoundingClientRect()
++ viewport 를 기준으로 해당 element 의 좌표를 구할 수 있음.
 <img src="./img/element-box-diagram.png" alt="getBoundingClientRect" width="600px"/>
 
 ### html
