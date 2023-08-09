@@ -8,6 +8,7 @@
 ``` html
 <div id="target"></div>
 ```
+
 ``` javascript
 const target = document.querySelector('#target');
 console.log(target.getBoundingClientRect());
