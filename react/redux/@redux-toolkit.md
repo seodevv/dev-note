@@ -1080,3 +1080,37 @@ export default EditPost;
 ``` javascript
 
 ```
+
+## onQueryStarted
+``` javascript
+export const extendedSocialSlice = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getComment: builder.query({
+      query: ({ socialId }) => `/social/comment?socialId=${socialId}`,
+      providesTags: (result, error, args) =>
+        result ? [{ type: "comment", id: args.id }] : [],
+    }),
+    addComment: builder.mutation({
+      query: ({ socialId, creator, comment }) => ({
+        url: "/social/comment/add",
+        method: "post",
+        body: { socialId, creator, comment },
+      }),
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(
+            apiSlice.util.updateQueryData(
+              "getComment",
+              { socialId: data.socialId },
+              (draft) => {
+                draft.push(data);
+              }
+            )
+          );
+        } catch (error) {}
+      },
+    }),
+  }),
+});
+```
