@@ -6,6 +6,7 @@
 ## getBoundingClientRect()
 <img src="./img/element-box-diagram.png" alt="getBoundingClientRect" width="600px"/>
 
+
 ``` html
 <div id="target"></div>
 ```
