@@ -17,7 +17,7 @@ console.log(target.getBoundingClientRect());
 ```
 > result
 ```
-{
+DOMRect {
     "x": 379.09088134765625,
     "y": 160.1988525390625,
     "width": 300,
