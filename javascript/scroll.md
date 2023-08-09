@@ -4,4 +4,4 @@
 + https://developer.mozilla.org/ko/docs/Web/API/Element/getBoundingClientRect
 
 ## getBoundingClientRect()
-<img src="./img/element-box-diagram.png" alt="getBoundingClientRect" width="300px"/>
+<img src="./img/element-box-diagram.png" alt="getBoundingClientRect" width="600px"/>
