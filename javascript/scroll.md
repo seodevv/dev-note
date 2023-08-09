@@ -6,11 +6,11 @@
 ## getBoundingClientRect()
 <img src="./img/element-box-diagram.png" alt="getBoundingClientRect" width="600px"/>
 
-
+### html
 ``` html
 <div id="target"></div>
 ```
-
+### usage
 ``` javascript
 const target = document.querySelector('#target');
 console.log(target.getBoundingClientRect());
