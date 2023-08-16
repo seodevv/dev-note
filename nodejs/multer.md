@@ -126,11 +126,21 @@ app.post('/upload', upload.single('profile'), (req, res, next) => {
 ``` html
 <form action="http://localhost:8081/uploads" method="post" encType="multipart/form-data">
   <input type="text" name="category" />
-  <input type="file" name="profiles" multiple/>
+  <input id="files" type="file" name="profiles" multiple/>
   <button type="submit">upload</button>
 </form>
 ```
 + 여러 파일을 받기 위해 multiple 설정을 해준다.
+``` javascript
+const files = document.querySelector('#files').files;
+
+const formData = new FormData();
+for(let i=0; i<Object.keys(files).length; i++){
+  formData.append('profile',files[i]);
+}
+const response = await axios.post(requestUrl, formData);
+```
++ FormData 객체를 사용하여 multiple file 을 보낼 때는 위와 같이 file 하나씩 추가해주어야 한다.
 ``` javascript
 app.post('/uploads', upload.array('profiles'), (req, res, next) => {
   console.log(req.files);
