@@ -1,6 +1,7 @@
 # react-player
 
-#reference
+# reference
++ https://github.com/cookpete/react-player
 
 # install
 ```
