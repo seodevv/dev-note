@@ -55,3 +55,20 @@ app.post('/mkdirSync', (req, res) => {
   res.send('mkdir success');
 });
 ```
+
+
+### fs.rename( sourceFileName, targetFileName, callback )
++ sourceFileName -> targetFileName 으로 파일을 옮김.
++ callback 은 인자로 error 가 들어오므로, 에러 여부에 따른 로직을 작성하면 된다.
+``` javascript
+fs.rename(source, target, (error) => {
+  if (error) {
+    console.error(error);
+    return res.json({ success: false, error });
+  }
+  return res.json({
+    success: true,
+    file: target,
+  });
+});
+```
