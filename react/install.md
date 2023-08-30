@@ -45,8 +45,9 @@ npm start
 
 
 # https
+> .env
 ```
-"scripts": {
-  "start:https": "HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem react-scripts start",
-},
+HTTPS=true
+SSL_CRT_FILE=./.cert/cert.pem
+SSL_KEY_FILE=./.cert/key.pem
 ```
