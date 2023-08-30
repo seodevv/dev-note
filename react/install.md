@@ -51,3 +51,9 @@ HTTPS=true
 SSL_CRT_FILE=./.cert/cert.pem
 SSL_KEY_FILE=./.cert/key.pem
 ```
+
+
+# redux
+```
+npm i react-redux @reduxjs/toolkit
+```
