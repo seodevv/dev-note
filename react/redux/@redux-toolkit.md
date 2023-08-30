@@ -652,6 +652,20 @@ export const searchPostsIds = createSelector(
 ## createApi
 + createAsyncThunk 로 ajax 와 ajax 요청 상태에 따른 처리를 해보았는데, 다소 중복된 코드가 많다는 것을 느꼈을 것이다.
 + 이에 @reduxjs/toolkit 에서는 createApi API 를 제공해준다.
++ 
+> app/store.js
+``` javascript
+const store = configureStore({
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      apiSlice.middleware
+    ),
+});
+```
+
 > features/posts/postsSlice.js
 ``` javascript
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
