@@ -2,7 +2,7 @@
 + 자주 사용하는 git command 를 정리
 
 ## structure
-<img src="./structure.png" alt="structure.png" />
+<img src="./structure.png" alt="structure.png" width="750px"/>
 
 ## add
 + file 을 staging area 에 포함 시킨다.
