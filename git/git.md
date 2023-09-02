@@ -1,6 +1,5 @@
 # git
-
-# command
++ 자주 사용하는 git command 를 정리
 
 ## structure
 <img src="./structure.png" alt="structure.png" width="750px"/>
