@@ -3,7 +3,7 @@
 # command
 
 ## structure
-<img src="./structure.png" alt="structure.png" width="500px"/>
+<img src="./structure.png" alt="structure.png" width="100%"/>
 
 ## add
 + file 을 staging area 에 포함 시킨다.
