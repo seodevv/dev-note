@@ -53,7 +53,7 @@ git log --all --oneline --graph
 git diff
 git difftool
 ```
-<img src="./gitDiff_1.png" alt="gitDiff_1.png" width="750px"/>
+<img src="./gitDiff_1.png" alt="gitDiff_1.png" width="500px"/>
 
 ```
 git diff {commit_id}
