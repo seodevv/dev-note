@@ -11,4 +11,9 @@
 
 # API
 + Notification : 사용자에게 permission(알람 허용)을 요청하게 해주는 API
-  + navigator : serviceWorker
+  + .permission : 알람 허용 상태를 확인한다.
+  + .requestPermission( callback ) : 알람 permission 을 요청한다. callback 을 통해 허용, 차단 여부에 따라 분기가 가능하다.
+
++ navigator : serviceWorker 를 regist 하여 chrome(viewport) 가 종료되어도 알람을 수신할 수 있도록 해주는 API
+  + .serviceWorker.getRegistration().then( callback ) : 
+  + .serviceWorker.ready.then( callback ) : 
