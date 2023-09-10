@@ -2,7 +2,7 @@
 + 자주 사용하는 git command 를 정리
 
 # structure
-<img src="./structure.png" alt="structure.png" width="750px"/>
+<img src="./img/structure.png" alt="structure.png" width="750px"/>
 
 ## git add
 + file 을 staging area 에 포함 시킨다.
@@ -11,7 +11,7 @@ git add {fileName}
 git add {fileName1} {fileName2}
 git add .
 ```
-<img src="./gitAdd.png" alt="gitAdd.png" />
+<img src="./img/gitAdd.png" alt="gitAdd.png" />
 
 
 ## git commit
@@ -19,7 +19,7 @@ git add .
 ```
 git commit -m 'message'
 ```
-<img src="./gitAdd.png" alt="gitCommit.png" />
+<img src="./img/gitAdd.png" alt="gitCommit.png" />
 
 
 ## git status
@@ -27,7 +27,7 @@ git commit -m 'message'
 ```
 git status
 ```
-<img src="./gitStatus.png" alt="gitStatus.png" />
+<img src="./img/gitStatus.png" alt="gitStatus.png" />
 
 
 ## git restore
@@ -35,7 +35,7 @@ git status
 ```
 git restore ---staged {fileName}
 ```
-<img src="./gitRestore.png" alt="gitRestore.png" />
+<img src="./img/gitRestore.png" alt="gitRestore.png" />
 
 
 ## status
@@ -43,7 +43,7 @@ git restore ---staged {fileName}
 ```
 git log --all --oneline --graph
 ```
-<img src="./gitLog.png" alt="gitLog.png" />
+<img src="./img/gitLog.png" alt="gitLog.png" />
 
 
 ## git diff / difftool
@@ -53,22 +53,22 @@ git log --all --oneline --graph
 git diff
 git difftool
 ```
-<img src="./gitDiff_1.png" alt="gitDiff_1.png" width="500px"/>
+<img src="./img/gitDiff_1.png" alt="gitDiff_1.png" width="500px"/>
 
 ```
 git diff {commit_id}
 git difftool {commit id}
 ```
 + 현재 code 와 특정 commit 파일과 compare 해서 보여준다.
-<img src="./gitDiff_2.png" alt="gitDiff_2.png" />
+<img src="./img/gitDiff_2.png" alt="gitDiff_2.png" />
 
 ```
 git diff {commit_id} {commit_id}
 git difftool {commit_id} {commit_id}
 ```
 + 특정 commit 파일끼리 compare 해서 보여준다.
-<img src="./gitDiff_3.png" alt="gitDiff_3.png" />
+<img src="./img/gitDiff_3.png" alt="gitDiff_3.png" />
 
 ## addons
 + vs code -> extension -> git Graph -> install
-<img src="./gitGraph.png" alt="gitGraph.png" />
+<img src="./img/gitGraph.png" alt="gitGraph.png" />
