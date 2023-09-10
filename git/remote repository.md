@@ -10,7 +10,7 @@
 <img src="./img/createRepository.png" alt="git"/>
 
 5. copy URL
-<img src="./img/copyURL" alt="git"/>
+<img src="./img/copyURL.png" alt="git"/>
 
 
 # git push
