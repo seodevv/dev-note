@@ -1,12 +1,10 @@
 # Create github repository
 1. git login
-
 2. my repository
-
 3. new repository
-
+<img src="./img/newRepository.png" alt="git"/>
 4. create repository
-
+<img src="./img/createRepository" alt="git"/>
 5. copy URL
 
 
