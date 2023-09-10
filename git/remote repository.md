@@ -34,7 +34,7 @@ git remote -v
 ```
 git push origin master
 ```
-<img src="./img/gitOrigin.png" alt="git"/>
+<img src="./img/gitPushOrigin.png" alt="git"/>
 
 # git clone
 + 해당 repository 와 동기화 시킨다.
