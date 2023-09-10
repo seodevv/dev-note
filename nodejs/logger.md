@@ -14,7 +14,7 @@
 
 # notice
 + Logging levels in winston conform to the severity ordering specified by RFC5424: severity of all levels is assumed to be numerically ascending from most important to least important.
-```
+``` javascript
 const levels = {
   error: 0,
   warn: 1,
