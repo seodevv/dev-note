@@ -46,3 +46,20 @@ Created a new certificate valid for the following names 📜
 The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.pem" ✅
 ```
 
+
+# npm
+```
+npm install -g mkcert
+mkcert create-ca
+// 2개의 파일이 생성됨
+// ca.key - CA private key
+// ca.crt - CA certificate
+
+mkcert create-cert
+// 도메인 인증서 생성
+// 다양한 옵션이 있으나 로컬에서는 기본 값으로 실행해도 됨
+// 2개의 파일이 생성
+// cert.key
+// cert.crt 
+```
+
